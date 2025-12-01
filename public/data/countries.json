@@ -1,0 +1,42 @@
+{
+  "countries": [
+    {
+      "code": "SA",
+      "en": "Saudi Arabia",
+      "ar": "المملكة العربية السعودية",
+      "regions": [
+        { "en": "Riyadh", "ar": "الرياض" },
+        { "en": "Jeddah", "ar": "جدة" },
+        { "en": "Dammam", "ar": "الدمام" },
+        { "en": "Makkah", "ar": "مكة المكرمة" },
+        { "en": "Madinah", "ar": "المدينة المنورة" },
+        { "en": "Abha", "ar": "أبها" },
+        { "en": "Tabuk", "ar": "تبوك" },
+        { "en": "Khobar", "ar": "الخبر" },
+        { "en": "Al Qassim", "ar": "القصيم" },
+        { "en": "Jazan", "ar": "جازان" },
+        { "en": "Hail", "ar": "حائل" },
+        { "en": "Najran", "ar": "نجران" },
+        { "en": "Al Bahah", "ar": "الباحة" },
+        { "en": "Al Jouf", "ar": "الجوف" }
+      ]
+    },
+    {
+      "code": "EG",
+      "en": "Egypt",
+      "ar": "مصر",
+      "regions": [
+        { "en": "Cairo", "ar": "القاهرة" },
+        { "en": "Alexandria", "ar": "الإسكندرية" },
+        { "en": "Giza", "ar": "الجيزة" },
+        { "en": "Mansoura", "ar": "المنصورة" },
+        { "en": "Tanta", "ar": "طنطا" },
+        { "en": "Asyut", "ar": "أسيوط" },
+        { "en": "Suez", "ar": "السويس" },
+        { "en": "Fayoum", "ar": "الفيوم" },
+        { "en": "Ismailia", "ar": "الإسماعيلية" },
+        { "en": "Minya", "ar": "المنيا" }
+      ]
+    }
+  ]
+}

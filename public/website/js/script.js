@@ -1,0 +1,625 @@
+'use strict';
+
+//Go to whatsapp
+const whatsappLink = document.querySelector('.whatsapp-link');
+
+document.querySelector('.whatsapp-link').addEventListener('click', () => {
+    const url = `https://wa.me/966547574741?text=${encodeURIComponent('.')}`;
+    window.open(url, '_blank')
+});
+
+
+// Language Toggler
+const translations = {
+    en: {
+        home: "Home",
+        general: "General Dentistry",
+        services: "Services",
+        cosmetic: "Cosmetic Dentistry",
+        pediatric: "Pediatric Dentistry",
+        pediatric_title: "Comprehensive Oral Care for Every Stage of Life",
+        pediatric_title_description: " OWe specialize in gentle, personalized dental care for infants, children, and teens. From a child’s first tooth to their teenage years, our goal is to create a comfortable, fun, and educational environment for every visit.",
+        restorative: "Restorative Dentistry",
+        preventive: "Preventive Dentistry",
+        preventive_title: "Building Healthy Smiles That Last a Lifetime",
+        preventive_description_title: "We believe the best dental care begins with prevention. Preventive dentistry helps children avoid dental problems before they start, ensuring strong, healthy teeth and good habits that last into adulthood. Our goal is to make every visit positive, educational, and supportive for both kids and parents.",
+        orthodontics: "Orthodontics",
+        orthodontics_description: "Straighten your teeth with braces or aligners for a confident smile.",
+        orthodontics_title:"Transform Your Smile with Expert Orthodontic Care",
+        orthodontics_title_description:"We offer comprehensive orthodontic services designed to help you achieve a healthier, more beautiful smile. Whether you are considering braces, Invisalign, or other treatments, our experienced team is here to guide you every step of the way.",
+
+        all_services: "All Services",
+        dentists: "Dentists",
+        about_us: "About Us",
+        faq: "FAQ",
+        gallery: "Gallery",
+        blog: "Blog",
+        contact: "Contact",
+        brand_name: "Welcome to Dential",
+        brand_title: "Transforming Smiles With Precision And Gentle Touch",
+        brand_description: "We offer high-quality dental care tailored for the whole family. From routine checkups to advanced treatments, our compassionate team ensures your smile stays healthy and confident.",
+        book_appointment: "Book Appointment",
+        book_appointment_description: "Contact us today to schedule your visit and take the first step toward a healthier smile.",
+        about_us_tilte: "Professionals and Personalized Dental Excellence",
+        about_us_description: "We offer high-quality dental care tailored for the whole family. From routine checkups to advanced treatments, our compassionate team ensures your smile stays healthy and confident.",
+        about_us_option_1: "Personalized Treatment Plans",
+        about_us_option_2: "Gentle Care for Kids and Adults",
+        about_us_option_3: "State-of-the-Art Technology",
+        about_us_option_4: "Flexible Appointment Scheduling",
+        our_service: "Our Services",
+        our_service_title: "Complete Care for Every Smile",
+        our_service_description: "From routine cleanings to advanced restorations, we provide personalized dental solutions for patients of all ages.",
+        general_description: "Complete oral care for every smile with cleanings, exams, and more.",
+        our_service_orthodontic_title:"Orthodontic Treatments We Offer",
+        orthodontic_offer_one_title:"Traditional Metal Braces",
+        orthodontic_offer_one_description:"The most common and reliable method for straightening teeth and correcting bite issues for all ages.",
+        orthodontic_offer_two_title:"Ceramic Braces",
+        orthodontic_offer_two_description:"A more discreet alternative to metal braces, using clear or tooth-colored materials that blend with your smile.",
+        orthodontic_offer_three_title:"Invisalign / Clear Aligners",
+        orthodontic_offer_three_description:"Virtually invisible aligners that offer a comfortable, removable, and discreet way to straighten teeth.",
+        orthodontic_offer_four_title:"Early Orthodontic Treatment",
+        orthodontic_offer_four_description:"Interventions for children to guide proper jaw growth and prevent more serious issues later.",
+        orthodontic_offer_five_title:"Retainers",
+        orthodontic_offer_five_description:"Essential appliances to maintain your new smile after braces or aligner treatment.",
+        orthodontic_offer_six_title:"Surgical Orthodontics",
+        orthodontic_offer_six_description:"Orthodontic treatment combined with surgery to correct severe jaw misalignments and bite problems.",
+
+        cosmetic_description: "Enhance your smile’s beauty with whitening, veneers, and more.",
+        cosmetic_title: "Your natural beauty begins with a confident smile",
+        cosmetic_details: "Enhancing Your Smile with Art and Precision",
+        cosmetic_details_title: "Cosmetic Treatments We Offer",
+        title_offer_one:"Teeth Whitening",
+        description_offer_one:"Brighten your smile safely with professional whitening that works in just one visit.",
+        title_offer_two:"Dental Veneers",
+        description_offer_two:"Ultra-thin porcelain shells that cover imperfections and create a flawless smile.",
+        title_offer_three:"Cosmetic Bonding",
+        description_offer_three:"An affordable way to repair chips, cracks, and small gaps using tooth-colored resin.",
+        title_offer_four:"Smile Makeovers",
+        description_offer_four:"A customized combination of treatments to fully transform and enhance your smile.",
+        title_offer_five:"Tooth Contouring",
+        description_offer_five:"Refine tooth shape and smooth rough edges for a more symmetrical, balanced smile.",
+        title_offer_six:"Gum Contouring",
+        description_offer_six:"Reshape your gum line to correct a gummy smile and improve symmetry.",
+        title_offer_seven:"Invisalign & Clear Aligners",
+        description_offer_seven:"Straighten teeth discreetly with clear aligners—no brackets or wires needed.",
+        title_offer_eight:"Metal-Free Crowns",
+        description_offer_eight:"re damaged teeth with all-ceramic crowns that blend seamlessly with your smile.",
+        cosmetic_details_description: "We believe your smile is your best accessory. Our cosmetic dentistry services are designed to improve the appearance of your teeth, gums, and overall smile—boosting your confidence and helping you lookyour best.",
+        pediatric_description: "Gentle and fun dental care for kids to grow healthy, happy smiles, and more.",
+        restorative_description: "Repair and restore your teeth for lasting comfort and function, and more.",
+        read_more: "Read more",
+        view_all_services: "View All Services",
+        working_date: "Mon to Sat 08:00 - 20:00",
+        review: "Based on 23k Reviews",
+        need_service: "Need Dental Services?",
+        opening_hours: "Opening Hours",
+        email_us: "Email Us",
+        description: "This is a bilingual website example.",
+        dir: "ltr",
+        select_service:"Choose Service",
+        select_offer:"Choose Offer",
+        select_time: "Choose Time",
+        send_message: "Book Now",
+        book_your_appointment: "Book Your Appointment",
+        book_your_appointment_description: "Book your appointment today for expert dental care tailored to your needs. Healthy, beautiful smiles start with a simple step, schedule now!",
+        pages: "Pages",
+        happy_patients: "Happy Patients",
+        teeth_whitened: "Teeth Whitened",
+        dental_implants: "Dental Implants",
+        years_of_experience: "Years of Experience",
+        dental_care:"Why Choose Our Dental Care",
+        dental_care_title:"Exceptional Service With a Personal Touch",
+        dental_care_description:"Choosing the right dental provider matters. We combine expert care, advanced technology, and a warm atmosphere to ensure every visit is comfortable, efficient, and tailored to your unique needs.",
+        dental_care_1_title:"Experienced Dental",
+        dental_care_1_description:"Skilled care backed by years of trusted dental experience.",
+        dental_care_2_title:"Advanced Technology",
+        dental_care_2_description:"Modern tools ensure accurate and efficient treatments.",
+        dental_care_3_title:"Personalized Treatment",
+        dental_care_3_description:"Custom care plans made to fit your smile and lifestyle.",
+        dental_care_4_title:"Family-Friendly",
+        dental_care_4_description:"Welcoming space for kids, teens, adults, and seniors.",
+        team:"Meet Our Dental Team",
+        team_title:"Committed to Your Smile",
+        team_description:"Our experienced dental team is here to make every visit positive and personalized. With gentle hands and caring hearts.",
+        dr_specialist_1: "Lead Dentist",
+        dr_specialist_2: "Cosmetic Dentist",
+        dr_specialist_3: "Pediatric Specialist",
+        dr_specialist_4: "Dental Hygienist",
+        question_1: "How often should I visit the dentist?",
+        question_2: "What should I do in a dental emergency?",
+        question_3: "Do you offer services for kids?",
+        question_4: "What are my options for replacing missing teeth?",
+        question_5: "Is teeth whitening safe?",
+        question_answer_1: "It’s recommended to see your dentist every 6 months for a routine check-up and cleaning, unless advised otherwise.",
+        question_answer_2: "Call our office immediately. We offer same-day emergency care for issues like severe pain, broken teeth, or swelling.",
+        question_answer_3: "Absolutely! We provide gentle, friendly pediatric dental care for children of all ages.",
+        question_answer_4: "We offer dental implants, bridges, and dentures depending on your needs and preferences.",
+        question_answer_5: "Yes, when performed by a dental professional, teeth whitening is safe and effective with long-lasting results.",
+        contact_us: "Contact Us",
+        send_message: "Send Message",
+        message: "Message",
+        name: "Name",
+        phone: "Phone",
+        select_date: "Select Date",
+        clinic_location: "Clinic Location",
+        call_us: "Call Us",
+        logo_description: "At Dentia, we’re dedicated to providing high-quality, personalized dental care for patients of all ages. Our skilled team uses the latest technology to ensure comfortable, efficient treatments and beautiful, healthy smiles for life.",
+        testimonials: "Testimonials",
+        testimonials_title: "Our Happy Customers",
+        testimonials_description: "Join thousands of happy patients who trust us for gentle, expert care and beautiful smiles. Your perfect dental experience starts here!",
+        our_services: "Our Services",
+        why_choose_us:"Why Choose Us",
+        why_choose_us_description:"Why Choose Our Cosmetic Dental Services?",
+        why_choose_us_point1:"Experienced cosmetic dentists with an eye for detail and artistry",
+        why_choose_us_point2:"Advanced technology, including digital smile design and mock-up previews",
+        why_choose_us_point3:"Customized treatment plans tailored to your aesthetic goals and lifestyle",
+        why_choose_us_point4:"Gentle techniques with a focus on patient comfort and minimal discomfort",
+        why_choose_us_point5:"Natural-looking results that enhance your facial features and confidence",
+        why_choose_us_point6:"Comprehensive smile solutions—from simple touch-ups to full makeovers",
+        why_choose_us_point7:"Clean, modern clinic environment with a warm and welcoming team",
+        top_reason: "Top Reasons",
+        why_choose_pediatric_dentistry: "Why Choose Us?",
+        reason_one_choose_pediatric_dentistry: "Kid-friendly and calming environment designed just for children",
+        reason_two_choose_pediatric_dentistry: "Experienced, board-certified pediatric dentists",
+        reason_three_choose_pediatric_dentistry: "Comfortable treatment rooms with fun themes",
+        reason_four_choose_pediatric_dentistry: "Parents welcome during exams and treatments",
+        reason_five_choose_pediatric_dentistry: "Focus on education to build lifelong healthy habits",
+        reason_six_choose_pediatric_dentistry: "Flexible scheduling and emergency care available",
+        reason_one_choose_restorative_dentistry: "Kid-Friendly Environment",
+        description_one_choose_restorative_dentistry: "We’ve designed our office with kids in mind, creating a welcoming, fun, and comfortable space for your little ones",
+        reason_two_choose_restorative_dentistry: "Experienced Pediatric Dentists",
+        description_two_choose_restorative_dentistry: "Our team is highly trained in pediatric dentistry, specializing in treating young patients with gentle and compassionate care.",
+        reason_three_choose_restorative_dentistry: "Comprehensive Care",
+        description_three_choose_restorative_dentistry: "We offer a full range of services, from routine checkups and cleanings to specialized treatments like orthodontics and restorative dentistry.",
+        reason_four_choose_restorative_dentistry: "Modern Technology",
+        description_four_choose_restorative_dentistry: "We utilize the latest dental technology, ensuring accurate diagnoses, efficient treatments, and the highest level of comfort for your child.",
+        reason_five_choose_restorative_dentistry: "Emergency Care",
+        description_five_choose_restorative_dentistry: "We provide emergency dental care for unexpected issues, ensuring your child receives prompt treatment when needed most.",
+        reason_six_choose_restorative_dentistry: "Convenient Hours",
+        description_six_choose_restorative_dentistry: "We offer flexible hours to fit your busy schedule, including after-school and weekend appointments, to make dental care as easy as possible.",
+        reason_one_choose_preventive_dentistry:"Kid-Friendly Environment",
+        description_one_choose_preventive_dentistry:"Our space is fun, welcoming, and designed to keep children relaxed and happy during every visit",
+        reason_two_choose_preventive_dentistry:"Experienced Pediatric Dentists",
+        description_two_choose_preventive_dentistry:"Our team has advanced training in caring for children, using gentle techniques.",
+        reason_three_choose_preventive_dentistry:"Preventive Focus",
+        description_three_choose_preventive_dentistry:"We emphasize early detection and education to help kids avoid problems before they start.",
+        reason_four_choose_preventive_dentistry:"Modern Technology",
+        description_four_choose_preventive_dentistry:"We use child-safe digital X-rays and advanced tools to ensure accuracy, safety, and comfort.",
+        reason_five_choose_preventive_dentistry:"Parent & Patient Education",
+        description_five_choose_preventive_dentistry:"We take time to teach proper brushing, flossing, and nutrition to build long-term dental health.",
+        reason_six_choose_preventive_dentistry:"Flexible Scheduling",
+        description_six_choose_preventive_dentistry:"We offer after-school and weekend appointments to fit your family’s busy schedule.",
+        title_pediatric_offer_one:"Infant Oral Health Exams",
+        description_pediatric_offer_one:"Gentle exams for babies to monitor development and guide parents on early dental care.",
+        title_pediatric_offer_two:"Preventive Care",
+        description_pediatric_offer_two:"Protect young teeth with cleanings, fluoride treatments, and dental sealants.",
+        title_pediatric_offer_three:"Tooth-Colored Fillings",
+        description_pediatric_offer_three:"Natural-looking fillings to repair cavities while keeping your child’s smile bright.",
+        title_pediatric_offer_four:"Emergency Dental Care",
+        description_pediatric_offer_four:"Quick, compassionate care for dental injuries, toothaches, and accidents.",
+        title_pediatric_offer_five:"Sedation Dentistry",
+        description_pediatric_offer_five:"Safe sedation options to help anxious children feel calm and comfortable.",
+        restorative_title:"Restore Your Smile with Confidence",
+        restorative_title_description:"Our general dentistry services focus on the prevention, diagnosis, and treatment of a wide range of oral health issues. Whether you're coming in for a routine check-up or seeking relief from dental pain, our experienced team is here to help you maintain a healthy, confident smile.",
+        title_restorative_offer_one:"Fillings",
+        description_restorative_offer_one:"Restore cavities with durable, tooth-colored fillings that blend seamlessly with your natural smile.",
+        title_restorative_offer_two:"Crowns",
+        description_restorative_offer_two:"Cap a damaged or decayed tooth with a custom-made crownfor strength and aesthetic appeal.",
+        title_restorative_offer_three:"Bridges",
+        description_restorative_offer_three:"Replace missing teeth by securing a prosthetic tooth between two healthy teeth with a dental bridge.",
+        title_restorative_offer_four:"Dental Implants",
+        description_restorative_offer_four:"A permanent solution for missing teeth, providing a stable foundation for crowns, bridges, or dentures.",
+        title_restorative_offer_five:"Dentures",
+        description_restorative_offer_five:"Restore missing teeth with custom-made dentures that helpyou chew, speak, and smile with confidence.",
+        title_restorative_offer_six:"Inlays & Onlays",
+        description_restorative_offer_six:"Custom restorations that fit inside or on top of a damaged tooth for a more conservative solution than crowns.",
+        title_restorative_offer_seven:"Root Canals",
+        description_restorative_offer_seven:"Save a damaged or infected tooth by removing the affected tissue and restoring the tooth to full function.",
+        title_restorative_offer_eight:"Tooth Extractions",
+        description_restorative_offer_eight:"When a tooth is beyond repair, we offer gentle extractions and follow-up options like implants or bridges.",
+        title_restorative_offer_nine:"Veneers",
+        description_restorative_offer_nine:"Enhance the appearance of your smile with custom-made porcelain veneers that cover imperfections and create a flawless smile.",
+        why_choose_us_preventive_dental:"Why Choose Our Preventive Dental Services?",
+        why_choose_us_orthodontists_dental:"Why Choose Our Preventive Dental Services?",
+        preventive_offer:"Preventive Treatments We Offer",
+        preventive_offer_one_title:"Routine Exams & Cleanings",
+        preventive_offer_one_description:"Maintain a healthy smile with regular checkups and cleanings that remove plaque and detect early issues.",
+        preventive_offer_two_title:"Fluoride Treatments",
+        preventive_offer_two_description:"Strengthen enamel and help prevent cavities with safe, quick fluoride applications tailored for kids.",
+        preventive_offer_three_title:"Dental Sealants",
+        preventive_offer_three_description:"Protect your child’s molars from decay with a thin, invisible coating that lasts for years.",
+        preventive_offer_four_title:"Digital X-Rays",
+        preventive_offer_four_description:"Safe, low-radiation imaging to catch cavities, monitor growth, and ensure accurate diagnosis.",
+        preventive_offer_five_title:"Oral Health Education",
+        preventive_offer_five_description:"We teach kids and parents how to care for teeth at home—setting the foundation for lifelong habits.",
+        preventive_offer_six_title:"Habit Counseling",
+        preventive_offer_six_description:"Gentle support to help children break habits like thumb sucking or pacifier use that affect oral health.",
+        orthodontists_choose_one_title:"Experienced Team",
+        orthodontists_choose_one_description:"Our board-certified orthodontists have years of experience providing top-quality care with the latest techniques and technology in orthodontics.",
+        orthodontists_choose_two_title:"Personalized Treatment Plans",
+        orthodontists_choose_two_description:"We take the time to understand your unique needs and create a treatment plan tailored specifically to you.",
+        orthodontists_choose_three_title:"Comfortable Environment",
+        orthodontists_choose_three_description:"We strive to create a welcoming, stress-free atmosphere for patients of all ages, making each visit enjoyable and relaxing.",
+        orthodontists_choose_four_title:"Advanced Technology",
+        orthodontists_choose_four_description:"We use state-of-the-art tools, such as digital X-rays and 3D imaging, to ensure the most accurate diagnosis and treatment plan for you.",
+        orthodontists_choose_five_title:"Flexible Payment Plans",
+        orthodontists_choose_five_description:"We offer various payment options to make orthodontic care accessible to everyone, including financing and insurance assistance.",
+        orthodontists_choose_six_title:"Proven Results",
+        orthodontists_choose_six_description:"We have helped thousands of patients achieve their dream smiles, delivering beautiful, long-lasting results that boost both oral health and confidence.",
+        contact_us_header :"Get In Touch",
+        contact_us_title :"We are always ready to help you and answer your questions",
+        contact_us_description :"Whether you have a question, a suggestion, or just want to say hello, this is the place to do it. Please fill out the form below with your details and message, and we'll get back to you as soon as possible.",
+        where_open_title:"We're Open",
+        location_title:"Clinic Location",
+        our_dentists:"Our Dentists",
+        message_title: "Send a Message",
+        location_value:"100 S Main St, New York, NY",
+        call_us_title:"Call Us Directly",
+        email_title:"Call Us Directly",
+        request_service: "Request Service",
+        request_offer: "Request Offer",
+        offer:"Offers",
+        select_date:"Select Date",
+        select_time:"Select Time",
+        submit:"Submit",
+        cancel:"Cancel",
+
+
+    },
+    ar: {
+        home: "الرئيسية",
+        general: "طب الأسنان العام",
+        services: "الخدمات",
+        cosmetic: "تجميل وترميم الاسنان",
+        pediatric: "أسنان الأطفال",
+        pediatric_title: "رعاية فموية شاملة لكل مرحلة من مراحل الحياة",
+        pediatric_title_description: "نحن متخصصون في تقديم رعاية أسنان لطيفة وشخصية للرضّع والأطفال والمراهقين. من أول سن يظهر لطفلك وحتى فترة المراهقة، هدفنا هو توفير بيئة مريحة وممتعة وتعليمية في كل زيارة.",
+        restorative: "زراعه الاسنان",
+        preventive: "معالجةالاسنان",
+        preventive_description: "حماية ابتسامتك بالفحوصات والتنظيفات والكشف المبكر.",
+        preventive_title: " بناء ابتسامات صحية تدوم مدى الحياة",
+        preventive_description_title: "نعتقد أن أفضل رعاية للأسنان تبدأ بالوقاية. تساعد معالجة الأسنان الوقائية الأطفال على تجنب مشاكل الأسنان قبل أن تبدأ، مما يضمن أسنانًا قوية وصحية وعادات جيدة تدوم مدى الحياة. هدفنا هو جعل كل زيارة إيجابية وتعليمية وداعمة لكل من الأطفال والآباء.",
+        orthodontics: "تقويم الأسنان",
+        orthodontics_description: "تقويم أسنانك باستخدام الأقواس أو المصححات لابتسامة واثقة.",
+        orthodontics_title:"",
+        orthodontics_description:"",
+        all_services: "جميع الخدمات",
+        dentists: "أطباء الأسنان",
+        about_us: "من نحن",
+        faq: "الأسئلة الشائعة",
+        gallery: "المعرض",
+        blog: "المدونة",
+        contact: "اتصل بنا",
+        brand_name: "مرحبًا بكم في دينتيال",
+        brand_title: "نرسم الابتسامات بدقة ولمسة لطيفة",
+        brand_description: "نقدم رعاية أسنان عالية الجودة مصممة خصيصًا لجميع أفراد العائلة. من الفحوصات الدورية إلى العلاجات المتقدمة، يضمن فريقنا المتعاطف أن تظل ابتسامتك صحية وواثقة.",
+        book_appointment: "احجز موعدًا",
+        book_appointment_description: "تواصل معنا اليوم لحجز موعدك واتخذ الخطوة الأولى نحو ابتسامة أكثر صحة.",
+        about_us_tilte: "الاحتراف والتميز الشخصي في طب الأسنان",
+        about_us_description: "نقدم رعاية أسنان عالية الجودة مصممة خصيصًا لجميع أفراد العائلة. من الفحوصات الدورية إلى العلاجات المتقدمة، يضمن فريقنا المتعاطف أن تظل ابتسامتك صحية وواثقة.",
+        about_us_option_1: "خطط علاج شخصية",
+        about_us_option_2: "رعاية لطيفة للأطفال والبالغين",
+        about_us_option_3: "تقنية متطورة",
+        about_us_option_4: "جدولة مواعيد مرنة",
+        our_service: "خدماتنا",
+        our_service_title: "رعاية شاملة لكل ابتسامة",
+        our_service_description: "من التنظيفات الروتينية إلى الترميمات المتقدمة، نقدم حلول طب الأسنان الشخصية للمرضى من جميع الأعمار.",
+        our_service_orthodontic_title: "علاجات تقويم الأسنان التي نقدمها",
+        orthodontic_offer_one_title: "دعامات الأسنان المعدنية التقليدية",
+        orthodontic_offer_one_description: "الطريقة الأكثر شيوعًا وموثوقية لتقويم الأسنان وتصحيح مشكلات الإطباق لجميع الأعمار.",
+        orthodontic_offer_two_title: "دعامات الأسنان الخزفية",
+        orthodontic_offer_two_description: "بديل أكثر أناقة للدعامات المعدنية، يستخدم مواد شفافة أو بلون الأسنان تمتزج مع ابتسامتك.",
+        orthodontic_offer_three_title: "إنفزلاين / التقويم الشفاف",
+        orthodontic_offer_three_description: "قوالب شفافة غير مرئية تقريبًا توفر طريقة مريحة وقابلة للإزالة وسرية لتقويم الأسنان.",
+        orthodontic_offer_four_title: "علاج تقويم الأسنان المبكر",
+        orthodontic_offer_four_description: "تدخلات للأطفال لتوجيه نمو الفك بشكل صحيح ومنع حدوث مشاكل أكثر خطورة لاحقًا.",
+        orthodontic_offer_five_title: "المثبتات",
+        orthodontic_offer_five_description: "أجهزة أساسية للحفاظ على ابتسامتك الجديدة بعد الانتهاء من تقويم الأسنان أو استخدام القوالب الشفافة.",
+        orthodontic_offer_six_title: "تقويم الأسنان الجراحي",
+        orthodontic_offer_six_description: "علاج تقويم الأسنان المصحوب بالجراحة لتصحيح اختلالات الفك الشديدة ومشكلات الإطباق.",
+        general_description: " رعاية فموية شاملة لكل ابتسامة مع التنظيفات والفحوصات والمزيد.",
+        cosmetic_description: "تعزيز جمال ابتسامتك مع التبييض، والقشور، والمزيد.",
+        cosmetic_title: "جمالك الطبيعي يبدأ بابتسامة واثقة",
+        pediatric_description: "رعاية أسنان لطيفة وممتعة للأطفال لنمو ابتسامات صحية وسعيدة, والمزيد",
+        cosmetic_details: "نعزز ابتسامتك بالفن والدقة",
+        cosmetic_details_description: "نؤمن بأن ابتسامتك هي أفضل ما يميزك. تم تصميم خدماتنا في طب الأسنان التجميلي لتحسين مظهر أسنانك ولثتك وابتسامتك بشكل عام، مما يعزز ثقتك بنفسك ويساعدك على الظهور بأفضل حال.",
+        cosmetic_details_title: "العلاجات التجميلية التي نقدمها",
+        title_offer_one: "تبييض الأسنان",
+        description_offer_one: "اجعل ابتسامتك أكثر إشراقًا بأمان مع تبييض احترافي يتم في زيارة واحدة فقط.",
+        title_offer_two: "عدسات الأسنان (الفينير)",
+        description_offer_two: "قشور خزفية فائقة الرقة تغطي العيوب وتمنحك ابتسامة مثالية.",
+        title_offer_three: "الترابط التجميلي",
+        description_offer_three: "طريقة ميسورة التكلفة لإصلاح الشقوق والكسور والفجوات الصغيرة باستخدام راتنج بلون الأسنان.",
+        title_offer_four: "تحسين الابتسامة الشامل",
+        description_offer_four: "مزيج مخصص من العلاجات لتجديد وتحسين ابتسامتك بالكامل.",
+        description_offer_five: "نُحسّن شكل الأسنان ونُنعّم الحواف غير المنتظمة للحصول على ابتسامة أكثر توازناً وتناغماً.",
+        title_offer_six: "إعادة تشكيل اللثة",
+        description_offer_six: "أعد تشكيل خط اللثة لتصحيح الابتسامة اللثوية وتحسين التناسق.",
+        title_offer_seven: "إنفزلاين وتقويم الأسنان الشفاف",
+        description_offer_seven: "قم بتقويم أسنانك بسرية باستخدام التقويم الشفاف دون الحاجة إلى الأسلاك أو الحاصرات المعدنية.",
+        title_offer_eight: "تيجان خالية من المعدن",
+        description_offer_eight: "استبدل الأسنان التالفة بتيجان خزفية بالكامل تمتزج بسلاسة مع ابتسامتك.",
+        offer:"العروض",
+        restorative_description: "إصلاح وترميم أسنانك لراحة ووظيفة دائمة, والمزيد",
+        read_more: "اقرأ المزيد",
+        view_all_services: "عرض جميع الخدمات",
+        google_rating: "تقييم جوجل",
+        working_date: "من الإثنين إلى السبت 08:00 - 20:00",
+        review: "بناءً على 23 ألف تقييم",
+        need_service: "بحاجة إلى خدمات أسنان؟",
+        opening_hours: "ساعات العمل",
+        email_us: "راسلنا",
+        description: "هذا مثال على موقع ثنائي اللغة.",
+        dir: "rtl",
+        book_your_appointment: "احجز موعدك",
+        book_your_appointment_description: "احجز موعدك اليوم للحصول على رعايةأسنان متخصصة تناسب احتياجاتك. الابتسامات الصحية والجميلة تبدأ بخطوة بسيطة، احجز الآن!",
+        pages: "الصفحات",
+        happy_patients: "المرضى السعداء",
+        teeth_whitened: "أسنان مبيضة",
+        dental_implants: "زراعة الأسنان",
+        years_of_experience: "سنوات من الخبرة",
+        dental_care: "لماذا تختار رعاية الأسنان لدينا",
+        dental_care_title: "خدمة استثنائية مع لمسة شخصية",
+        dental_care_description: "نقدم رعاية أسنان عالية الجودة مصممة خصيصًا لجميع أفراد العائلة. من الفحوصات الدورية إلى العلاجات المتقدمة، يضمن فريقنا المتعاطف أن تظل ابتسامتك صحية وواثقة.",
+        dental_care_1_title: "طب الأسنان ذو الخبرة",
+        dental_care_1_description: "رعاية ماهرة مدعومة بسنوات من الخبرة الموثوقة في طب الأسنان.",
+        dental_care_2_title: "تقنية متقدمة",
+        dental_care_2_description: "تقنيات متطورة لتقديم رعاية دقيقة وفعالة.",
+        dental_care_3_title: "علاج مخصص",
+        dental_care_3_description: "خطط رعاية مصممة لتناسب ابتسامتك ونمط حياتك.",
+        dental_care_4_title: "ملائم للعائلة",
+        dental_care_4_description: "مساحة ترحيبية للأطفال والمراهقين والبالغين وكبار السن.",
+        team: "تعرف على فريقنا الطبي",
+        team_title: "ملتزمون بابتسامتك",
+        team_description: "فريقنا الطبي ذو الخبرة هنا لجعل كل زيارة إيجابية وشخصية. بأيدٍ لطيفة وقلوبٍ محبة.",
+        dr_specialist_1: "طبيب أسنان رئيسي",
+        dr_specialist_2: "طبيب أسنان تجميلي",
+        dr_specialist_3: "أخصائي طب أسنان الأطفال",
+        dr_specialist_4: "أخصائي صحة الأسنان",
+        question_1: "كم مرة يجب أن أزور طبيب الأسنان؟",
+        question_2: "ماذا أفعل في حالة طوارئ الأسنان؟",
+        question_3: "هل تقدمون خدمات للأطفال؟",
+        question_4: "ما هي خياراتي لاستبدال الأسنان المفقودة؟",
+        question_5: "هل تبييض الأسنان آمن؟",
+        question_answer_1: "يوصى بزيارة طبيب الأسنان كل 6 أشهر للفحصوصات الدورية والتنظيف، ما لم يُنصح بخلاف ذلك.",
+        question_answer_2: "اتصل بمكتبنا على الفور. نحن نقدم رعاية طوارئ في نفس اليوم لمشاكل مثل الألم الشديد، الأسنان المكسورة، أو التورم.",
+        question_answer_3: "بالطبع! نحن نقدم رعاية أسنان للأطفال بلطف ولطف لضمان نمو ابتسامات صحية وسعيدة.",
+        question_answer_4: "نقدم زراعة الأسنان والجسور والأطقم الصناعية حسب احتياجاتك وتفضيلاتك.",
+        question_answer_5: "نعم، عندما يتم بواسطة طبيب أسنان محترف، فإن تبييض الأسنان آمن وفعال مع نتائج تدوم طويلاً.",
+        contact_us: "اتصل بنا",
+        clinic_location: "موقع العيادة",
+        call_us: "الهاتف",
+        logo_description: "في دينتيال، نحن ملتزمون بتقديم رعاية أسنان عالية الجودة وشخصية للمرضى من جميع الأعمار. يستخدم فريقنا الماهر أحدث التقنيات لضمان علاجات مريحة وفعالة وابتسامات جميلة وصحية تدوم مدى الحياة.",
+        testimonials: "الشهادات",
+        testimonials_title: "عملاؤنا السعداء",
+        testimonials_description: "انضم إلى آلاف المرضى السعداء الذين يثقون بنا لرعاية لطيفة وخبيرة وابتسامات جميلة. تجربتك المثالية في طب الأسنان تبدأ هنا!",
+        send_message: "إحجز الان",
+        name: "الاسم",
+        phone: "الهاتف",
+        message: "الرسالة",
+        select_service: "اختر الخدمة",
+        select_offer: "اختر العرض",
+        select_time: "اختر الوقت",
+        select_date: "اختر تاريخ",
+        our_services: "خدماتنا",
+        send_message: "إرسال الرسالة",
+        why_choose_us: "لماذا تختارنا",
+        why_choose_us_description: "لماذا تختار خدماتنا في طب الأسنان التجميلي؟",
+        why_choose_us_point1: "أطباء أسنان تجميليون ذوو خبرة ودقة فنية عالية",
+        why_choose_us_point2: "تقنيات متقدمة تشمل تصميم الابتسامة الرقمي ومعاينات مسبقة",
+        why_choose_us_point3: "خطط علاج مخصصة تتناسب مع أهدافك الجمالية وأسلوب حياتك",
+        why_choose_us_point4: "أساليب لطيفة تركز على راحة المريض وتقليل الانزعاج",
+        why_choose_us_point5: "نتائج طبيعية المظهر تُبرز ملامح وجهك وتعزز ثقتك بنفسك",
+        why_choose_us_point6: "حلول شاملة للابتسامة — من اللمسات البسيطة إلى التحولات الكاملة",
+        why_choose_us_point7: "عيادة نظيفة وحديثة مع فريق ودود ومرحّب",
+        top_reason: "أهم الأسباب",
+        why_choose_pediatric_dentistry: "لماذا تختارنا؟",
+        reason_one_choose_pediatric_dentistry: "بيئة مريحة ومناسبة للأطفال صُممت خصيصًا لهم",
+        reason_two_choose_pediatric_dentistry: "أطباء أسنان أطفال معتمدون وذوو خبرة واسعة",
+        reason_three_choose_pediatric_dentistry: "غرف علاج مريحة ذات تصاميم مرحة تناسب الأطفال",
+        reason_four_choose_pediatric_dentistry: "نرحب بوجود الوالدين أثناء الفحوصات والعلاجات",
+        reason_five_choose_pediatric_dentistry: "نركز على التوعية لبناء عادات صحية تدوم مدى الحياة",
+        reason_six_choose_pediatric_dentistry: "مواعيد مرنة ورعاية طارئة متاحة عند الحاجة",
+        reason_one_choose_restorative_dentistry: "بيئة مناسبة للأطفال",
+        description_one_choose_restorative_dentistry: " لقد صممنا عيادتنا مع وضع الأطفال في الاعتبار، مما يخلق مساحة مرحبة وممتعة ومريحة لصغارك.",
+        reason_two_choose_restorative_dentistry: " أطباء أسنان أطفال ذوو خبرة",
+        description_two_choose_restorative_dentistry: " فريقنا مدرب تدريباً عالياً في طب أسنان الأطفال، متخصص في علاج المرضى الصغار برعاية لطيفة ومتعاطفة.",
+        reason_three_choose_restorative_dentistry: " رعاية شاملة",
+        description_three_choose_restorative_dentistry: " نقدم مجموعة كاملة من الخدمات، من الفحوصات والتنظيفات الروتينية إلى العلاجات المتخصصة مثل تقويم الأسنان وزراعة الأسنان.",
+        reason_four_choose_restorative_dentistry: "تقنية حديثة",
+        description_four_choose_restorative_dentistry: " نحن نستخدم أحدث تقنيات طب الأسنان، مما يضمن تشخيصات دقيقة، وعلاجات فعالة، وأعلى مستوى من الراحة لطفلك.",
+        reason_five_choose_restorative_dentistry: "رعاية الطوارئ",
+        description_five_choose_restorative_dentistry: " نقدم رعاية طارئة للأسنان للمشاكل غير المتوقعة، مما يضمن حصول طفلك على العلاج الفوري عند الحاجة.",
+        reason_six_choose_restorative_dentistry: "ساعات ملائمة",
+        description_six_choose_restorative_dentistry: " نقدم ساعات مرنة لتناسب جدولك المزدحم، بما في ذلك المواعيد بعد المدرسة وعطلات نهاية الأسبوع، لجعل رعاية الأسنان سهلة قدر الإمكان.",
+        title_pediatric_offer_one: "فحوصات صحة الفم للرضّع",
+        description_pediatric_offer_one: "فحوصات لطيفة للرضّع لمتابعة نمو الأسنان وتوجيه الأهل حول العناية المبكرة بالفم.",
+        title_pediatric_offer_two: "الرعاية الوقائية",
+        description_pediatric_offer_two: "حماية أسنان الأطفال من خلال التنظيف والعلاجات بالفلورايد ووضع الحشوات الوقائية.",
+        title_pediatric_offer_three: "حشوات بلون الأسنان",
+        description_pediatric_offer_three: "حشوات طبيعية المظهر لإصلاح التسوس مع الحفاظ على إشراقة ابتسامة طفلك.",
+        title_pediatric_offer_four: "رعاية الأسنان الطارئة",
+        description_pediatric_offer_four: "عناية سريعة وإنسانية لإصابات الأسنان وآلامها والحوادث المفاجئة.",
+        title_pediatric_offer_five: "طب الأسنان المهدئ",
+        description_pediatric_offer_five: "خيارات تخدير آمنة لمساعدة الأطفال القلقين على الشعور بالهدوء والراحة.",
+        restorative_title: "استعد ابتسامتك بثقة",
+        restorative_title_description: "تركّز خدماتنا في طب الأسنان العام على الوقاية والتشخيص والعلاج لمجموعة واسعة من مشكلات صحة الفم. سواء كنت تزورنا لفحص روتيني أو لتخفيف ألم في الأسنان، فإن فريقنا الخبير هنا لمساعدتك في الحفاظ على ابتسامة صحية واثقة.",
+        title_restorative_offer_one: "الحشوات",
+        description_restorative_offer_one: "عالج تسوس الأسنان باستخدام حشوات متينة بلون الأسنان تمتزج بسلاسة مع ابتسامتك الطبيعية.",
+        title_restorative_offer_two: "التيجان",
+        description_restorative_offer_two: "غطِّ السن التالف أو المتآكل بتاج مصنوع خصيصًا لتعزيز القوة والمظهر الجمالي.",
+        title_restorative_offer_three: "الجسور",
+        description_restorative_offer_three: "استبدل الأسنان المفقودة بسن صناعي مثبت بين سنين طبيعيين باستخدام جسر أسنان.",
+        title_restorative_offer_four: "زراعة الأسنان",
+        description_restorative_offer_four: "حل دائم للأسنان المفقودة يوفر قاعدة ثابتة للتيجان أو الجسور أو أطقم الأسنان.",
+        title_restorative_offer_five: "أطقم الأسنان",
+        description_restorative_offer_five: "استعد أسنانك المفقودة بأطقم مصنوعة خصيصًا تساعدك على المضغ والتحدث والابتسام بثقة.",
+        title_restorative_offer_six: "الحشوات الداخلية والخارجية (Inlays & Onlays)",
+        description_restorative_offer_six: "ترميمات مخصصة توضع داخل السن أو على سطحه التالف كحل محافظ أكثر من التيجان.",
+        title_restorative_offer_seven: "علاج جذور الأسنان",
+        description_restorative_offer_seven: "أنقذ السن التالف أو المصاب بالعدوى بإزالة النسيج المتضرر واستعادة السن لوظيفته الكاملة.",
+        title_restorative_offer_eight: "خلع الأسنان",
+        description_restorative_offer_eight: "عندما يكون السن غير قابل للإصلاح، نقدم خلعًا لطيفًا مع خيارات متابعة مثل الزراعة أو الجسور.",
+        title_restorative_offer_nine: "عدسات الأسنان (الفينير)",
+        description_restorative_offer_nine: "حسّن مظهر ابتسامتك بعدسات خزفية مخصصة تغطي العيوب وتمنحك ابتسامة مثالية.",
+        reason_one_choose_preventive_dentistry:"بيئة مناسبة للأطفال",
+        description_one_choose_preventive_dentistry:" مساحتنا ممتعة وترحيبية ومصممة للحفاظ على استرخاء وسعادة الأطفال خلال كل زيارة",
+        reason_two_choose_preventive_dentistry:"أطباء أسنان أطفال ذوو خبرة",
+        description_two_choose_preventive_dentistry:" يتمتع فريقنا بتدريب متقدم في رعاية الأطفال، باستخدام تقنيات لطيفة.",
+        reason_three_choose_preventive_dentistry:"تركيز على الوقاية",
+        description_three_choose_preventive_dentistry:" نؤكد على الكشف المبكر والتوعية لمساعدة الأطفال على تجنب المشاكل قبل أن تبدأ.",
+        reason_four_choose_preventive_dentistry:"تقنية حديثة",
+        description_four_choose_preventive_dentistry:" نستخدم الأشعة الرقمية الآمنة للأطفال وأدوات متقدمة لضمان الدقة والسلامة والراحة.",
+        reason_five_choose_preventive_dentistry:"توعية الوالدين والمرضى",
+        description_five_choose_preventive_dentistry:" نأخذ الوقت لتعليم التنظيف الصحيح، والخيط الغذائي، والتغذية لبناء صحة فموية طويلة الأمد.",
+        reason_six_choose_preventive_dentistry:" جدولة مرنة",
+        description_six_choose_preventive_dentistry:" نقدم مواعيد بعد المدرسة وعطلات نهاية الأسبوع لتناسب جدول عائلتك المزدحم.",
+        why_choose_us_preventive_dental:"لماذا تختار خدماتنا في معالجة الأسنان الوقائية؟",
+        why_choose_us_orthodontists_dental:"لماذا تختار خدماتنا في معالجة الأسنان الوقائية؟",
+        orthodontics_title: "حوّل ابتسامتك مع رعاية تقويم الأسنان الاحترافية",
+        orthodontics_title_description: "نقدّم خدمات تقويم أسنان شاملة مصممة لمساعدتك على الحصول على ابتسامة أكثر صحة وجمالاً. سواء كنت تفكر في الدعامات، أو الإنفزلاين، أو غيرها من العلاجات، فإن فريقنا ذو الخبرة هنا لإرشادك في كل خطوة على الطريق.",
+
+        preventive_offer: "العلاجات الوقائية التي نقدمها",
+        preventive_offer_one_title: "الفحوصات والتنظيفات الدورية",
+        preventive_offer_one_description: "حافظ على ابتسامة صحية من خلال الفحوصات والتنظيفات المنتظمة التي تزيل البلاك وتكشف عن المشكلات مبكرًا.",
+        preventive_offer_two_title: "علاجات الفلورايد",
+        preventive_offer_two_description: "قوِّ مينا الأسنان وساعد في منع التسوس باستخدام تطبيقات الفلورايد الآمنة والسريعة المصممة خصيصًا للأطفال.",
+        preventive_offer_three_title: "طلاءات الأسنان الواقية (السيلانت)",
+        preventive_offer_three_description: "احمِ أضراس طفلك من التسوس بطبقة رقيقة غير مرئية تدوم لسنوات.",
+        preventive_offer_four_title: "الأشعة السينية الرقمية",
+        preventive_offer_four_description: "تصوير آمن منخفض الإشعاع للكشف عن التسوس، ومراقبة النمو، وضمان دقة التشخيص.",
+        preventive_offer_five_title: "التثقيف حول صحة الفم",
+        preventive_offer_five_description: "نعلّم الأطفال والآباء كيفية العناية بالأسنان في المنزل — لتأسيس عادات صحية تستمر مدى الحياة.",
+        preventive_offer_six_title: "الإرشاد السلوكي",
+        preventive_offer_six_description: "دعم لطيف لمساعدة الأطفال على التخلص من العادات مثل مص الإبهام أو استخدام المصاصة التي تؤثر على صحة الفم.",
+        orthodontists_choose_one_title: "فريق ذو خبرة",
+        orthodontists_choose_one_description: "يتمتع أخصائيو تقويم الأسنان المعتمدون لدينا بسنوات من الخبرة في تقديم رعاية عالية الجودة باستخدام أحدث التقنيات في مجال تقويم الأسنان.",
+        orthodontists_choose_two_title: "خطط علاج مخصصة",
+        orthodontists_choose_two_description: "نأخذ الوقت لفهم احتياجاتك الفريدة ونضع خطة علاج مصممة خصيصًا لك.",
+        orthodontists_choose_three_title: "بيئة مريحة",
+        orthodontists_choose_three_description: "نسعى لخلق جو مرحب وخالٍ من التوتر للمرضى من جميع الأعمار، مما يجعل كل زيارة ممتعة ومريحة.",
+        orthodontists_choose_four_title: "تقنيات متقدمة",
+        orthodontists_choose_four_description: "نستخدم أدوات حديثة مثل الأشعة السينية الرقمية والتصوير ثلاثي الأبعاد لضمان أدق تشخيص وخطة علاج ممكنة لك.",
+        orthodontists_choose_five_title: "خطط دفع مرنة",
+        orthodontists_choose_five_description: "نقدم خيارات دفع متعددة لجعل رعاية تقويم الأسنان متاحة للجميع، بما في ذلك التمويل والمساعدة التأمينية.",
+        orthodontists_choose_six_title: "نتائج مثبتة",
+        orthodontists_choose_six_description: "لقد ساعدنا الآلاف من المرضى على تحقيق ابتسامات أحلامهم، مقدمين نتائج جميلة وطويلة الأمد تعزز صحة الفم والثقة بالنفس.",
+        contact_us_header: "تواصل معنا",
+        contact_us_title: "نحن دائمًا جاهزون لمساعدتك والإجابة على استفساراتك",
+        contact_us_description: "سواء كان لديك سؤال أو اقتراح أو ترغب فقط في إلقاء التحية، فهذا هو المكان المناسب لذلك. يرجى ملء النموذج أدناه بمعلوماتك ورسالتك، وسنعاود الاتصال بك في أقرب وقت ممكن.",
+        where_open_title: "مواعيد العمل",
+        message_title: "أرسل لنا رسالة",
+        location_title: "موقع العيادة",
+        call_us_title: "اتصل بنا مباشرة",
+        email_title: "راسلنا عبر البريد الإلكتروني",
+        our_dentists: "أطباء الأسنان",
+        request_service: "طلب الخدمة",
+        request_offer: "طلب العرض",
+        select_date:"اختار اليوم",
+        select_time:"اختار الوقت",
+        submit:"حجز",
+        cancel:"إلغاء",
+    }
+};
+
+
+const languageBtn = document.getElementById('languageBtn');
+let currentLanguge = localStorage.getItem('language') || 'ar';
+let dir = localStorage.getItem('direction') || 'rtl';
+
+// Function to update all translatable elements
+// function updateTranslations() {
+//     const elements = Array.from(document.querySelectorAll('[data-i18n]')).filter(el => el.offsetParent !== null);
+//     elements.forEach((element) => {
+//         const key = element.getAttribute('data-i18n');
+//         if (key && translations[currentLanguge][key]) {
+//             element.textContent = translations[currentLanguge][key];
+//         }
+//     });
+// }
+
+function updateTranslations() {
+    const elements = document.querySelectorAll('[data-i18n]');
+
+    elements.forEach((element) => {
+        const key = element.getAttribute('data-i18n');
+        if (key && translations[currentLanguge][key]) {
+            const translatedText = translations[currentLanguge][key];
+
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                if (element.placeholder) {
+                    element.placeholder = translatedText;
+                } else {
+                    element.value = translatedText;
+                }
+            } else if (element.tagName === 'OPTION') {
+                element.textContent = translatedText;
+                element.value = translatedText; // optional
+            } else {
+                element.textContent = translatedText;
+            }
+        }
+    });
+}
+
+
+languageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    currentLanguge = currentLanguge === 'en' ? 'ar' : 'en';
+    dir = currentLanguge === 'en' ? 'ltr' : 'rtl';
+    document.documentElement.lang = currentLanguge;
+    document.documentElement.dir = dir;
+
+    localStorage.setItem('language', currentLanguge);
+    localStorage.setItem('direction', dir);
+    updateTranslations();
+});
+
+
+
+// Set default language to Arabic on first load
+document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem('language')) {
+        currentLanguge = "ar";
+        dir = "rtl";
+        localStorage.setItem('language', currentLanguge);
+        localStorage.setItem('direction', dir);
+    }
+
+    document.documentElement.dir = dir;
+    document.documentElement.lang = currentLanguge;
+    updateTranslations();
+    //date Picker
+    // flatpickr("#datepicker", {
+    //   dateFormat: "Y-m-d",  // Format: 2025-06-12
+    //   enableTime: false,    // No time picker
+    //   altInput: true,       // Optional: show user-friendly text
+    //   altFormat: "F j, Y"   // Example: June 12, 2025
+    // });
+})
+
+
+
+//Get Date
+// const input = document.getElementById("datepicker");
+
+// input.addEventListener("change", () => {
+// const selectedDate = input.value;
+// console.log("Selected date:", selectedDate);
+// // Example output: "2025-06-12"
+// });
+
+// Language toggle functionality
+// document.querySelectorAll(".langToggle").forEach(function (element) {
+// 	element.addEventListener("click", function (e) {
+// 		e.preventDefault();
+// 		currentLang = currentLang === "ar" ? "en" : "ar";
+// 		document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+
+// 		localStorage.setItem('Language', currentLang);
+// 		localStorage.setItem('direction', document.documentElement.dir);
+
+// 		updateTranslations();
+// 	});
+// });

@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Offer extends Model
+{
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = ['title','description','image','is_active','expires_at','discount'];
+    protected $dates = ['expires_at'];
+    protected $casts = [
+        'title' => 'array',
+        'description' => 'array',
+        'is_active' => 'boolean',
+        'expires_at' => 'datetime',
+    ];
+    public function guests() {
+        return $this->hasMany(Guest::class);
+    }
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
+    public function availableOffers($query)
+    {
+        return $query
+            ->where('is_active', true)
+            ->where(function ($q) {
+                $q->whereNull('expires_at')
+                  ->orWhere('expires_at', '>', now());
+            });
+    }
+
+    public function getIsExpiredAttribute(): bool
+    {
+        return $this->expires_at && $this->expires_at->isPast();
+    }
+}
