@@ -1073,11 +1073,11 @@
                                     <select name="offer_id" id="service" class="form-control" required>
                                         <option disabled selected value>{{ __('Select Offer') }}</option>
                                         @foreach ($offers as $offer)
-                                            <option value="{{ $offer->id }}">
-                                                {{ app()->getLocale() === 'ar' ? $offer->title['ar'] : $offer->title['en'] }}
-                                            </option>
+                                            <option value="{{ $offer->id }}">{{ $offer->title }}</option>
                                         @endforeach
                                     </select>
+
+
                                     <i class="absolute top-0 id-color pt-3 pe-3 fa-solid fa-angle-down"></i>
                                 </div>
                             </div>
@@ -1219,10 +1219,9 @@
                     (language === 'ar' ? 'اختر العرض' : 'Select Offer') + '</option>';
                 offersData.forEach(offer => {
                     const opt = document.createElement('option');
-                    // offer.title is stored as JSON: {"en": "...", "ar": "..."}
-                    const title = offer.title[language] ?? offer.title['en'];
                     opt.value = offer.id;
-                    opt.textContent = title;
+                    // offer.title is already a localized string
+                    opt.textContent = offer.title;
                     offerSelect.appendChild(opt);
                 });
             }

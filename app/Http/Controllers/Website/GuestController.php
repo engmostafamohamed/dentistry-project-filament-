@@ -7,6 +7,8 @@ use App\Http\Requests\OfferRequest;
 use App\DTOs\OfferDTO;
 use Illuminate\Http\Request;
 use App\Models\Guest;
+use Illuminate\Support\Facades\Log;
+
 class GuestController extends Controller
 {
     public function storeOffer(OfferRequest $request)
@@ -21,10 +23,14 @@ class GuestController extends Controller
                 'guest' => $guest,
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => __('There was an error submitting your offer.'),
+            Log::error('Offer booking failed', [
                 'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json([
+                'message' => __('Something went wrong while booking.'),
+                'error'   => $e->getMessage(),
             ], 500);
         }
     }

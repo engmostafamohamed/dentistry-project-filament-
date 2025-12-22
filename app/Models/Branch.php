@@ -30,4 +30,5 @@ class Branch extends Model
     {
         return $this->belongsTo(Region::class);
     }
+
 }

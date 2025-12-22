@@ -9,7 +9,11 @@ class Guest extends Model
     use SoftDeletes;
     protected $fillable = [
         'name','phone','email','address','description',
-        'status','branch_id','doctor_id','offer_id','service_id'
+        'status','branch_id','doctor_id','offer_id','service_id',
+        'booking_at'
+    ];
+    protected $casts = [
+        'booking_at'=>'datetime'
     ];
 
     public function branch() {
@@ -24,4 +28,5 @@ class Guest extends Model
     public function service() {
         return $this->belongsTo(Service::class);
     }
+
 }

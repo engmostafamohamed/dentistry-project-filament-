@@ -39,4 +39,61 @@ class Offer extends Model
     {
         return $this->expires_at && $this->expires_at->isPast();
     }
+
+    // public function getTitleAttribute($value): string
+    // {
+    //     $title = json_decode($value, true);
+    //     if (!is_array($title)) return '-';
+
+    //     $locale = app()->getLocale();
+    //     $primary = $title[$locale] ?? null;
+    //     $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
+
+    //     return $primary ?? $fallback ?? '-';
+    // }
+    // public function getTitleAttribute($value): string
+    // {
+    //     $title = json_decode($value, true);
+    //     if (!is_array($title)) return '-';
+
+    //     $locale = substr(app()->getLocale(), 0, 2);
+    //     $primary = $title[$locale] ?? null;
+    //     $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
+
+    //     return $primary ?? $fallback ?? '-';
+    // }
+
+    public function getTitleAttribute($value): string
+    {
+        // Laravel sometimes casts or passes JSON as string, so handle both
+        $title = is_array($value) ? $value : json_decode($value, true);
+
+        if (!is_array($title)) {
+            return '-';
+        }
+
+        // Normalize locale (e.g., en_US → en)
+        $locale = substr(app()->getLocale(), 0, 2);
+
+        // Pick correct translation
+        $primary = $title[$locale] ?? null;
+        $fallback = $locale === 'ar'
+            ? ($title['en'] ?? null)
+            : ($title['ar'] ?? null);
+
+        return $primary ?? $fallback ?? '-';
+    }
+    // public function getTitleAttribute($value): string
+    // {
+    //     $title = is_array($value) ? $value : json_decode($value, true);
+    //     if (!is_array($title)) return '-';
+
+    //     $locale = substr(app()->getLocale(), 0, 2);
+    //     $primary = $title[$locale] ?? null;
+    //     $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
+
+    //     return $primary ?? $fallback ?? '-';
+    // }
+
+
 }

@@ -12,7 +12,6 @@ class HomeController extends Controller
     {
         $countries = Country::with(['regions.branches'])->get();
         $offers = Offer::all();
-        
-        return view('website/index', compact('countries', 'offers'));
+        return view('website.index', compact('countries', 'offers'));
     }
 }

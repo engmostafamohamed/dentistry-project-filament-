@@ -9,7 +9,11 @@ use Filament\Resources\Pages\EditRecord;
 class EditGuest extends EditRecord
 {
     protected static string $resource = GuestResource::class;
-
+    protected ?string $maxFormWidth = 'full';
+    protected function getRedirectUrl(): ?string
+    {
+        return $this->getResource()::getUrl('index');
+    }
     protected function getHeaderActions(): array
     {
         return [
