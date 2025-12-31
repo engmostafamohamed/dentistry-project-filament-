@@ -58,8 +58,8 @@
                                 <div class="de-flex-col header-col-mid">
                                     <!-- mainemenu begin -->
                                     <ul id="mainmenu">
-                                        <li><a class="menu-item" href="index.html"data-i18n="home">Home</a></li>
-                                        <li><a class="menu-item" href="services.html"data-i18n="services">Services</a>
+                                        <li><a class="menu-item" href="{{ route('home') }}"data-i18n="home">Home</a></li>
+                                        <li><a class="menu-item" href="{{ route('services') }}"data-i18n="services">Services</a>
                                             <ul>
                                                 <!-- <li><a class="menu-item" href="service-general-dentistry.html" data-i18n="general">General Dentistry</a></li> -->
                                                 <li><a class="menu-item" href="service-cosmetic-dentistry.html" data-i18n="cosmetic">Cosmetic Dentistry</a></li>
@@ -1107,7 +1107,7 @@
                                 <div class="relative">
                                     <select name="time" id="time" class="form-control" required >
                                         <option disabled selected value data-i18n="select_time">Select Time</option>
-                                        <option value="10:00">10:00</option>
+                                        {{--  <option value="10:00">10:00</option>
                                         <option value="11:00">11:00</option>
                                         <option value="12:00">12:00</option>
                                         <option value="13:00">13:00</option>
@@ -1117,7 +1117,7 @@
                                         <option value="17:00">17:00</option>
                                         <option value="18:00">18:00</option>
                                         <option value="19:00">19:00</option>
-                                        <option value="20:00">20:00</option>
+                                        <option value="20:00">20:00</option>  --}}
                                     </select>
                                     <i class="absolute top-0 id-color pt-3 pe-3 fa-solid fa-angle-down"></i>
                                 </div>
@@ -1190,15 +1190,90 @@
     <!-- Scroll Styling -->
 
     <script>
+
+        {{--  const workingDays = @json($workingDays);  --}}
+        const timeSelect = document.getElementById('time');
+        const dateInput = document.getElementById('appointmentDate');
+
+        // Calendar setup
+        const workingDays = @json($workingDays);          // recurring weekly days
+        const extraWorkingDates = @json($extraWorkingDates);
+        const holidayDates = @json($holidayDates);
+
+        flatpickr("#appointmentDate", {
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            maxDate: new Date().fp_incr(30),
+            disable: [
+                function(date) {
+                    const jsDay = date.getDay(); // JS 0=Sun
+                    const dayIso = jsDay === 0 ? 7 : jsDay;
+                    {{--  const formatted = date.toISOString().split('T')[0];  --}}
+                    const formatted = date.toLocaleDateString('en-CA');
+
+                    // If explicitly a holiday/off → disable
+                    if (holidayDates.includes(formatted)) return true;
+
+                    // If explicitly marked as working (override) → enable
+                    if (extraWorkingDates.includes(formatted)) return false;
+
+                    // Otherwise, follow recurring weekly pattern
+                    return !workingDays.includes(dayIso);
+                }
+            ],
+        });
+
+        // Load hours when date changes
+        dateInput.addEventListener('change', function() {
+            const selectedDate = this.value;
+            timeSelect.innerHTML = '<option disabled selected value>Select Time</option>';
+
+            $.ajax({
+                url: '{{ route('available.times') }}',
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    date: selectedDate
+                },
+                success: function(response) {
+                    if (response.times && response.times.length > 0) {
+                        response.times.forEach(slot => {
+                            const opt = document.createElement('option');
+                            opt.value = slot.time;
+                            opt.textContent = slot.time;
+                            if (slot.disabled) {
+                                opt.disabled = true;
+                                opt.textContent += ' (Full)';
+                            }
+                            timeSelect.appendChild(opt);
+                        });
+                    } else {
+                        const opt = document.createElement('option');
+                        opt.textContent = 'No available hours';
+                        opt.disabled = true;
+                        timeSelect.appendChild(opt);
+                    }
+                },
+                error: function() {
+                    const opt = document.createElement('option');
+                    opt.textContent = 'Error loading hours';
+                    opt.disabled = true;
+                    timeSelect.appendChild(opt);
+                }
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             <!-- datepicker begin -->
 
-            flatpickr("#date input.form-control", {
+            {{--  flatpickr("#date input.form-control", {
                 altInput: true,
                 altFormat: "F j, Y",
                 dateFormat: "Y-m-d",
                 minDate: "today"
-            });
+            });  --}}
 
             <!-- datepicker close -->
 
@@ -1297,6 +1372,7 @@
 
             observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
         });
+
     </script>
 
 

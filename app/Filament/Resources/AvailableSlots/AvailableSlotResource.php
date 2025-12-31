@@ -26,11 +26,11 @@ class AvailableSlotResource extends Resource
     {
         return __('filament-language-switcher::availableSlot.calendar');
     }
+
     public static function getNavigationLabel(): string
     {
         return __('filament-language-switcher::availableSlot.availableSlotsListTitle');
     }
-
 
     public static function form(Schema $schema): Schema
     {

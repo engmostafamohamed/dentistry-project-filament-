@@ -8,6 +8,7 @@ use App\Http\Controllers\Website\OfferController;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/available-times', [HomeController::class, 'getAvailableTimes'])->name('available.times');
 Route::get('/about', fn() => view('website.about'))->name('about');
 Route::get('/services', fn() => view('website.services'))->name('services');
 Route::get('/contact', fn() => view('website.contact'))->name('contact');
