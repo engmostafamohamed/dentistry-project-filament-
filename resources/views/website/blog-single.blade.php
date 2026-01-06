@@ -3,7 +3,7 @@
 
 <head>
   <title>Dentia — Rehab</title>
-  <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16" />
+  <link rel="icon" href="{{ asset('website/images/icon.webp')}}" type="image/gif" sizes="16x16" />
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta content="Dentia — Rehab" name="description" />
@@ -15,12 +15,12 @@
 
   <!-- CSS Files
     ================================================== -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap" />
-  <link href="css/plugins.css" rel="stylesheet" type="text/css" />
-  <link href="css/swiper.css" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap" />
+  <link href="{{ asset('website/css/plugins.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/style.css') }}" rel="stylesheet" type="text/css" />
   <!-- color scheme -->
-  <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" />
+  <link id="colors" href="{{ asset('website/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -40,10 +40,10 @@
               <div class="de-flex-col">
                 <!-- logo begin -->
                 <div id="logo">
-                  <a href="index.html">
-                    <img class="logo-main" src="images/logo-black.webp" alt="">
-                    <img class="logo-scroll" src="images/logo-black.webp" alt="">
-                    <img class="logo-mobile" src="images/logo-black.webp" alt="">
+                  <a href="{{ route('home') }}">
+                    <img class="logo-main" src="{{ asset('website/images/logo-black.webp') }}" alt="">
+                    <img class="logo-scroll" src="{{ asset('website/images/logo-black.webp') }}" alt="">
+                    <img class="logo-mobile" src="{{ asset('website/images/logo-black.webp') }}" alt="">
                   </a>
                 </div>
                 <!-- logo end -->
@@ -51,43 +51,43 @@
               <div class="de-flex-col header-col-mid">
                 <!-- mainemenu begin -->
                 <ul id="mainmenu">
-                  <li><a class="menu-item" href="index.html">Home</a>
-                    <!-- <ul>
-                                            <li><a href="index.html">Homepage 1</a></li>
-                                            <li><a href="homepage-2.html">Homepage 2</a></li>
-                                            <li><a href="homepage-3.html">Homepage 3</a></li>
-                                            <li><a href="homepage-4.html">Homepage 4</a></li>
-                                            <li><a href="homepage-5.html">Homepage 5</a></li>
-                                        </ul> -->
+                  <li><a class="menu-item" href="{{ route('home') }}">Home</a>
+                    {{--  <ul>
+                        <li><a href="index.html">Homepage 1</a></li>
+                        <li><a href="homepage-2.html">Homepage 2</a></li>
+                        <li><a href="homepage-3.html">Homepage 3</a></li>
+                        <li><a href="homepage-4.html">Homepage 4</a></li>
+                        <li><a href="homepage-5.html">Homepage 5</a></li>
+                    </ul>  --}}
                   </li>
-                  <li><a class="menu-item" href="services.html">Services</a>
+                  <li><a class="menu-item" href="{{ route('services') }}">Services</a>
                     <ul>
-                      <li><a href="service-general-dentistry.html">General Dentistry</a></li>
-                      <li><a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                      <li><a href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                      <li><a href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                      <li><a href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                      <li><a href="service-orthodontics.html">Orthodontics</a></li>
-                      <li><a href="services.html">All Services</a></li>
+                      <li><a href="{{ route('services.general') }}">General Dentistry</a></li>
+                      <li><a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a></li>
+                      <li><a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a></li>
+                      <li><a href="{{ route('services.restorative') }}">Restorative Dentistry</a></li>
+                      <li><a href="{{ route('services.preventive') }}">Preventive Dentistry</a></li>
+                      <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
+                      <li><a href="{{ route('services') }}">All Services</a></li>
                     </ul>
                   </li>
-                  <li><a class="menu-item" href="dentists.html">Dentists</a></li>
+                  <li><a class="menu-item" href="{{ route('dentists') }}">Dentists</a></li>
                   <li><a class="menu-item" href="#">Pages</a>
                     <ul>
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="faq.html">FAQ</a></li>
-                      <li><a href="gallery.html">Gallery</a></li>
-                      <li><a href="testimonials.html">Testimonials</a></li>
+                      <li><a href="{{ route('pages.about') }}about.html">About Us</a></li>
+                      <li><a href="{{ route('pages.fag') }}">FAQ</a></li>
+                      <li><a href="{{ route('pages.gallery') }}">Gallery</a></li>
+                      <li><a href="{{ route('pages.testimonials') }}">Testimonials</a></li>
                     </ul>
                   </li>
-                  <!-- <li><a class="menu-item" href="blog.html">Blog</a></li> -->
-                  <li><a class="menu-item" href="contact.html">Contact</a></li>
+                  <!-- <li><a class="menu-item" href="{{ route('pages.blog') }}">Blog</a></li> -->
+                  <li><a class="menu-item" href="{{ route('pages.contact') }}">Contact</a></li>
                 </ul>
                 <!-- mainmenu end -->
               </div>
               <div class="de-flex-col">
                 <div class="menu_side_area">
-                  <a href="booking.html" class="btn-main fx-slide"><span>Book Appointment</span></a>
+                  <a href="{{ route('pages.booking') }}" class="btn-main fx-slide"><span>Book Appointment</span></a>
                   <span id="menu-btn"></span>
                 </div>
 
@@ -117,7 +117,7 @@
             </h2>
             <div class="border-bottom my-3"></div>
             <ul class="crumb wow fadeInDown">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="{{ route('pages.home') }}">Home</a></li>
               <li class="active">Blog</li>
             </ul>
           </div>
@@ -139,13 +139,13 @@
                   Here are 10 easy tips to help you keep your smile healthy
                   and radiant.
                 </p>
-                <img src="./images/misc/l6.webp" class="w-100 mb-4 rounded-1" alt="" />
+                <img src="{{ asset('website/images/misc/l6.webp') }}" class="w-100 mb-4 rounded-1" alt="" />
 
                 <ol class="ol-style-1">
                   <li>
                     <h5>Brush Twice a Day—Properly</h5>
                     Brushing your teeth in the morning and before bed is
-                    essential. Use a soft-bristled toothbrush and fluoride
+                    essential. a soft-bristled toothbrush and fluoride
                     toothpaste. Take at least two minutes, making sure to
                     clean all surfaces of your teeth gently but thoroughly.
                   </li>
@@ -157,9 +157,9 @@
                     hard-to-reach spots.
                   </li>
                   <li>
-                    <h5>Use Mouthwash for Extra Protection</h5>
+                    <h5> Mouthwash for Extra Protection</h5>
                     An antimicrobial or fluoride mouthwash can help reduce
-                    plaque, fight bad breath, and strengthen enamel. Use it
+                    plaque, fight bad breath, and strengthen enamel.  it
                     as a finishing touch to your brushing and flossing
                     routine.
                   </li>
@@ -207,7 +207,7 @@
                   <li>
                     <h5>Protect Your Teeth</h5>
                     If you grind your teeth at night or play contact sports,
-                    use a mouthguard. This protects against unnecessary wear
+                    a mouthguard. This protects against unnecessary wear
                     or injury that can affect the look and health of your
                     smile.
                   </li>
@@ -225,7 +225,7 @@
               <ol>
                 <li>
                   <div class="avatar">
-                    <img src="images/testimonial/1.webp" alt="" />
+                    <img src="{{ asset('website/images/testimonial/1.webp') }}" alt="" />
                   </div>
                   <div class="comment-info">
                     <span class="c_name">Merrill Rayos</span>
@@ -243,7 +243,7 @@
                   <ol>
                     <li>
                       <div class="avatar">
-                        <img src="images/testimonial/2.webp" alt="" />
+                        <img src="{{ asset('website/images/testimonial/2.webp') }}" alt="" />
                       </div>
                       <div class="comment-info">
                         <span class="c_name">Jackqueline Sprang</span>
@@ -264,7 +264,7 @@
 
                 <li>
                   <div class="avatar">
-                    <img src="images/testimonial/3.webp" alt="" />
+                    <img src="{{ asset('website/images/testimonial/3.webp') }}" alt="" />
                   </div>
                   <div class="comment-info">
                     <span class="c_name">Sanford Crowley</span>
@@ -281,7 +281,7 @@
                   <ol>
                     <li>
                       <div class="avatar">
-                        <img src="images/testimonial/4.webp" alt="" />
+                        <img src="{{ asset('website/images/testimonial/4.webp') }}" alt="" />
                       </div>
                       <div class="comment-info">
                         <span class="c_name">Lyndon Pocekay</span>
@@ -302,7 +302,7 @@
 
                 <li>
                   <div class="avatar">
-                    <img src="images/testimonial/5.webp" alt="" />
+                    <img src="{{ asset('website/images/testimonial/5.webp') }}" alt="" />
                   </div>
                   <div class="comment-info">
                     <span class="c_name">Aleen Crigger</span>
@@ -362,7 +362,7 @@
               <ul class="de-bloglist-type-1">
                 <li>
                   <div class="d-image">
-                    <img src="images/blog-thumbnail/1.webp" alt="" />
+                    <img src="{{ asset('website/images/blog-thumbnail/1.webp') }}" alt="" />
                   </div>
                   <div class="d-content">
                     <a href="blog-single.html">
@@ -376,7 +376,7 @@
                 </li>
                 <li>
                   <div class="d-image">
-                    <img src="images/blog-thumbnail/2.webp" alt="" />
+                    <img src="{{ asset('website/images/blog-thumbnail/2.webp') }}" alt="" />
                   </div>
                   <div class="d-content">
                     <a href="blog-single.html">
@@ -390,7 +390,7 @@
                 </li>
                 <li>
                   <div class="d-image">
-                    <img src="images/blog-thumbnail/3.webp" alt="" />
+                    <img src="{{ asset('website/images/blog-thumbnail/3.webp') }}" alt="" />
                   </div>
                   <div class="d-content">
                     <a href="blog-single.html">
@@ -404,7 +404,7 @@
                 </li>
                 <li>
                   <div class="d-image">
-                    <img src="images/blog-thumbnail/4.webp" alt="" />
+                    <img src="{{ asset('website/images/blog-thumbnail/4.webp') }}" alt="" />
                   </div>
                   <div class="d-content">
                     <a href="blog-single.html">
@@ -448,7 +448,7 @@
     <div class="container">
       <div class="row gx-5">
         <div class="col-lg-4 col-sm-6">
-          <img src="images/logo-white.webp" class="logo-footer" alt="">
+          <img src="{{ asset('website/images/logo-white.webp') }}" class="logo-footer" alt="">
           <div class="spacer-20"></div>
           <p>At Dentia, we’re dedicated to providing high-quality, personalized dental care for patients of all ages.
             Our skilled team uses the latest technology to ensure comfortable, efficient treatments and beautiful,
@@ -468,12 +468,12 @@
               <div class="widget">
                 <h5>Company</h5>
                 <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="services.html">Our Services</a></li>
-                  <li><a href="gallery.html">Gallery</a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <!-- <li><a href="blog.html">Blog</a></li> -->
-                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="{{ route('home') }}index.html">Home</a></li>
+                  <li><a href="{{ route('services') }}services.html">Our Services</a></li>
+                  <li><a href="{{ route('pages.gallery') }}">Gallery</a></li>
+                  <li><a href="{{ route('pages.about') }}">About Us</a></li>
+                  {{--  <li><a href="blog.html">Blog</a></li>  --}}
+                  <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
               </div>
             </div>
@@ -481,12 +481,12 @@
               <div class="widget">
                 <h5>Our Services</h5>
                 <ul>
-                  <li><a href="service-general-dentistry.html">General Dentistry</a></li>
-                  <li><a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                  <li><a href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                  <li><a href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                  <li><a href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                  <li><a href="service-orthodontics.html">Orthodontics</a></li>
+                  {{--  <li><a href="{{ route('services.general') }}">General Dentistry</a></li>  --}}
+                  <li><a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a></li>
+                  <li><a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a></li>
+                  <li><a href="{{ route('services.restorative') }}">Restorative Dentistry</a></li>
+                  <li><a href="{{ route('services.preventive') }}">Preventive Dentistry</a></li>
+                  <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
                 </ul>
               </div>
             </div>
@@ -543,28 +543,28 @@
     </div>
 
     <div id="extra-content">
-      <img src="images/logo-white.webp" class="w-150px" alt="" />
+      <img src="{{ asset('website/images/logo-white.webp') }}" class="w-150px" alt="" />
 
       <div class="spacer-30-line"></div>
 
       <h5>Our Services</h5>
       <ul class="ul-check">
         <li>
-          <a href="service-general-dentistry.html">General Dentistry</a>
+          <a href="{{ route('services.general') }}">General Dentistry</a>
         </li>
         <li>
-          <a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a>
+          <a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a>
         </li>
         <li>
-          <a href="service-pediatric-dentistry.html">Pediatric Dentistry</a>
+          <a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a>
         </li>
         <li>
-          <a href="service-restorative-dentistry.html">Restorative Dentistry</a>
+          <a href="{{ route('services.restorative') }}">Restorative Dentistry</a>
         </li>
         <li>
-          <a href="service-preventive-dentistry.html">Preventive Dentistry</a>
+          <a href="{{ route('services.preventive') }}">Preventive Dentistry</a>
         </li>
-        <li><a href="service-orthodontics.html">Orthodontics</a></li>
+        <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
       </ul>
 
       <div class="spacer-30-line"></div>
@@ -620,12 +620,12 @@
   <!-- Javascript Files
     ================================================== -->
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/designesia.js"></script>
-  <script src="js/swiper.js"></script>
-  <script src="js/custom-swiper-1.js"></script>
-  <script src="js/custom-marquee.js"></script>
-  <script src="js/script.js"></script>
+  <script src="{{ asset('website/js/plugins.js') }}"></script>
+  <script src="{{ asset('website/js/designesia.js') }}"></script>
+  <script src="{{ asset('website/js/swiper.js') }}"></script>
+  <script src="{{ asset('website/js/custom-swiper-1.js') }}"></script>
+  <script src="{{ asset('website/js/custom-marquee.js') }}"></script>
+  <script src="{{ asset('website/js/script.js') }}"></script>
 </body>
 
 </html>

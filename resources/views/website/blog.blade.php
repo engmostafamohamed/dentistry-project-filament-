@@ -3,7 +3,7 @@
 
 <head>
   <title>Dentia — Rehab</title>
-  <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16" />
+  <link rel="icon" href="{{ asset('website/images/icon.webp') }}" type="image/gif" sizes="16x16" />
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta content="Dentia — Rehab" name="description" />
@@ -15,12 +15,12 @@
 
   <!-- CSS Files
     ================================================== -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap" />
-  <link href="css/plugins.css" rel="stylesheet" type="text/css" />
-  <link href="css/swiper.css" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap" />
+  <link href="{{ asset('website/css/plugins.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/style.css') }}" rel="stylesheet" type="text/css" />
   <!-- color scheme -->
-  <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" />
+  <link id="colors" href="{{ asset('website/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -40,10 +40,10 @@
                             <div class="de-flex-col">
                                 <!-- logo begin -->
                                 <div id="logo">
-                                    <a href="index.html">
-                                        <img class="logo-main" src="images/logo-black.webp" alt="" >
-                                        <img class="logo-scroll" src="images/logo-black.webp" alt="" >
-                                        <img class="logo-mobile" src="images/logo-black.webp" alt="" >
+                                    <a href="{{ route('home') }}">
+                                        <img class="logo-main" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
+                                        <img class="logo-scroll" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
+                                        <img class="logo-mobile" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
                                     </a>
                                 </div>
                                 <!-- logo end -->
@@ -51,43 +51,43 @@
                             <div class="de-flex-col header-col-mid">
                                 <!-- mainemenu begin -->
                                 <ul id="mainmenu">
-                                    <li><a class="menu-item" href="index.html">Home</a>
-                                        <!-- <ul>
-                                            <li><a href="index.html">Homepage 1</a></li>
+                                    <li><a class="menu-item" href="{{ route('home') }}">Home</a>
+                                        {{--  <ul>
+                                            <li><a href="{{ route('home') }}">Homepage 1</a></li>
                                             <li><a href="homepage-2.html">Homepage 2</a></li>
                                             <li><a href="homepage-3.html">Homepage 3</a></li>
                                             <li><a href="homepage-4.html">Homepage 4</a></li>
                                             <li><a href="homepage-5.html">Homepage 5</a></li>
-                                        </ul> -->
+                                        </ul>  --}}
                                     </li>
-                                    <li><a class="menu-item" href="services.html">Services</a>
+                                    <li><a class="menu-item" href="{{ route('services') }}">Services</a>
                                         <ul>
-                                            <li><a class="menu-item" href="service-general-dentistry.html">General Dentistry</a></li>
-                                            <li><a class="menu-item" href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                                            <li><a class="menu-item" href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                                            <li><a class="menu-item" href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                                            <li><a class="menu-item" href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                                            <li><a class="menu-item" href="service-orthodontics.html">Orthodontics</a></li>
-                                            <li><a class="menu-item" href="services.html">All Services</a></li>
+                                            {{--  <li><a class="menu-item" href="{{ route('service.general') }}">General Dentistry</a></li>  --}}
+                                            <li><a class="menu-item" href="{{ route('service.cosmetic') }}">Cosmetic Dentistry</a></li>
+                                            <li><a class="menu-item" href="{{ route('service.pediatric') }}">Pediatric Dentistry</a></li>
+                                            <li><a class="menu-item" href="{{ route('service.restorative') }}">Restorative Dentistry</a></li>
+                                            <li><a class="menu-item" href="{{ route('service.preventive') }}">Preventive Dentistry</a></li>
+                                            <li><a class="menu-item" href="{{ route('service.orthodontics') }}">Orthodontics</a></li>
+                                            <li><a class="menu-item" href="{{ route('services') }}">All Services</a></li>
                                         </ul>
                                     </li>
-                                    <li><a class="menu-item" href="dentists.html">Dentists</a></li>
+                                    <li><a class="menu-item" href="{{ route('dentists') }}">Dentists</a></li>
                                     <li><a class="menu-item" href="#">Pages</a>
                                         <ul>
-                                            <li><a class="menu-item" href="about.html">About Us</a></li>
-                                            <li><a class="menu-item" href="faq.html">FAQ</a></li>
-                                            <li><a class="menu-item" href="gallery.html">Gallery</a></li>
-                                            <li><a class="menu-item" href="testimonials.html">Testimonials</a></li>
+                                            <li><a class="menu-item" href="{{ route('pages.about') }}">About Us</a></li>
+                                            <li><a class="menu-item" href="{{ route('pages.faq') }}">FAQ</a></li>
+                                            <li><a class="menu-item" href="{{ route('pages.gallery') }}">Gallery</a></li>
+                                            <li><a class="menu-item" href="{{ route('pages.testimonials') }}">Testimonials</a></li>
                                         </ul>
                                     </li>
-                                    <!-- <li><a class="menu-item" href="blog.html">Blog</a></li> -->
-                                    <li><a class="menu-item" href="contact.html">Contact</a></li>
+                                    <!-- <li><a class="menu-item" href="{{ route('blog') }}">Blog</a></li> -->
+                                    <li><a class="menu-item" href="{{ route('contact') }}">Contact</a></li>
                                 </ul>
                                 <!-- mainmenu end -->
                             </div>
                             <div class="de-flex-col">
                                 <div class="menu_side_area">
-                                    <a class="menu-item" href="booking.html" class="btn-main fx-slide"><span>Book Appointment</span></a>
+                                    <a class="menu-item" href="{{ route('booking') }}" class="btn-main fx-slide"><span>Book Appointment</span></a>
                                     <span id="menu-btn"></span>
                                 </div>
 
@@ -114,7 +114,7 @@
               <h1 class="wow fadeInUp">Our Blog</h1>
               <div class="border-bottom my-3"></div>
               <ul class="crumb wow fadeInDown">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li class="active">Blog</li>
               </ul>
             </div>
@@ -132,7 +132,7 @@
                     <h4 class="fs-36 mb-0 lh-1">20</h4>
                     <span>Jun</span>
                   </div>
-                  <img src="images/blog/l1.webp" class="rounded-1 w-100" alt="" />
+                  <img src="{{ asset('website/images/blog/l1.webp') }}" class="rounded-1 w-100" alt="" />
                 </div>
 
                 <div class="pt-4">
@@ -143,7 +143,7 @@
                     </h4>
                   </a>
                   <div>
-                    <img src="images/testimonial/1.webp" class="w-20px me-2 circle" alt="" />
+                    <img src="{{ asset('website/images/testimonial/1.webp') }}" class="w-20px me-2 circle" alt="" />
                     <div class="d-inline fs-14 me-3">Brunilda Doniger</div>
                     <div class="d-inline fs-14">
                       <i class="fa-solid fa-tags id-color mx-2"></i>Health Care
@@ -160,7 +160,7 @@
                     <h4 class="fs-36 mb-0 lh-1">20</h4>
                     <span>Jun</span>
                   </div>
-                  <img src="images/blog/l2.webp" class="rounded-1 w-100" alt="" />
+                  <img src="{{ asset('website/images/blog/l2.webp') }}" class="rounded-1 w-100" alt="" />
                 </div>
 
                 <div class="pt-4">
@@ -171,7 +171,7 @@
                     </h4>
                   </a>
                   <div>
-                    <img src="images/testimonial/1.webp" class="w-20px me-2 circle" alt="" />
+                    <img src="{{ asset('website/images/testimonial/1.webp') }}" class="w-20px me-2 circle" alt="" />
                     <div class="d-inline fs-14 me-3">Brunilda Doniger</div>
                     <div class="d-inline fs-14">
                       <i class="fa-solid fa-tags id-color mx-2"></i>Health Care
@@ -188,7 +188,7 @@
                     <h4 class="fs-36 mb-0 lh-1">20</h4>
                     <span>Jun</span>
                   </div>
-                  <img src="images/blog/l3.webp" class="rounded-1 w-100" alt="" />
+                  <img src="{{ asset('website/images/blog/l3.webp') }}" class="rounded-1 w-100" alt="" />
                 </div>
 
                 <div class="pt-4">
@@ -199,7 +199,7 @@
                     </h4>
                   </a>
                   <div>
-                    <img src="images/testimonial/1.webp" class="w-20px me-2 circle" alt="" />
+                    <img src="{{ asset('website/images/testimonial/1.webp') }}" class="w-20px me-2 circle" alt="" />
                     <div class="d-inline fs-14 me-3">Brunilda Doniger</div>
                     <div class="d-inline fs-14">
                       <i class="fa-solid fa-tags id-color mx-2"></i>Health Care
@@ -216,7 +216,7 @@
                     <h4 class="fs-36 mb-0 lh-1">20</h4>
                     <span>Jun</span>
                   </div>
-                  <img src="images/blog/l4.webp" class="rounded-1 w-100" alt="" />
+                  <img src="{{ asset('website/images/blog/l4.webp') }}" class="rounded-1 w-100" alt="" />
                 </div>
 
                 <div class="pt-4">
@@ -227,7 +227,7 @@
                     </h4>
                   </a>
                   <div>
-                    <img src="images/testimonial/1.webp" class="w-20px me-2 circle" alt="" />
+                    <img src="{{ asset('website/images/testimonial/1.webp') }}" class="w-20px me-2 circle" alt="" />
                     <div class="d-inline fs-14 me-3">Brunilda Doniger</div>
                     <div class="d-inline fs-14">
                       <i class="fa-solid fa-tags id-color mx-2"></i>Health Care
@@ -244,18 +244,18 @@
                     <h4 class="fs-36 mb-0 lh-1">20</h4>
                     <span>Jun</span>
                   </div>
-                  <img src="images/blog/l5.webp" class="rounded-1 w-100" alt="" />
+                  <img src="{{ asset('website/images/blog/l5.webp') }}" class="rounded-1 w-100" alt="" />
                 </div>
 
                 <div class="pt-4">
                   <a href="blog-single.html">
                     <h4 class="mb-3">
-                      5 Warning Signs You May Need a Root Canal and Why It's
+                      5 Warning Signs You May Need a Root Canal and Why Its
                       Not So Bad
                     </h4>
                   </a>
                   <div>
-                    <img src="images/testimonial/1.webp" class="w-20px me-2 circle" alt="" />
+                    <img src="{{ asset('website/images/testimonial/1.webp') }}" class="w-20px me-2 circle" alt="" />
                     <div class="d-inline fs-14 me-3">Brunilda Doniger</div>
                     <div class="d-inline fs-14">
                       <i class="fa-solid fa-tags id-color mx-2"></i>Health Care
@@ -272,7 +272,7 @@
                     <h4 class="fs-36 mb-0 lh-1">20</h4>
                     <span>Jun</span>
                   </div>
-                  <img src="images/blog/l6.webp" class="rounded-1 w-100" alt="" />
+                  <img src="{{ asset('website/images/blog/l6.webp') }}" class="rounded-1 w-100" alt="" />
                 </div>
 
                 <div class="pt-4">
@@ -283,7 +283,7 @@
                     </h4>
                   </a>
                   <div>
-                    <img src="images/testimonial/1.webp" class="w-20px me-2 circle" alt="" />
+                    <img src="{{ asset('website/images/testimonial/1.webp') }}" class="w-20px me-2 circle" alt="" />
                     <div class="d-inline fs-14 me-3">Brunilda Doniger</div>
                     <div class="d-inline fs-14">
                       <i class="fa-solid fa-tags id-color mx-2"></i>Health Care
@@ -323,12 +323,12 @@
                 <div class="widget">
                   <h5>Company</h5>
                   <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Our Services</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <!-- <li><a href="blog.html">Blog</a></li> -->
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('services') }}">Our Services</a></li>
+                    <li><a href="{{ route('pages.gallery') }}">Gallery</a></li>
+                    <li><a href="{{ route('pages.about') }}">About Us</a></li>
+                    <li><a href="{{ route('blog') }}">Blog</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                   </ul>
                 </div>
               </div>
@@ -336,12 +336,12 @@
                 <div class="widget">
                   <h5>Our Services</h5>
                   <ul>
-                    <li><a href="service-general-dentistry.html">General Dentistry</a></li>
-                    <li><a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                    <li><a href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                    <li><a href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                    <li><a href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                    <li><a href="service-orthodontics.html">Orthodontics</a></li>
+                    {{--  <li><a href="{{ route('services.general') }}">General Dentistry</a></li>  --}}
+                    <li><a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a></li>
+                    <li><a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a></li>
+                    <li><a href="{{ route('services.restorative') }}">Restorative Dentistry</a></li>
+                    <li><a href="{{ route('services.preventive') }}">Preventive Dentistry</a></li>
+                    <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
                   </ul>
                 </div>
               </div>
@@ -398,28 +398,28 @@
     </div>
 
     <div id="extra-content">
-      <img src="images/logo-white.webp" class="w-150px" alt="" />
+      <img src="{{ asset('website/images/logo-white.webp') }}" class="w-150px" alt="" />
 
       <div class="spacer-30-line"></div>
 
       <h5>Our Services</h5>
       <ul class="ul-check">
+        {{--  <li>
+          <a href="{{ route('services.general') }}">General Dentistry</a>
+        </li>  --}}
         <li>
-          <a href="service-general-dentistry.html">General Dentistry</a>
+          <a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a>
         </li>
         <li>
-          <a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a>
+          <a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a>
         </li>
         <li>
-          <a href="service-pediatric-dentistry.html">Pediatric Dentistry</a>
+          <a href="{{ route('services.restorative') }}">Restorative Dentistry</a>
         </li>
         <li>
-          <a href="service-restorative-dentistry.html">Restorative Dentistry</a>
+          <a href="{{ route('services.preventive') }}">Preventive Dentistry</a>
         </li>
-        <li>
-          <a href="service-preventive-dentistry.html">Preventive Dentistry</a>
-        </li>
-        <li><a href="service-orthodontics.html">Orthodontics</a></li>
+        <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
       </ul>
 
       <div class="spacer-30-line"></div>
@@ -475,12 +475,12 @@
   <!-- Javascript Files
     ================================================== -->
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/designesia.js"></script>
-  <script src="js/swiper.js"></script>
-  <script src="js/custom-swiper-1.js"></script>
-  <script src="js/custom-marquee.js"></script>
-  <script src="js/script.js"></script>
+  <script src="{{ asset('website/js/plugins.js') }}"></script>
+  <script src="{{ asset('website/js/designesia.js') }}"></script>
+  <script src="{{ asset('website/js/swiper.js') }}"></script>
+  <script src="{{ asset('website/js/custom-swiper-1.js') }}"></script>
+  <script src="{{ asset('website/js/custom-marquee.js') }}"></script>
+  <script src="{{ asset('website/js/script.js') }}"></script>
 </body>
 
 </html>
