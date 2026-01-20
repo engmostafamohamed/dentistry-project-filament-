@@ -28,5 +28,11 @@ class Guest extends Model
     public function service() {
         return $this->belongsTo(Service::class);
     }
+    public function reservations() {
+        return $this->hasMany(Reservation::class);
+    }
+    public function treatments() {
+        return $this->hasMany(Treatment::class);
+    }
 
 }

@@ -21,6 +21,7 @@ class GuestResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
 
     protected static ?string $recordTitleAttribute = 'name';
+
     public static function getNavigationGroup(): ?string
     {
         return __('filament-language-switcher::guests.guests');
@@ -30,6 +31,7 @@ class GuestResource extends Resource
     {
         return __('filament-language-switcher::guests.guestsListTitle');
     }
+
     public static function form(Schema $schema): Schema
     {
         return GuestForm::configure($schema);
@@ -46,6 +48,7 @@ class GuestResource extends Resource
             //
         ];
     }
+
     public static function getPages(): array
     {
         return [

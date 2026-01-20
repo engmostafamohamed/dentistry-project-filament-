@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sections', function (Blueprint $table) {
+
             $table->id();
             $table->foreignId('page_id')->constrained()->onDelete('cascade');
             $table->string('key')->nullable(); // optional unique key (like 'hero', 'team')
             $table->string('type')->default('custom'); // hero, team, points, doctor, etc.
-
+            
             // Translatable fields
             $table->json('header')->nullable();
             $table->json('title')->nullable();
