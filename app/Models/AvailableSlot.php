@@ -7,6 +7,7 @@ use Carbon\Carbon;
 class AvailableSlot extends Model
 {
     protected $fillable = [
+        'doctor_id',
         'day_name',
         'day_of_week',
         'date',
@@ -20,6 +21,10 @@ class AvailableSlot extends Model
         'is_blocked',
         'note',
     ];
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
     protected $casts = [
         'date' => 'date',
         'opening_time' => 'datetime:H:i:s',
@@ -43,9 +48,7 @@ class AvailableSlot extends Model
         }
         return null;
     }
-
-
-        // Get all available days within next X days
+    // Get all available days within next X days
     public static function getAvailableDays($daysCount = 30)
     {
         $start = Carbon::today();

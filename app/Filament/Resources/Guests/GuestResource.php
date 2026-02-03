@@ -31,6 +31,7 @@ class GuestResource extends Resource
     {
         return __('filament-language-switcher::guests.guestsListTitle');
     }
+    
 
     public static function form(Schema $schema): Schema
     {

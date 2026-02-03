@@ -32,7 +32,9 @@ class Service extends Model
 
         return $primary ?? $fallback ?? '-';
     }
-
-
+    public function doctors()
+    {
+        return $this->belongsToMany(Doctor::class, 'doctor_services');
+    }
 
 }
