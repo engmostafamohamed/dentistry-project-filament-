@@ -9,50 +9,76 @@ use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Columns\ViewColumn;
+use Filament\Tables\Columns\BadgeColumn;
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
+use Illuminate\Support\Str;
+
 class StaffTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->label('Name')
-                    ->sortable()
+
+                // Photo + Name + Specialty — use real 'name' column so search/sort works
+                ViewColumn::make('name')
+                    ->label(__('Name'))
+                    ->view('filament.tables.columns.staff-info')
                     ->searchable()
-                    ->description(fn($record) => $record->position['en'] ?? '')
-                    ->icon('heroicon-o-user'),
-                TextColumn::make('email')
-                    ->label('Contact')
-                    ->icon('heroicon-o-envelope')
-                    ->copyable(),
-                TextColumn::make('availableSlots')
-                    ->label('Working Days')
-                    ->formatStateUsing(fn($record) => collect($record->availableSlots)->pluck('day_name')->join(', ')),
-                TextColumn::make('services_count')
-                    ->counts('services')
-                    ->label('Assigned Treatments'),
-                // TextColumn::make('type')
-                //     ->badge()
-                //     ->color(fn($state) => $state === 'full-time' ? 'success' : 'warning'),
+                    ->sortable(),
+
+                // Contact info — use real 'phone' column as anchor
+                ViewColumn::make('phone')
+                    ->label(__('Contact'))
+                    ->view('filament.tables.columns.contact')
+                    ->searchable(),
+
+                // Working days — use relationship name as anchor
+                ViewColumn::make('availableSlots')
+                    ->label(__('Working Days'))
+                    ->view('filament.tables.columns.working-days'),
+
+                // Assigned Treatments
+                TextColumn::make('services_list')
+                    ->label(__('Assigned Treatments'))
+                    ->getStateUsing(fn($record) =>
+                        collect($record->services)->pluck('title')->take(2)->join(', ') .
+                        (collect($record->services)->count() > 2
+                            ? ' +' . (collect($record->services)->count() - 2)
+                            : '')
+                    )
+                    ->tooltip(fn($record) => collect($record->services)->pluck('title')->join(', '))
+                    ->wrap(),
+
+                // Type Badge — TextColumn with ->badge() replaces deprecated BadgeColumn in Filament v3
+                TextColumn::make('type')
+                    ->label(__('Type'))
+                    ->badge()
+                    ->color(fn($state) => match (strtolower($state ?? '')) {
+                        'full-time' => 'success',
+                        'part-time' => 'warning',
+                        default     => 'gray',
+                    })
+                    ->formatStateUsing(fn($state) => Str::headline($state ?? 'part-time')),
             ])
             ->filters([
                 TrashedFilter::make(),
-            ])->actions([
+            ])
+            ->actions([
                 EditAction::make(),
                 DeleteAction::make(),
             ])
-            ->recordActions([
-                EditAction::make(),
-            ])
-            ->toolbarActions([
+            ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                     ForceDeleteBulkAction::make(),
                     RestoreBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->paginated([10, 25, 50])
+            ->defaultSort('name');
+
     }
 }

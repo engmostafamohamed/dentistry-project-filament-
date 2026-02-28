@@ -20,4 +20,10 @@ class EditStaff extends EditRecord
             RestoreAction::make(),
         ];
     }
+
+    protected function getRedirectUrl(): string
+    {
+        // Redirect to the staff table (index page) after creating
+        return $this->getResource()::getUrl('index');
+    }
 }

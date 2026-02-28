@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OfferRequest;
 use App\DTOs\OfferDTO;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Models\Guest;
 use Illuminate\Support\Facades\Log;
 
