@@ -24,10 +24,32 @@ class ServiceResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'title';
 
+    public static function getNavigationGroup(): ?string
+    {
+        return __('filament-language-switcher::services.services');
+    }
+    public static function getNavigationLabel(): string
+    {
+        return __('filament-language-switcher::services.servicesListTitle');
+    }
+    public static function getLabel(): string
+    {
+        return __('filament-language-switcher::services.service');
+    }
+    public static function getPluralLabel(): string
+    {
+        return __('filament-language-switcher::services.services');
+    }
+    public static function singularLabel(): string
+    {
+        return __('filament-language-switcher::services.service');
+    }
+
     public static function form(Schema $schema): Schema
     {
         return ServiceForm::configure($schema);
     }
+
 
     public static function table(Table $table): Table
     {

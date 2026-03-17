@@ -17,6 +17,7 @@ class Service extends Model
         'is_active' => 'boolean',
     ];
 
+    public $translatable = ['title', 'description'];
     public function offers()
     {
         return $this->belongsToMany(Offer::class);

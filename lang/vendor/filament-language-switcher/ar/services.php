@@ -1,0 +1,79 @@
+<?php
+
+return [
+    'service' => 'خدمة',
+    'services' => 'الخدمات',
+    'servicesListTitle' => 'قائمة الخدمات',
+    'serviceInformation' => 'معلومات الخدمة',
+    'basicInformation' => 'المعلومات الأساسية',
+    'multilingualContent' => 'المحتوى متعدد اللغات',
+    'enterBasicServiceDetails' => 'أدخل التفاصيل الأساسية للخدمة',
+    'quickTip' => 'نصيحة سريعة',
+    'serviceImageTip' => 'استخدم صورة مربعة (500×500 بكسل) للحصول على أفضل النتائج',
+    'serviceName' => 'اسم الخدمة',
+    'serviceNameEn' => 'اسم الخدمة (إنجليزي)',
+    'serviceNameAr' => 'اسم الخدمة (عربي)',
+    'description' => 'الوصف',
+    'descriptionEn' => 'الوصف (إنجليزي)',
+    'descriptionAr' => 'الوصف (عربي)',
+    'image' => 'الصورة',
+    'serviceImage' => 'صورة الخدمة',
+    'uploadImage' => 'تحميل الصورة',
+    'isActive' => 'نشط',
+    'activeStatus' => 'حالة النشاط',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
+    'assignedDoctors' => 'الأطباء المعينون',
+    'assignedOffers' => 'العروض المعينة',
+    'createdAt' => 'تاريخ الإنشاء',
+    'updatedAt' => 'تاريخ التحديث',
+    'assignDoctors' => 'تعيين الأطباء',
+    'assignOffers' => 'تعيين العروض',
+
+    // Actions
+    'createService' => 'إنشاء خدمة جديدة',
+    'editService' => 'تعديل الخدمة',
+    'deleteService' => 'حذف الخدمة',
+    'viewService' => 'عرض الخدمة',
+
+    // Counts
+    'doctor' => 'طبيب',
+    'doctors' => 'أطباء',
+    'offer' => 'عرض',
+    'offers' => 'عروض',
+    'more' => 'المزيد',
+    'noDoctorsAssigned' => 'لا يوجد أطباء معينون',
+    'noOffersAssigned' => 'لا يوجد عروض معينة',
+
+    // Filters
+    'allServices' => 'جميع الخدمات',
+    'activeOnly' => 'النشطة فقط',
+    'inactiveOnly' => 'غير النشطة فقط',
+
+    // Form helpers
+    'enterServiceDetailsInMultipleLanguages' => 'أدخل تفاصيل الخدمة بلغات متعددة',
+    'selectDoctorsWhoProvideService' => 'اختر الأطباء الذين يقدمون هذه الخدمة',
+    'linkServiceToPromotionalOffers' => 'ربط هذه الخدمة بالعروض الترويجية',
+    'enableOrDisableService' => 'تفعيل أو تعطيل هذه الخدمة',
+    'uploadServiceImageMaxSize' => 'تحميل صورة الخدمة (الحد الأقصى 2 ميجابايت، JPG/PNG)',
+    'chooseWhichDoctorsCanPerformService' => 'اختر الأطباء الذين يمكنهم تقديم هذه الخدمة',
+    'chooseWhichOffersIncludeService' => 'اختر العروض التي تشمل هذه الخدمة',
+    'searchAndSelectDoctors' => 'البحث واختيار الأطباء',
+    'searchAndSelectOffers' => 'البحث واختيار العروض',
+    'enterServiceNameInEnglish' => 'أدخل اسم الخدمة باللغة الإنجليزية',
+    'enterServiceNameInArabic' => 'أدخل اسم الخدمة باللغة العربية',
+    'describeServiceInEnglish' => 'وصف الخدمة باللغة الإنجليزية',
+    'describeServiceInArabic' => 'وصف الخدمة باللغة العربية',
+    'untitled' => 'بدون عنوان',
+
+    // Validation messages
+    'validation' => [
+        'serviceNameEnRequired' => 'اسم الخدمة باللغة الإنجليزية مطلوب',
+        'serviceNameMax' => 'لا يمكن أن يتجاوز اسم الخدمة 255 حرفًا',
+        'descriptionMax' => 'لا يمكن أن يتجاوز الوصف 1000 حرف',
+        'imageRequired' => 'صورة الخدمة مطلوبة',
+        'imageInvalid' => 'يجب أن تكون الصورة من نوع صورة صالح (JPG, PNG)',
+        'imageMaxSize' => 'يجب ألا يتجاوز حجم الصورة 2 ميجابايت',
+        'required' => 'هذا الحقل مطلوب',
+    ],
+];
