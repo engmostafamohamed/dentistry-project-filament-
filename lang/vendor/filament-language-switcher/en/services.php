@@ -29,12 +29,21 @@ return [
     'updatedAt' => 'Updated At',
     'assignDoctors' => 'Assign Doctors',
     'assignOffers' => 'Assign Offers',
+    'searchAndSelectDoctors' => 'Search and select doctors',
+    'searchAndSelectOffers' => 'Search and select offers',
+    'imagePreview' => 'Image Preview',
 
     // Actions
     'createService' => 'Create New Service',
     'editService' => 'Edit Service',
     'deleteService' => 'Delete Service',
     'viewService' => 'View Service',
+    'currentPhoto'       => 'Current Photo',
+    'removeCurrentImage' => 'Remove Current Image',
+    'removeImageConfirm' => 'Are you sure you want to remove this image?',
+    'removing'           => 'Removing...',
+    'noImageUploadedYet' => 'No image uploaded yet',
+    'uploadImageToSeePreview' => 'Upload an image using the uploader',
 
     // Counts
     'doctor' => 'Doctor',

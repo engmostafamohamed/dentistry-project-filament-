@@ -29,29 +29,13 @@ class ServicesTable
                     ->label(__('filament-language-switcher::services.serviceName'))
                     ->searchable()
                     ->sortable()
-                    ->getStateUsing(function($record) {
-
-                        $title = is_array($record->title) ? $record->title : json_decode($record->title, true);
-                        if (!is_array($title)) return '-';
-
-                        $locale = substr(app()->getLocale(), 0, 2);
-                        $primary = $title[$locale] ?? null;
-                        $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
-
-                        return $primary ?? $fallback ?? '-';
-                    })
+                    ->getStateUsing(fn($record) => $record->getTranslatedTitle())
                     ->weight('semibold'),
                 //service description
                 TextColumn::make('description')
                     ->label(__('filament-language-switcher::services.description'))
                     ->limit(50)
-                    ->getStateUsing(function ($record) {
-                        $locale = app()->getLocale();
-                        $description = is_array($record->description)
-                            ? $record->description
-                            : json_decode($record->description, true);
-                        return $description[$locale] ?? $description['en'] ?? '';
-                    })
+                    ->getStateUsing(fn($record) => $record->getTranslatedDescription())
                     ->tooltip(function ($record) {
                         $locale = app()->getLocale();
                         $description = is_array($record->description)
@@ -70,7 +54,6 @@ class ServicesTable
                     ->falseIcon('heroicon-o-x-circle')
                     ->trueColor('success')
                     ->falseColor('danger')
-                    ->searchable()
                     ->sortable(),
 
                 // assigned doctors count and list

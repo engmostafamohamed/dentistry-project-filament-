@@ -15,14 +15,23 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Support\Htmlable;
 class ServiceResource extends Resource
 {
     protected static ?string $model = Service::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'title';
+    // protected static ?string $recordTitleAttribute = 'title';
+    public static function getRecordTitle(Model | null $record): string | Htmlable | null
+    {
+        if (!$record) {
+            return null;
+        }
+
+        return $record->getTranslatedTitle();
+    }
 
     public static function getNavigationGroup(): ?string
     {

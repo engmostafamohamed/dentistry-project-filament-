@@ -29,12 +29,21 @@ return [
     'updatedAt' => 'تاريخ التحديث',
     'assignDoctors' => 'تعيين الأطباء',
     'assignOffers' => 'تعيين العروض',
+    'searchAndSelectDoctors' => 'البحث واختيار الأطباء',
+    'searchAndSelectOffers' => 'البحث واختيار العروض',
 
     // Actions
     'createService' => 'إنشاء خدمة جديدة',
     'editService' => 'تعديل الخدمة',
     'deleteService' => 'حذف الخدمة',
     'viewService' => 'عرض الخدمة',
+    'currentPhoto'       => 'الصورة الحالية',
+    'removeCurrentImage' => 'حذف الصورة الحالية',
+    'removeImageConfirm' => 'هل أنت متأكد أنك تريد حذف هذه الصورة؟',
+    'removing'           => 'جارٍ الحذف...',
+    'noImageUploadedYet' => 'لم يتم رفع صورة بعد',
+    'uploadImageToSeePreview' => 'ارفع صورة باستخدام أداة التحميل',
+    'imagePreview' => 'معاينة الصورة',
 
     // Counts
     'doctor' => 'طبيب',
@@ -55,7 +64,7 @@ return [
     'selectDoctorsWhoProvideService' => 'اختر الأطباء الذين يقدمون هذه الخدمة',
     'linkServiceToPromotionalOffers' => 'ربط هذه الخدمة بالعروض الترويجية',
     'enableOrDisableService' => 'تفعيل أو تعطيل هذه الخدمة',
-    'uploadServiceImageMaxSize' => 'تحميل صورة الخدمة (الحد الأقصى 2 ميجابايت، JPG/PNG)',
+    'uploadServiceImageMaxSize' => 'تحميل صورة الخدمة (الحد الأقصى 50 ميجابايت، JPG/PNG)',
     'chooseWhichDoctorsCanPerformService' => 'اختر الأطباء الذين يمكنهم تقديم هذه الخدمة',
     'chooseWhichOffersIncludeService' => 'اختر العروض التي تشمل هذه الخدمة',
     'searchAndSelectDoctors' => 'البحث واختيار الأطباء',

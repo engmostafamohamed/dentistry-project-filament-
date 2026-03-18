@@ -22,10 +22,21 @@ class Service extends Model
     {
         return $this->belongsToMany(Offer::class);
     }
-    public function getTitleAttribute($value): string
+    public function doctors()
     {
-        $title = is_array($value) ? $value : json_decode($value, true);
-        if (!is_array($title)) return '-';
+        return $this->belongsToMany(Doctor::class, 'doctor_services');
+    }
+
+        /**
+     * Get translated title for display (NOT as accessor)
+     */
+    public function getTranslatedTitle(): string
+    {
+        $title = $this->title;
+
+        if (!is_array($title)) {
+            return '-';
+        }
 
         $locale = substr(app()->getLocale(), 0, 2);
         $primary = $title[$locale] ?? null;
@@ -33,9 +44,31 @@ class Service extends Model
 
         return $primary ?? $fallback ?? '-';
     }
-    public function doctors()
+
+    /**
+     * Get translated description for display
+     */
+    public function getTranslatedDescription(): string
     {
-        return $this->belongsToMany(Doctor::class, 'doctor_services');
+        $description = $this->description;
+
+        if (!is_array($description)) {
+            return '';
+        }
+
+        $locale = substr(app()->getLocale(), 0, 2);
+        $primary = $description[$locale] ?? null;
+        $fallback = $locale === 'ar' ? ($description['en'] ?? null) : ($description['ar'] ?? null);
+
+        return $primary ?? $fallback ?? '';
+    }
+
+    /**
+     * Get image URL
+     */
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/' . $this->image) : null;
     }
 
 }

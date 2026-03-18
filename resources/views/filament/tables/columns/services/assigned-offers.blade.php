@@ -31,7 +31,7 @@
         </div>
     @else
         <span style="font-size:12px; color:#9ca3af; font-style:italic;">
-            {{ __('No offers assigned') }}
+            {{ __('filament-language-switcher::services.noOffersAssigned') }}
         </span>
     @endif
 </div>
