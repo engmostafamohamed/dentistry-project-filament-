@@ -31,6 +31,7 @@ return [
     'assignOffers' => 'تعيين العروض',
     'searchAndSelectDoctors' => 'البحث واختيار الأطباء',
     'searchAndSelectOffers' => 'البحث واختيار العروض',
+    'servicesAndOffers' => 'الخدمات والعروض',
 
     // Actions
     'createService' => 'إنشاء خدمة جديدة',

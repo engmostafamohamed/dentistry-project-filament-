@@ -12,6 +12,7 @@ use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+
 use Filament\Tables\Table;
 
 class AvailableSlotResource extends Resource

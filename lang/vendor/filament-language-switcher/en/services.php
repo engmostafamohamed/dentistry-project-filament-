@@ -32,6 +32,7 @@ return [
     'searchAndSelectDoctors' => 'Search and select doctors',
     'searchAndSelectOffers' => 'Search and select offers',
     'imagePreview' => 'Image Preview',
+    'servicesAndOffers' => 'Services & Offers',
 
     // Actions
     'createService' => 'Create New Service',

@@ -35,7 +35,7 @@ class ServiceResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('filament-language-switcher::services.services');
+        return __('filament-language-switcher::services.servicesAndOffers');
     }
     public static function getNavigationLabel(): string
     {
