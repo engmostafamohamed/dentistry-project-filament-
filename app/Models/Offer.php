@@ -40,60 +40,44 @@ class Offer extends Model
         return $this->expires_at && $this->expires_at->isPast();
     }
 
-    // public function getTitleAttribute($value): string
-    // {
-    //     $title = json_decode($value, true);
-    //     if (!is_array($title)) return '-';
-
-    //     $locale = app()->getLocale();
-    //     $primary = $title[$locale] ?? null;
-    //     $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
-
-    //     return $primary ?? $fallback ?? '-';
-    // }
-    // public function getTitleAttribute($value): string
-    // {
-    //     $title = json_decode($value, true);
-    //     if (!is_array($title)) return '-';
-
-    //     $locale = substr(app()->getLocale(), 0, 2);
-    //     $primary = $title[$locale] ?? null;
-    //     $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
-
-    //     return $primary ?? $fallback ?? '-';
-    // }
-
-    public function getTitleAttribute($value): string
+    public function getTranslatedTitle(): string
     {
-        // Laravel sometimes casts or passes JSON as string, so handle both
-        $title = is_array($value) ? $value : json_decode($value, true);
+        $title = $this->title;
 
         if (!is_array($title)) {
             return '-';
         }
 
-        // Normalize locale (e.g., en_US → en)
         $locale = substr(app()->getLocale(), 0, 2);
-
-        // Pick correct translation
         $primary = $title[$locale] ?? null;
-        $fallback = $locale === 'ar'
-            ? ($title['en'] ?? null)
-            : ($title['ar'] ?? null);
+        $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
 
         return $primary ?? $fallback ?? '-';
     }
-    // public function getTitleAttribute($value): string
-    // {
-    //     $title = is_array($value) ? $value : json_decode($value, true);
-    //     if (!is_array($title)) return '-';
 
-    //     $locale = substr(app()->getLocale(), 0, 2);
-    //     $primary = $title[$locale] ?? null;
-    //     $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
+    /**
+     * Get translated description for display
+     */
+    public function getTranslatedDescription(): string
+    {
+        $description = $this->description;
 
-    //     return $primary ?? $fallback ?? '-';
-    // }
+        if (!is_array($description)) {
+            return '';
+        }
 
+        $locale = substr(app()->getLocale(), 0, 2);
+        $primary = $description[$locale] ?? null;
+        $fallback = $locale === 'ar' ? ($description['en'] ?? null) : ($description['ar'] ?? null);
 
+        return $primary ?? $fallback ?? '';
+    }
+
+    /**
+     * Get image URL
+     */
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/' . $this->image) : null;
+    }
 }
