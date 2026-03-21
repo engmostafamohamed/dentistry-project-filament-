@@ -2,7 +2,7 @@
 namespace App\DTOs;
 
 use App\Http\Requests\OfferRequest;
-
+use Carbon\Carbon;
 class OfferDTO
 {
     public function __construct(
@@ -15,10 +15,23 @@ class OfferDTO
         public readonly string $country,
         public readonly string $region,
         public readonly ?string $message,
+        public readonly ?string $booking_at,
     ) {}
 
     public static function fromRequest(OfferRequest $request): self
     {
+
+        $bookingAt = null;
+
+        if ($request->filled(['date', 'time'])) {
+            try {
+                $bookingAt = Carbon::createFromFormat('Y-m-d H:i', $request->input('date') . ' ' . $request->input('time'))
+                    ->format('Y-m-d H:i:s');
+            } catch (\Exception $e) {
+                $bookingAt = null;
+            }
+        }
+
         return new self(
             name: $request->input('name'),
             phone: $request->input('phone'),
@@ -29,6 +42,7 @@ class OfferDTO
             country: $request->input('country'),
             region: $request->input('region'),
             message: $request->input('message'),
+            booking_at: $bookingAt,
         );
     }
 
@@ -43,6 +57,7 @@ class OfferDTO
             'service_id'  => $this->service_id,
             'address'     => "{$this->region}, {$this->country}",
             'description' => $this->message,
+            'booking_at'  => $this->booking_at,
             'status'      => 'new', // default status
         ];
     }

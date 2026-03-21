@@ -1,0 +1,35 @@
+<?php
+
+return [
+    'calendar' => 'التقويم',
+    'availableSlotsListTitle' => 'قائمة المواعيد المتاحة',
+    'no_avaliable_slots' => 'لا توجد مواعيد متاحة',
+    'day_name' => 'اليوم',
+    'specific_date' => 'التاريخ المحدد',
+    'type' => 'النوع',
+    'opening_time' => 'من (وقت الفتح)',
+    'closing_time' => 'إلى (وقت الإغلاق)',
+    'max_bookings' => 'أقصى عدد للحجوزات',
+    'is_active' => 'نشط',
+    'is_blocked' => 'محظور',
+    'notes' => 'ملاحظات',
+    'helper_recurring' => 'اتركه فارغًا إذا كان هذا اليوم يتكرر أسبوعيًا.',
+    'helper_day' => 'اختر اليوم الذي تعمل فيه هذه المواعيد.',
+    'date' => 'التاريخ',
+    'current_bookings' => 'الحجوزات الحالية',
+    'types' => [
+        'normal' => 'يوم عمل عادي',
+        'off' => 'يوم إجازة',
+        'holiday' => 'عطلة رسمية',
+    ],
+    'day' => 'اليوم',
+    'days' => [
+        'Monday' => 'الاثنين',
+        'Tuesday' => 'الثلاثاء',
+        'Wednesday' => 'الأربعاء',
+        'Thursday' => 'الخميس',
+        'Friday' => 'الجمعة',
+        'Saturday' => 'السبت',
+        'Sunday' => 'الأحد',
+    ],
+];

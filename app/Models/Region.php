@@ -15,6 +15,11 @@ class Region extends Model
     {
         return $this->belongsTo(Country::class);
     }
+    public function getNameAttribute(): string
+    {
+        $locale = app()->getLocale();
+        return $locale === 'ar' ? $this->name_ar : $this->name_en;
+    }
     public function branches()
     {
         return $this->hasMany(Branch::class);

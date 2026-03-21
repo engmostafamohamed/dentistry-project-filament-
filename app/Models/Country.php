@@ -15,5 +15,19 @@ class Country extends Model
     {
         return $this->hasMany(Region::class);
     }
+    
+    public function getNameAttribute(): string
+    {
+        $locale = app()->getLocale();
+
+        // Use dynamic column based on locale
+        $primary = $this->{'name_' . $locale} ?? null;
+
+        // Fallback to the other language
+        $fallback = $locale === 'ar' ? ($this->name_en ?? null) : ($this->name_ar ?? null);
+
+        // Return primary, fallback, or '-' if both are null/empty
+        return $primary ?: ($fallback ?: '-');
+    }
 }
 

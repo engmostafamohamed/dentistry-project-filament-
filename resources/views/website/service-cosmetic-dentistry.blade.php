@@ -3,7 +3,7 @@
 
 <head>
     <title>Dentia — Rehab</title>
-    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ asset('website/images/icon.webp') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Dentia — Rehab" name="description">
@@ -14,12 +14,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Files
     ================================================== -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="css/plugins.css" rel="stylesheet" type="text/css">
-    <link href="css/swiper.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('website/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="{{ asset('website/css/plugins.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('website/css/style.css') }}" rel="stylesheet" type="text/css">
     <!-- color scheme -->
-    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    <link id="colors" href="{{ asset('website/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -40,10 +40,10 @@
                             <div class="de-flex-col">
                                 <!-- logo begin -->
                                 <div id="logo">
-                                    <a href="index.html">
-                                        <img class="logo-main" src="images/logo-black.webp" alt="" >
-                                        <img class="logo-scroll" src="images/logo-black.webp" alt="" >
-                                        <img class="logo-mobile" src="images/logo-black.webp" alt="" >
+                                    <a href="{{ route('home') }}">
+                                        <img class="logo-main" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
+                                        <img class="logo-scroll" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
+                                        <img class="logo-mobile" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
                                     </a>
                                 </div>
                                 <!-- logo end -->
@@ -51,36 +51,36 @@
                             <div class="de-flex-col header-col-mid">
                                 <!-- mainemenu begin -->
                                 <ul id="mainmenu">
-                                <li><a class="menu-item" href="index.html" data-i18n="home">Home</a>
+                                <li><a class="menu-item" href="{{ route('home') }}" data-i18n="home">Home</a>
                                 </li>
-                                <li><a class="menu-item" href="services.html" data-i18n="services">Services</a>
+                                <li><a class="menu-item" href="{{ route('services') }}" data-i18n="services">Services</a>
                                     <ul>
-                                    <!-- <li><a class="menu-item" href="service-general-dentistry.html" data-i18n="general">General Dentistry</a></li> -->
-                                    <li><a class="menu-item" href="service-cosmetic-dentistry.html" data-i18n="cosmetic">Cosmetic
+                                   {{--  <li><a class="menu-item" href="{{ route('services.general') }}" data-i18n="general">General Dentistry</a></li>  --}}
+                                    <li><a class="menu-item" href="{{ route('services.cosmetic') }}" data-i18n="cosmetic">Cosmetic
                                         Dentistry</a></li>
-                                    <li><a class="menu-item" href="service-pediatric-dentistry.html" data-i18n="pediatric">Pediatric
+                                    <li><a class="menu-item" href="{{ route('services.pediatric') }}" data-i18n="pediatric">Pediatric
                                         Dentistry</a></li>
-                                    <li><a class="menu-item" href="service-restorative-dentistry.html"
+                                    <li><a class="menu-item" href="{{ route('services.restorative') }}"
                                         data-i18n="restorative">Restorative Dentistry</a></li>
-                                    <li><a class="menu-item" href="service-preventive-dentistry.html"
+                                    <li><a class="menu-item" href="{{ route('services.preventive') }}"
                                         data-i18n="preventive">Preventive Dentistry</a></li>
-                                    <li><a class="menu-item" href="service-orthodontics.html"
+                                    <li><a class="menu-item" href="{{ route('services.orthodontics') }}"
                                         data-i18n="orthodontics">Orthodontics</a></li>
-                                    <!-- <li><a class="menu-item" href="services.html" data-i18n="all_services">All Services</a></li> -->
+                                    {{--  <li><a class="menu-item" href="{{ route('services.orthodontics') }}" data-i18n="all_services">All Services</a></li>  --}}
                                     </ul>
                                 </li>
-                                <li><a class="menu-item" href="dentists.html" data-i18n="dentists">Dentists</a></li>
+                                <li><a class="menu-item" href="{{ route('dentists') }}" data-i18n="dentists">Dentists</a></li>
                                 <li><a class="menu-item" href="#" data-i18n="pages">Pages</a>
                                     <ul>
-                                    <li><a href="about.html" data-i18n="about_us">About Us</a></li>
-                                    <li><a href="faq.html" data-i18n="faq">FAQ</a></li>
-                                    <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
-                                    <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
+                                    <li><a href="{{ route('pages.about') }}" data-i18n="about_us">About Us</a></li>
+                                    <li><a href="{{ route('pages.faq') }}" data-i18n="faq">FAQ</a></li>
+                                    <li><a href="{{ route('pages.gallery') }}" data-i18n="gallery">Gallery</a></li>
+                                    <!-- <li><a href="{{ route('pages.testimonials') }}" data-i18n="testimonials">Testimonials</a></li> -->
                                     </ul>
                                 </li>
-                                <!-- <li><a class="menu-item" href="blog.html" data-i18n="blog">Blog</a></li> -->
-                                <li><a class="menu-item" href="contact.html" data-i18n="contact">Contact</a></li>
-                                <li><a class="menu-item" href="booking.html" data-i18n="book_appointment">Book Appointment</a></li>
+                                <!-- <li><a class="menu-item" href="{{ route('blog') }}" data-i18n="blog">Blog</a></li> -->
+                                <li><a class="menu-item" href="{{ route('contact') }}" data-i18n="contact">Contact</a></li>
+                                <li><a class="menu-item" href="{{ route('booking') }}" data-i18n="book_appointment">Book Appointment</a></li>
                                 </ul>
                                 <!-- mainmenu end -->
                             </div>
@@ -121,7 +121,7 @@
                             <h1 class="wow fadeInUp"data-i18n="cosmetic">Cosmetic Dentistry</h1>
                             <div class="border-bottom my-3"></div>
                             <ul class="crumb wow fadeInDown">
-                                <li><a href="index.html" data-i18n="home">Home</a></li>
+                                <li><a href="{{ route('home') }}" data-i18n="home">Home</a></li>
                                 <li class="active" data-i18n="cosmetic">Cosmetic Dentistry</li>
                             </ul>
                         </div>
@@ -135,7 +135,7 @@
                         <div class="col-lg-7">
                             <div class="relative">
                                 <div class="w-100 pe-5 pb-5 wow scaleIn">
-                                    <img src="images/misc/l2.webp" class="w-100 rounded-1" alt="">
+                                    <img src="{{ asset('website/images/misc/l2.webp')}}" class="w-100 rounded-1" alt="">
                                 </div>
                                 <div class="bg-color rounded-1 text-light w-50 p-4 abs end-0 bottom-0 z-2 soft-shadow wow scaleIn"
                                     data-wow-delay=".2s" alt="">
@@ -189,7 +189,7 @@
                         <div class="col-lg-8 text-center">
                             <div class="subtitle wow fadeInUp mb-3" data-i18n="cosmetic_title">Cosmetic Dentistry</div>
                             <h2 class="wow fadeInUp" data-wow-delay=".2s"  data-i18n="cosmetic_details_title">Cosmetic Treatments We Offer</h2>
-                       
+
                         </div>
                     </div>
 
@@ -200,7 +200,7 @@
                                     <h4 data-i18n="title_offer_one">Teeth Whitening</h4>
                                     <p class="mb-0" data-i18n="description_offer_one">Brighten your smile safely with professional whitening that works in
                                         just one visit.</p>
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -214,7 +214,7 @@
                                     <p class="mb-0" data-i18n="description_offer_two">Ultra-thin porcelain shells that cover imperfections and create a
                                         flawless smile.</p>
 
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -227,7 +227,7 @@
                                     <h4 data-i18n="title_offer_three">Cosmetic Bonding</h4>
                                     <p class="mb-0" data-i18n="description_offer_three">An affordable way to repair chips, cracks, and small gaps using
                                         tooth-colored resin.</p>
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -241,7 +241,7 @@
                                     <p class="mb-0" data-i18n="description_offer_four">A customized combination of treatments to fully transform and
                                         enhance your smile.</p>
 
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -254,7 +254,7 @@
                                     <h4 data-i18n="title_offer_five">Tooth Contouring</h4>
                                     <p class="mb-0" data-i18n="description_offer_five">Refine tooth shape and smooth rough edges for a more symmetrical,
                                         balanced smile.</p>
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -267,7 +267,7 @@
                                     <h4 data-i18n="title_offer_six">Gum Contouring</h4>
                                     <p class="mb-0" data-i18n="description_offer_six">Reshape your gum line to correct a gummy smile and improve symmetry.
                                     </p>
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -280,7 +280,7 @@
                                     <h4 data-i18n="title_offer_seven">Invisalign & Clear Aligners</h4>
                                     <p class="mb-0" data-i18n="description_offer_seven">Straighten teeth discreetly with clear aligners—no brackets or wires
                                         needed.</p>
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -293,7 +293,7 @@
                                     <h4 data-i18n="title_offer_eight"> Metal-Free Crowns</h4>
                                     <p class="mb-0" data-i18n="description_offer_eight">Restore damaged teeth with all-ceramic crowns that blend seamlessly
                                         with your smile.</p>
-                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='booking.html'">
+                                    <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="window.location.href='{{ route('booking') }}'">
                                         <span data-i18n="request_service"></span>
                                     </button>
                                 </div>
@@ -429,7 +429,7 @@
                                 healthier smile.</p>
                         </div>
                         <div class="col-lg-3 text-lg-end">
-                            <a class="btn-main fx-slide btn-line" href="booking.html"><span data-i18n="book_appointment">Book Appointment</span></a>
+                            <a class="btn-main fx-slide btn-line" href="{{ route('booking') }}"><span data-i18n="book_appointment">Book Appointment</span></a>
                         </div>
                     </div>
                 </div>
@@ -442,7 +442,7 @@
             <div class="container">
                 <div class="row gx-5">
                     <div class="col-lg-4 col-sm-6">
-                        <img src="images/logo-white.webp" class="logo-footer" alt="">
+                        <img src="{{ asset('website/images/logo-white.webp')}}" class="logo-footer" alt="">
                         <div class="spacer-20"></div>
                         <p data-i18n="logo_description">At Dentia, we’re dedicated to providing high-quality, personalized dental care for patients of all ages. Our skilled team uses the latest technology to ensure comfortable, efficient treatments and beautiful, healthy smiles for life.</p>
 
@@ -459,13 +459,13 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="widget">
                                     <h5 data-i18n="company">Company</h5>
-                                    <ul>                                        
-                                        <li><a href="index.html" data-i18n="home">Home</a></li>
-                                        <li><a href="services.html" data-i18n="our_service">Our Services</a></li>
-                                        <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
-                                        <li><a href="about.html" data-i18n="about_us">About Us</a></li>
+                                    <ul>
+                                        <li><a href="{{ route('home') }}" data-i18n="home">Home</a></li>
+                                        <li><a href="{{ route('services') }}" data-i18n="our_service">Our Services</a></li>
+                                        <li><a href="{{ route('pages.gallery') }}" data-i18n="gallery">Gallery</a></li>
+                                        <li><a href="{{ route('pages.about') }}" data-i18n="about_us">About Us</a></li>
                                         <!-- <li><a href="blog.html" data-i18n="blog">Blog</a></li> -->
-                                        <li><a href="contact.html" data-i18n="contact">Contact</a></li>
+                                        <li><a href="{{ route('contact') }}" data-i18n="contact">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -473,12 +473,12 @@
                                 <div class="widget">
                                     <h5 data-i18n="our_service">Our Services</h5>
                                     <ul>
-                                        <li><a href="service-general-dentistry.html" data-i18n="general">General Dentistry</a></li>
-                                        <li><a href="service-cosmetic-dentistry.html" data-i18n="cosmetic">Cosmetic Dentistry</a></li>
-                                        <li><a href="service-pediatric-dentistry.html" data-i18n="pediatric">Pediatric Dentistry</a></li>
-                                        <li><a href="service-restorative-dentistry.html" data-i18n="restorative">Restorative Dentistry</a></li>
-                                        <li><a href="service-preventive-dentistry.html" data-i18n="preventive">Preventive Dentistry</a></li>
-                                        <li><a href="service-orthodontics.html" data-i18n="orthodontics">Orthodontics</a></li>
+                                        {{--  <li><a href="{{ route('services.general') }}" data-i18n="general">General Dentistry</a></li>  --}}
+                                        <li><a href="{{ route('services.cosmetic') }}" data-i18n="cosmetic">Cosmetic Dentistry</a></li>
+                                        <li><a href="{{ route('services.pediatric') }}" data-i18n="pediatric">Pediatric Dentistry</a></li>
+                                        <li><a href="{{ route('services.restorative') }}" data-i18n="restorative">Restorative Dentistry</a></li>
+                                        <li><a href="{{ route('services.preventive') }}" data-i18n="preventive">Preventive Dentistry</a></li>
+                                        <li><a href="{{ route('services.orthodontics') }}" data-i18n="orthodontics">Orthodontics</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -534,18 +534,18 @@
         </div>
 
         <div id="extra-content">
-            <img src="images/logo-white.webp" class="w-150px" alt="">
+            <img src="{{ asset('website/images/logo-white.webp') }}" class="w-150px" alt="">
 
             <div class="spacer-30-line"></div>
 
             <h5>Our Services</h5>
             <ul class="ul-check">
-                <li><a href="service-general-dentistry.html">General Dentistry</a></li>
-                <li><a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                <li><a href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                <li><a href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                <li><a href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                <li><a href="service-orthodontics.html">Orthodontics</a></li>
+                {{--  <li><a href="{{ route('services.general') }}">General Dentistry</a></li>  --}}
+                <li><a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a></li>
+                <li><a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a></li>
+                <li><a href="{{ route('services.restorative') }}">Restorative Dentistry</a></li>
+                <li><a href="{{ route('services.preventive') }}">Preventive Dentistry</a></li>
+                <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
             </ul>
 
             <div class="spacer-30-line"></div>
@@ -593,12 +593,12 @@
     <!-- Javascript Files
     ================================================== -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script>
-    <script src="js/swiper.js"></script>
-    <script src="js/custom-swiper-1.js"></script>
-    <script src="js/custom-marquee.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{ asset('website/js/plugins.js') }}"></script>
+    <script src="{{ asset('website/js/designesia.js') }}"></script>
+    <script src="{{ asset('website/js/swiper.js') }}"></script>
+    <script src="{{ asset('website/js/custom-swiper-1.js') }}"></script>
+    <script src="{{ asset('website/js/custom-marquee.js') }}"></script>
+    <script src="{{ asset('website/js/script.js') }}"></script>
 </body>
 
 </html>

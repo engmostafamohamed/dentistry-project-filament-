@@ -39,4 +39,45 @@ class Offer extends Model
     {
         return $this->expires_at && $this->expires_at->isPast();
     }
+
+    public function getTranslatedTitle(): string
+    {
+        $title = $this->title;
+
+        if (!is_array($title)) {
+            return '-';
+        }
+
+        $locale = substr(app()->getLocale(), 0, 2);
+        $primary = $title[$locale] ?? null;
+        $fallback = $locale === 'ar' ? ($title['en'] ?? null) : ($title['ar'] ?? null);
+
+        return $primary ?? $fallback ?? '-';
+    }
+
+    /**
+     * Get translated description for display
+     */
+    public function getTranslatedDescription(): string
+    {
+        $description = $this->description;
+
+        if (!is_array($description)) {
+            return '';
+        }
+
+        $locale = substr(app()->getLocale(), 0, 2);
+        $primary = $description[$locale] ?? null;
+        $fallback = $locale === 'ar' ? ($description['en'] ?? null) : ($description['ar'] ?? null);
+
+        return $primary ?? $fallback ?? '';
+    }
+
+    /**
+     * Get image URL
+     */
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/' . $this->image) : null;
+    }
 }

@@ -58,35 +58,35 @@
                                 <div class="de-flex-col header-col-mid">
                                     <!-- mainemenu begin -->
                                     <ul id="mainmenu">
-                                        <li><a class="menu-item" href="index.html"data-i18n="home">Home</a></li>
-                                        <li><a class="menu-item" href="services.html"data-i18n="services">Services</a>
+                                        <li><a class="menu-item" href="{{ route('home') }}"data-i18n="home">Home</a></li>
+                                        <li><a class="menu-item" href="{{ route('services') }}"data-i18n="services">Services</a>
                                             <ul>
-                                                <!-- <li><a class="menu-item" href="service-general-dentistry.html" data-i18n="general">General Dentistry</a></li> -->
-                                                <li><a class="menu-item" href="service-cosmetic-dentistry.html" data-i18n="cosmetic">Cosmetic Dentistry</a></li>
-                                                <li><a class="menu-item" href="service-pediatric-dentistry.html" data-i18n="pediatric">Pediatric Dentistry</a></li>
-                                                <li><a class="menu-item" href="service-restorative-dentistry.html" data-i18n="restorative">Restorative Dentistry</a></li>
-                                                <li><a class="menu-item" href="service-preventive-dentistry.html" data-i18n="preventive">Preventive Dentistry</a></li>
-                                                <li><a class="menu-item" href="service-orthodontics.html" data-i18n="orthodontics">Orthodontics</a></li>
-                                                <!-- <li><a class="menu-item" href="services.html" data-i18n="all_services">All Services</a></li> -->
+                                                {{--  <li><a class="menu-item" href="{{ route('services.general') }}" data-i18n="general">General Dentistry</a></li>  --}}
+                                                <li><a class="menu-item" href="{{ route('services.cosmetic') }}" data-i18n="cosmetic">Cosmetic Dentistry</a></li>
+                                                <li><a class="menu-item" href="{{ route('services.pediatric') }}" data-i18n="pediatric">Pediatric Dentistry</a></li>
+                                                <li><a class="menu-item" href="{{ route('services.restorative') }}" data-i18n="restorative">Restorative Dentistry</a></li>
+                                                <li><a class="menu-item" href="{{ route('services.preventive') }}" data-i18n="preventive">Preventive Dentistry</a></li>
+                                                <li><a class="menu-item" href="{{ route('services.orthodontics') }}" data-i18n="orthodontics">Orthodontics</a></li>
+                                                {{--  <li><a class="menu-item" href="services.html" data-i18n="all_services">All Services</a></li>  --}}
                                             </ul>
                                         </li>
-                                        <li><a class="menu-item" href="dentists.html"data-i18n="dentists">Dentists</a></li>
+                                        <li><a class="menu-item" href="{{ route('dentists') }}"data-i18n="dentists">Dentists</a></li>
                                         <li><a class="menu-item" href="#" data-i18n="pages">Pages</a>
                                             <ul>
-                                                <li><a class="menu-item" href="about.html"data-i18n="about_us">About Us</a></li>
-                                                <li><a class="menu-item" href="faq.html"data-i18n="faq">FAQ</a></li>
-                                                <li><a class="menu-item" href="gallery.html"data-i18n="gallery">Gallery</a></li>
+                                                <li><a class="menu-item" href="{{ route('pages.about') }}"data-i18n="about_us">About Us</a></li>
+                                                <li><a class="menu-item" href="{{ route('pages.faq') }}"data-i18n="faq">FAQ</a></li>
+                                                <li><a class="menu-item" href="{{ route('pages.gallery') }}"data-i18n="gallery">Gallery</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li><a class="menu-item" href="blog.html"data-i18n="blog">Blog</a></li> -->
-                                        <li><a class="menu-item" href="contact.html"data-i18n="contact">Contact</a></li>
-                                        <li><a class="menu-item" href="booking.html"data-i18n="book_appointment">Book Appointment</a></li>
+                                        <!-- <li><a class="menu-item" href=""data-i18n="blog">Blog</a></li> -->
+                                        <li><a class="menu-item" href="{{ route('contact') }}"data-i18n="contact">Contact</a></li>
+                                        <li><a class="menu-item" href="{{ route('booking') }}"data-i18n="book_appointment">Book Appointment</a></li>
                                     </ul>
                                     <!-- mainmenu end -->
                                 </div>
                                 <!-- <div class="de-flex-col">
                                     <div class="menu_side_area">
-                                        <a href="booking.html" class="btn-main"><span>Book Appointment</span></a>
+                                        <a href="{{ route('booking') }}" class="btn-main"><span>Book Appointment</span></a>
                                         <span id="menu-btn"></span>
                                     </div>
                                 </div> -->
@@ -136,7 +136,7 @@
                                     <h1 class="wow fadeInUp" data-wow-delay=".2s"data-i18n="brand_title">Transforming Smiles With Precision And Gentle Touch</h1>
                                     <p class="col-lg-10 wow fadeInUp" data-wow-delay=".4s"data-i18n="brand_description">We offer high-quality dental care tailored for the whole family. From routine checkups to advanced treatments, our compassionate team ensures your smile stays healthy and confident.</p>
 
-                                    <a class="btn-main mb10 mb-3 wow fadeInUp" data-wow-delay=".6s" href="booking.html"><span data-i18n="book_appointment">Book Appointment</span></a>
+                                    <a class="btn-main mb10 mb-3 wow fadeInUp" data-wow-delay=".6s" href="{{ route('booking') }}"><span data-i18n="book_appointment">Book Appointment</span></a>
 
                                         <div class="border-bottom my-3"></div>
 
@@ -402,7 +402,7 @@
                                 <li data-i18n="about_us_option_4">Flexible Appointment Scheduling</li>
                               </ul>
 
-                              <a class="btn-main fx-slide wow fadeInUp" data-wow-delay=".8s" href="booking.html"data-i18n="book_appointment"><span>Book Appointment</span></a>
+                              <a class="btn-main fx-slide wow fadeInUp" data-wow-delay=".8s" href="{{ route('booking') }}"data-i18n="book_appointment"><span>Book Appointment</span></a>
                           </div>
                     </div>
                   </div>
@@ -430,7 +430,7 @@
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4 data-i18n="general">General Dentistry</h4>
                                         <p data-i18n="general_description">Complete oral care for every smile with cleanings, exams, and more.</p>
-                                        <a class="btn-plus" href="service-general-dentistry.html">
+                                        <a class="btn-plus" href="{{ route('services.general') }}">
                                             <i class="fa fa-plus"></i>
                                             <span data-i18n="read_more">Read more</span>
                                         </a>
@@ -446,7 +446,7 @@
                                     <div class="relative mt-4 wow fadeInUp">
                                         <h4 data-i18n="cosmetic">Cosmetic Dentistry</h4>
                                         <p data-i18n="cosmetic_description">Enhance your smile’s beauty with whitening, veneers, and more.</p>
-                                        <a class="btn-plus" href="service-cosmetic-dentistry.html">
+                                        <a class="btn-plus" href="{{ route('services.cosmetic') }}">
                                             <i class="fa fa-plus"></i>
                                             <span data-i18n="read_more">Read more</span>
                                         </a>
@@ -488,9 +488,8 @@
                         </div>
 
                         <div class="col-lg-12 mt-5 text-center">
-                            <a class="btn-main fx-slide" href="services.html"><span data-i18n="view_all_services">View All Services</span></a>
+                            <a class="btn-main fx-slide" href="{{ route('services') }}"><span data-i18n="view_all_services">View All Services</span></a>
                         </div>
-
 
                     </div>
                 </div>
@@ -903,12 +902,12 @@
                                 <div class="widget">
                                     <h5 data-i18n="company">Company</h5>
                                     <ul>
-                                        <li><a href="index.html" data-i18n="home">Home</a></li>
-                                        <li><a href="services.html" data-i18n="our_service">Our Services</a></li>
-                                        <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
-                                        <li><a href="about.html" data-i18n="about_us">About Us</a></li>
-                                        <!-- <li><a href="blog.html" data-i18n="blog">Blog</a></li> -->
-                                        <li><a href="contact.html" data-i18n="contact">Contact</a></li>
+                                        <li><a href="{{ route('home') }}" data-i18n="home">Home</a></li>
+                                        <li><a href="{{ route('services') }}" data-i18n="our_service">Our Services</a></li>
+                                        <li><a href="{{ route('pages.gallery') }}" data-i18n="gallery">Gallery</a></li>
+                                        <li><a href="{{ route('pages.about') }}" data-i18n="about_us">About Us</a></li>
+                                        <li><a href="{{ route('blog') }}" data-i18n="blog">Blog</a></li>
+                                        <li><a href="{{ route('contact') }}" data-i18n="contact">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -916,12 +915,12 @@
                                 <div class="widget">
                                     <h5 data-i18n="our_service">Our Services</h5>
                                     <ul>
-                                        <li><a href="service-general-dentistry.html" data-i18n="general">General Dentistry</a></li>
-                                        <li><a href="service-cosmetic-dentistry.html" data-i18n="cosmetic">Cosmetic Dentistry</a></li>
-                                        <li><a href="service-pediatric-dentistry.html" data-i18n="pediatric">Pediatric Dentistry</a></li>
-                                        <li><a href="service-restorative-dentistry.html" data-i18n="restorative">Restorative Dentistry</a></li>
-                                        <li><a href="service-preventive-dentistry.html" data-i18n="preventive">Preventive Dentistry</a></li>
-                                        <li><a href="service-orthodontics.html" data-i18n="orthodontics">Orthodontics</a></li>
+                                        {{--  <li><a href="{{ route('services.general') }}" data-i18n="general">General Dentistry</a></li>  --}}
+                                        <li><a href="{{ route('services.cosmetic') }}" data-i18n="cosmetic">Cosmetic Dentistry</a></li>
+                                        <li><a href="{{ route('services.pediatric') }}" data-i18n="pediatric">Pediatric Dentistry</a></li>
+                                        <li><a href="{{ route('services.restorative') }}" data-i18n="restorative">Restorative Dentistry</a></li>
+                                        <li><a href="{{ route('services.preventive') }}" data-i18n="preventive">Preventive Dentistry</a></li>
+                                        <li><a href="{{ route('services.orthodontics') }}" data-i18n="orthodontics">Orthodontics</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -983,12 +982,12 @@
 
             <h5>Our Services</h5>
             <ul class="ul-check">
-                <li><a href="service-general-dentistry.html">General Dentistry</a></li>
-                <li><a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                <li><a href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                <li><a href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                <li><a href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                <li><a href="service-orthodontics.html">Orthodontics</a></li>
+                <li><a href="{{ route('services.general') }}">General Dentistry</a></li>
+                <li><a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a></li>
+                <li><a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a></li>
+                <li><a href="{{ route('services.restorative') }}">Restorative Dentistry</a></li>
+                <li><a href="{{ route('services.preventive') }}">Preventive Dentistry</a></li>
+                <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
             </ul>
 
             <div class="spacer-30-line"></div>
@@ -1073,11 +1072,11 @@
                                     <select name="offer_id" id="service" class="form-control" required>
                                         <option disabled selected value>{{ __('Select Offer') }}</option>
                                         @foreach ($offers as $offer)
-                                            <option value="{{ $offer->id }}">
-                                                {{ app()->getLocale() === 'ar' ? $offer->title['ar'] : $offer->title['en'] }}
-                                            </option>
+                                            <option value="{{ $offer->id }}">{{ $offer->title }}</option>
                                         @endforeach
                                     </select>
+
+
                                     <i class="absolute top-0 id-color pt-3 pe-3 fa-solid fa-angle-down"></i>
                                 </div>
                             </div>
@@ -1107,7 +1106,7 @@
                                 <div class="relative">
                                     <select name="time" id="time" class="form-control" required >
                                         <option disabled selected value data-i18n="select_time">Select Time</option>
-                                        <option value="10:00">10:00</option>
+                                        {{--  <option value="10:00">10:00</option>
                                         <option value="11:00">11:00</option>
                                         <option value="12:00">12:00</option>
                                         <option value="13:00">13:00</option>
@@ -1117,7 +1116,7 @@
                                         <option value="17:00">17:00</option>
                                         <option value="18:00">18:00</option>
                                         <option value="19:00">19:00</option>
-                                        <option value="20:00">20:00</option>
+                                        <option value="20:00">20:00</option>  --}}
                                     </select>
                                     <i class="absolute top-0 id-color pt-3 pe-3 fa-solid fa-angle-down"></i>
                                 </div>
@@ -1190,15 +1189,90 @@
     <!-- Scroll Styling -->
 
     <script>
+
+        {{--  const workingDays = @json($workingDays);  --}}
+        const timeSelect = document.getElementById('time');
+        const dateInput = document.getElementById('appointmentDate');
+
+        // Calendar setup
+        const workingDays = @json($workingDays);          // recurring weekly days
+        const extraWorkingDates = @json($extraWorkingDates);
+        const holidayDates = @json($holidayDates);
+
+        flatpickr("#appointmentDate", {
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            maxDate: new Date().fp_incr(30),
+            disable: [
+                function(date) {
+                    const jsDay = date.getDay(); // JS 0=Sun
+                    const dayIso = jsDay === 0 ? 7 : jsDay;
+                    {{--  const formatted = date.toISOString().split('T')[0];  --}}
+                    const formatted = date.toLocaleDateString('en-CA');
+
+                    // If explicitly a holiday/off → disable
+                    if (holidayDates.includes(formatted)) return true;
+
+                    // If explicitly marked as working (override) → enable
+                    if (extraWorkingDates.includes(formatted)) return false;
+
+                    // Otherwise, follow recurring weekly pattern
+                    return !workingDays.includes(dayIso);
+                }
+            ],
+        });
+
+        // Load hours when date changes
+        dateInput.addEventListener('change', function() {
+            const selectedDate = this.value;
+            timeSelect.innerHTML = '<option disabled selected value>Select Time</option>';
+
+            $.ajax({
+                url: '{{ route('available.times') }}',
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    date: selectedDate
+                },
+                success: function(response) {
+                    if (response.times && response.times.length > 0) {
+                        response.times.forEach(slot => {
+                            const opt = document.createElement('option');
+                            opt.value = slot.time;
+                            opt.textContent = slot.time;
+                            if (slot.disabled) {
+                                opt.disabled = true;
+                                opt.textContent += ' (Full)';
+                            }
+                            timeSelect.appendChild(opt);
+                        });
+                    } else {
+                        const opt = document.createElement('option');
+                        opt.textContent = 'No available hours';
+                        opt.disabled = true;
+                        timeSelect.appendChild(opt);
+                    }
+                },
+                error: function() {
+                    const opt = document.createElement('option');
+                    opt.textContent = 'Error loading hours';
+                    opt.disabled = true;
+                    timeSelect.appendChild(opt);
+                }
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             <!-- datepicker begin -->
 
-            flatpickr("#date input.form-control", {
+            {{--  flatpickr("#date input.form-control", {
                 altInput: true,
                 altFormat: "F j, Y",
                 dateFormat: "Y-m-d",
                 minDate: "today"
-            });
+            });  --}}
 
             <!-- datepicker close -->
 
@@ -1219,10 +1293,9 @@
                     (language === 'ar' ? 'اختر العرض' : 'Select Offer') + '</option>';
                 offersData.forEach(offer => {
                     const opt = document.createElement('option');
-                    // offer.title is stored as JSON: {"en": "...", "ar": "..."}
-                    const title = offer.title[language] ?? offer.title['en'];
                     opt.value = offer.id;
-                    opt.textContent = title;
+                    // offer.title is already a localized string
+                    opt.textContent = offer.title;
                     offerSelect.appendChild(opt);
                 });
             }
@@ -1298,6 +1371,7 @@
 
             observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
         });
+
     </script>
 
 

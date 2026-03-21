@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
-            $table->json('position')->nullable();
-            $table->json('qualification')->nullable();
-            $table->json('certifications')->nullable();
-            $table->json('awards')->nullable();
-            $table->json('photo')->nullable();
-            $table->json('bio')->nullable();
+            $table->string('name');
+            
+            $table->string('position')->nullable();
+            $table->string('qualification')->nullable();
+            $table->string('certifications')->nullable();
+            $table->string('awards')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('bio')->nullable();
             $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('set null');
             $table->boolean('is_active')->default(true);
             $table->softDeletes();

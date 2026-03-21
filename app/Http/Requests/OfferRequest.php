@@ -20,8 +20,10 @@ class OfferRequest extends FormRequest
             'doctor_id'  => ['nullable', 'exists:doctors,id'],
             // 'offer_id'   => ['nullable', 'exists:offers,id'],
             'service_id' => ['nullable', 'exists:services,id'],
-            'country' => ['required', 'exists:countries,id'],
-            'region' => ['required', 'exists:regions,id'],
+            'country'    => ['required', 'exists:countries,id'],
+            'region'     => ['required', 'exists:regions,id'],
+            'date'       => ['required', 'date', 'after_or_equal:today'],
+            'time'       => ['required', 'date_format:H:i'],
             'message'    => ['nullable', 'string', 'max:1000'],
         ];
     }
@@ -43,6 +45,11 @@ class OfferRequest extends FormRequest
             'country.in'         => $lang === 'ar' ? 'الدولة غير صحيحة' : 'Invalid country',
             'region.required'    => $lang === 'ar' ? 'المنطقة مطلوبة' : 'Region is required',
             'region.max'         => $lang === 'ar' ? 'المنطقة طويلة جداً' : 'Region is too long',
+            'date.required'      => $lang === 'ar' ? 'تاريخ الحجز مطلوب' : 'Booking date is required',
+            'date.date'          => $lang === 'ar' ? 'تاريخ الحجز غير صحيح' : 'Invalid booking date',
+            'date.after_or_equal'=> $lang === 'ar' ? 'تاريخ الحجز يجب أن يكون اليوم أو بعده' : 'Booking date must be today or later',
+            'time.required'      => $lang === 'ar' ? 'الوقت مطلوب' : 'Booking time is required',
+            'time.date_format'   => $lang === 'ar' ? 'تنسيق الوقت غير صحيح' : 'Invalid time format',
             'message.max'        => $lang === 'ar' ? 'الرسالة طويلة جداً' : 'Message is too long',
         ];
     }

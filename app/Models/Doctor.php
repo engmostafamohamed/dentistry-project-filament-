@@ -9,16 +9,33 @@ class Doctor extends Model
 {
     use SoftDeletes;
     use HasTranslations;
-    protected $fillable = ['name' ,'position','qualification','photo','certifications','awards','bio','branch_id'];
+    protected $fillable = ['name' ,'photo','phone','email','address','position','qualification','photo','certifications','awards','bio','branch_id','is_active'];
     protected $casts = [
-        'certifications' => 'array',
-        'awards' => 'array',
+
+        'is_active'=>'boolean',
     ];
-    public $translatable = ['name','position', 'qualification', 'bio'];
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'doctor_services');
+    }
     public function branch(){
         return $this->belongsTo(Branch::class);
+    }
+    public function availableSlots()
+    {
+        return $this->hasMany(AvailableSlot::class);
     }
     public function guests(){
         return $this->hasMany(Guest::class);
     }
+    public function getNameAttribute($value): string
+    {
+        return $value ?: '-';
+    }
+    public function getPhotoUrlAttribute()
+    {
+        return $this->photo ? asset('storage/' . $this->photo) : null;
+    }
+    
 }

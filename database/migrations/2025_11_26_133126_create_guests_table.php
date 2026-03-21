@@ -18,11 +18,14 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->text('description')->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
+            $table->unsignedTinyInteger('age')->nullable();
             $table->enum('status', ['new', 'cancelled', 'paid'])->default('new');
             $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('set null');
             $table->foreignId('doctor_id')->nullable()->constrained('doctors')->onDelete('set null');
             $table->foreignId('offer_id')->nullable()->constrained('offers')->onDelete('set null');
             $table->foreignId('service_id')->nullable()->constrained('services')->onDelete('set null');
+            $table->enum('source', ['website', 'admin'])->default('admin');
             $table->softDeletes();
             $table->timestamps();
         });

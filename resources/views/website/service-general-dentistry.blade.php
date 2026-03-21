@@ -3,7 +3,7 @@
 
 <head>
   <title>Dentia — Rehab</title>
-  <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16" />
+  <link rel="icon" href="{{ asset('website/images/icon.webp')}}" type="image/gif" sizes="16x16" />
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta content="Dentia — Rehab" name="description" />
@@ -14,12 +14,12 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- CSS Files
     ================================================== -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap" />
-  <link href="css/plugins.css" rel="stylesheet" type="text/css" />
-  <link href="css/swiper.css" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap" />
+  <link href="{{ asset('website/css/plugins.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/swiper.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('website/css/style.css')}}" rel="stylesheet" type="text/css" />
   <!-- color scheme -->
-  <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" />
+  <link id="colors" href="{{ asset('website/css/colors/scheme-01.css')}}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -39,10 +39,10 @@
                             <div class="de-flex-col">
                                 <!-- logo begin -->
                                 <div id="logo">
-                                    <a href="index.html">
-                                        <img class="logo-main" src="images/logo-black.webp" alt="" >
-                                        <img class="logo-scroll" src="images/logo-black.webp" alt="" >
-                                        <img class="logo-mobile" src="images/logo-black.webp" alt="" >
+                                    <a href="{{ route('home') }}">
+                                        <img class="logo-main" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
+                                        <img class="logo-scroll" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
+                                        <img class="logo-mobile" src="{{ asset('website/images/logo-black.webp') }}" alt="" >
                                     </a>
                                 </div>
                                 <!-- logo end -->
@@ -50,43 +50,43 @@
                             <div class="de-flex-col header-col-mid">
                                 <!-- mainemenu begin -->
                                 <ul id="mainmenu">
-                                    <li><a class="menu-item" href="index.html">Home</a>
-                                        <!-- <ul>
+                                    <li><a class="menu-item" href="{{ route('home') }}">Home</a>
+                                        {{--  <ul>
                                             <li><a href="index.html">Homepage 1</a></li>
                                             <li><a href="homepage-2.html">Homepage 2</a></li>
                                             <li><a href="homepage-3.html">Homepage 3</a></li>
                                             <li><a href="homepage-4.html">Homepage 4</a></li>
                                             <li><a href="homepage-5.html">Homepage 5</a></li>
-                                        </ul> -->
+                                        </ul>  --}}
                                     </li>
-                                    <li><a class="menu-item" href="services.html">Services</a>
+                                    <li><a class="menu-item" href="{{ route('services') }}">Services</a>
                                         <ul>
-                                            <li><a href="service-general-dentistry.html">General Dentistry</a></li>
-                                            <li><a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                                            <li><a href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                                            <li><a href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                                            <li><a href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                                            <li><a href="service-orthodontics.html">Orthodontics</a></li>
-                                            <li><a href="services.html">All Services</a></li>
+                                            <li><a href="{{ route('services.general') }}">General Dentistry</a></li>
+                                            <li><a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a></li>
+                                            <li><a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a></li>
+                                            <li><a href="{{ route('services.restorative') }}">Restorative Dentistry</a></li>
+                                            <li><a href="{{ route('services.preventive') }}">Preventive Dentistry</a></li>
+                                            <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
+                                            <li><a href="{{ route('services.all') }}">All Services</a></li>
                                         </ul>
                                     </li>
-                                    <li><a class="menu-item" href="dentists.html">Dentists</a></li>
+                                    <li><a class="menu-item" href="{{ route('dentists') }}">Dentists</a></li>
                                     <li><a class="menu-item" href="#">Pages</a>
                                         <ul>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                            <li><a href="gallery.html">Gallery</a></li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
+                                            <li><a href="{{ route('pages.about') }}">About Us</a></li>
+                                            <li><a href="{{ route('pages.faq') }}">FAQ</a></li>
+                                            <li><a href="{{ route('pages.gallery') }}">Gallery</a></li>
+                                            <li><a href="{{ route('pages.testimonials') }}">Testimonials</a></li>
                                         </ul>
                                     </li>
-                                    <!-- <li><a class="menu-item" href="blog.html">Blog</a></li> -->
-                                    <li><a class="menu-item" href="contact.html">Contact</a></li>
+                                    <!-- <li><a class="menu-item" href="{{ route('blog') }}">Blog</a></li> -->
+                                    <li><a class="menu-item" href="{{ route('pages.contact') }}">Contact</a></li>
                                 </ul>
                                 <!-- mainmenu end -->
                             </div>
                             <div class="de-flex-col">
                                 <div class="menu_side_area">
-                                    <a href="booking.html" class="btn-main fx-slide"><span>Book Appointment</span></a>
+                                    <a href="{{ route('booking') }}" class="btn-main fx-slide"><span>Book Appointment</span></a>
                                     <span id="menu-btn"></span>
                                 </div>
 
@@ -106,20 +106,20 @@
     <div class="no-bottom no-top" id="content">
       <div id="top"></div>
 
-      <section id="subheader" class="bg-color-op-1 text-center">
+      {{--  <section id="subheader" class="bg-color-op-1 text-center">
         <div class="container relative z-2">
           <div class="row align-items-center">
             <div class="col-lg-12">
               <h1 class="wow fadeInUp">General Dentistry</h1>
               <div class="border-bottom my-3"></div>
               <ul class="crumb wow fadeInDown">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{ route('booking') }}">Home</a></li>
                 <li class="active">General Dentistry</li>
               </ul>
             </div>
           </div>
         </div>
-      </section>
+      </section>  --}}
 
       <section>
         <div class="container">
@@ -127,9 +127,9 @@
             <div class="col-lg-6">
               <div class="relative">
                 <div class="w-100 pe-5 pb-5 wow scaleIn">
-                  <img src="images/misc/l1.webp" class="w-100 rounded-1" alt="" />
+                  <img src="{{ asset('website/images/misc/l1.webp') }}" class="w-100 rounded-1" alt="" />
                 </div>
-                <img src="images/misc/s1.webp" class="w-40 rounded-1 abs end-0 bottom-0 z-2 soft-shadow wow scaleIn"
+                <img src="{{ asset('website/images/misc/s1.webp') }}" class="w-40 rounded-1 abs end-0 bottom-0 z-2 soft-shadow wow scaleIn"
                   data-wow-delay=".2s" alt="" />
               </div>
             </div>
@@ -144,7 +144,7 @@
                 <p class="mb-0 wow fadeInUp" data-wow-delay=".6s">
                   Our general dentistry services focus on the prevention,
                   diagnosis, and treatment of a wide range of oral health
-                  issues. Whether you're coming in for a routine check-up or
+                  issues. Whether youre coming in for a routine check-up or
                   seeking relief from dental pain, our experienced team is
                   here to help you maintain a healthy, confident smile.
                 </p>
@@ -338,7 +338,7 @@
               </p>
             </div>
             <div class="col-lg-3 text-lg-end">
-              <a class="btn-main fx-slide btn-line" href="booking.html"><span>Book Appointment</span></a>
+              <a class="btn-main fx-slide btn-line" href="{{ route('booking') }}"><span>Book Appointment</span></a>
             </div>
           </div>
         </div>
@@ -351,7 +351,7 @@
             <div class="container">
                 <div class="row gx-5">
                     <div class="col-lg-4 col-sm-6">
-                        <img src="images/logo-white.webp" class="logo-footer" alt="" >
+                        <img src="{{ asset('website/images/logo-white.webp') }}" class="logo-footer" alt="" >
                         <div class="spacer-20"></div>
                         <p>At Dentia, we’re dedicated to providing high-quality, personalized dental care for patients of all ages. Our skilled team uses the latest technology to ensure comfortable, efficient treatments and beautiful, healthy smiles for life.</p>
 
@@ -368,7 +368,7 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="widget">
                                     <h5>Company</h5>
-                                    <ul>                                        
+                                    <ul>
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="services.html">Our Services</a></li>
                                         <li><a href="gallery.html">Gallery</a></li>
@@ -407,7 +407,7 @@
                             <div class="spacer-20"></div>
 
                             <div class="fw-bold text-white"><i class="me-2 fa-solid fa-envelope me-2 id-color"></i>Send a Message</div>
-                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593a36372d383a2d193d3c372d30383a382b3c773a3634">[email&#160;protected]</a>                            
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593a36372d383a2d193d3c372d30383a382b3c773a3634">[email&#160;protected]</a>
                         </div>
                     </div>
                 </div>
@@ -441,28 +441,28 @@
     </div>
 
     <div id="extra-content">
-      <img src="images/logo-white.webp" class="w-150px" alt="" />
+      <img src="{{ asset('website/images/logo-white.webp') }}" class="w-150px" alt="" />
 
       <div class="spacer-30-line"></div>
 
       <h5>Our Services</h5>
       <ul class="ul-check">
         <li>
-          <a href="service-general-dentistry.html">General Dentistry</a>
+          <a href="{{ route('service-general-dentistry') }}">General Dentistry</a>
         </li>
         <li>
-          <a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a>
+          <a href="{{ route('service-cosmetic-dentistry') }}">Cosmetic Dentistry</a>
         </li>
         <li>
-          <a href="service-pediatric-dentistry.html">Pediatric Dentistry</a>
+          <a href="{{ route('service-pediatric-dentistry') }}">Pediatric Dentistry</a>
         </li>
         <li>
-          <a href="service-restorative-dentistry.html">Restorative Dentistry</a>
+          <a href="{{ route('service-restorative-dentistry') }}">Restorative Dentistry</a>
         </li>
         <li>
-          <a href="service-preventive-dentistry.html">Preventive Dentistry</a>
+          <a href="{{ route('service-preventive-dentistry') }}">Preventive Dentistry</a>
         </li>
-        <li><a href="service-orthodontics.html">Orthodontics</a></li>
+        <li><a href="{{ route('service-orthodontics') }}">Orthodontics</a></li>
       </ul>
 
       <div class="spacer-30-line"></div>
@@ -518,12 +518,12 @@
   <!-- Javascript Files
     ================================================== -->
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/designesia.js"></script>
-  <script src="js/swiper.js"></script>
-  <script src="js/custom-swiper-1.js"></script>
-  <script src="js/custom-marquee.js"></script>
-  <script src="js/script.js"></script>
+  <script src="{{ asset('website/js/plugins.js') }}"></script>
+  <script src="{{ asset('website/js/designesia.js') }}"></script>
+  <script src="{{ asset('website/js/swiper.js') }}"></script>
+  <script src="{{ asset('website/js/custom-swiper-1.js') }}"></script>
+  <script src="{{ asset('website/js/custom-marquee.js') }}"></script>
+  <script src="{{ asset('website/js/script.js') }}"></script>
 </body>
 
 </html>

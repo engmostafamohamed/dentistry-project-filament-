@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Dentia — Rehab</title>
-    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16" />
+    <link rel="icon" href="{{ asset('website/images/icon.webp') }}" type="image/gif" sizes="16x16" />
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta
@@ -21,18 +21,18 @@
     <!-- CSS Files
     ================================================== -->
     <link
-      href="css/bootstrap.min.css"
+      href="{{ asset('website/css/bootstrap.min.css') }}"
       rel="stylesheet"
       type="text/css"
       id="bootstrap"
     />
-    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="css/swiper.css" rel="stylesheet" type="text/css" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('website/css/plugins.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('website/css/style.css') }}" rel="stylesheet" type="text/css" />
     <!-- color scheme -->
     <link
       id="colors"
-      href="css/colors/scheme-01.css"
+      href="{{ asset('website/css/colors/scheme-01.css') }}"
       rel="stylesheet"
       type="text/css"
     />
@@ -56,20 +56,20 @@
                   <div class="de-flex-col">
                     <!-- logo begin -->
                     <div id="logo">
-                      <a href="index.html">
+                      <a href="{{ route('home') }}">
                         <img
                           class="logo-main"
-                          src="images/logo-black.webp"
+                          src="{{ asset('website/images/logo-black.webp') }}"
                           alt=""
                         />
                         <img
                           class="logo-scroll"
-                          src="images/logo-black.webp"
+                          src="{{ asset('website/images/logo-black.webp') }}"
                           alt=""
                         />
                         <img
                           class="logo-mobile"
-                          src="images/logo-black.webp"
+                          src="{{ asset('website/images/logo-black.webp') }}"
                           alt=""
                         />
                       </a>
@@ -80,83 +80,83 @@
                     <!-- mainemenu begin -->
                     <ul id="mainmenu">
                       <li>
-                        <a class="menu-item" href="index.html" data-i18n="home"
+                        <a class="menu-item" href="{{ route('home') }}" data-i18n="home"
                           >Home</a
                         >
                       </li>
                       <li>
-                        <a class="menu-item" href="services.html">Services</a>
+                        <a class="menu-item" href="{{ route('services') }}">Services</a>
                         <ul>
                           <li>
                             <a
                               class="menu-item"
-                              href="service-general-dentistry.html"
+                              href="{{ route('services.general') }}"
                               >General Dentistry</a
                             >
                           </li>
                           <li>
                             <a
                               class="menu-item"
-                              href="service-cosmetic-dentistry.html"
+                              href="{{ route('services.cosmetic') }}"
                               >Cosmetic Dentistry</a
                             >
                           </li>
                           <li>
                             <a
                               class="menu-item"
-                              href="service-pediatric-dentistry.html"
+                              href="{{ route('services.pediatric') }}"
                               >Pediatric Dentistry</a
                             >
                           </li>
                           <li>
                             <a
                               class="menu-item"
-                              href="service-restorative-dentistry.html"
+                              href="{{ route('services.restorative') }}"
                               >Restorative Dentistry</a
                             >
                           </li>
                           <li>
                             <a
                               class="menu-item"
-                              href="service-preventive-dentistry.html"
+                              href="{{ route('services.preventive') }}"
                               >Preventive Dentistry</a
                             >
                           </li>
                           <li>
                             <a
                               class="menu-item"
-                              href="service-orthodontics.html"
+                              href="{{ route('services.orthodontics') }}"
                               >Orthodontics</a
                             >
                           </li>
                           <li>
-                            <a class="menu-item" href="services.html"
+                            <a class="menu-item" href="{{ route('services') }}"
                               >All Services</a
                             >
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <a class="menu-item" href="dentists.html">Dentists</a>
+                        <a class="menu-item" href="{{ route('dentists') }}">Dentists</a>
                       </li>
                       <li>
                         <a class="menu-item" href="#">Pages</a>
                         <ul>
                           <li>
-                            <a class="menu-item" href="about.html">About Us</a>
+                            <a class="menu-item" href="{{ route('pages.about') }}">About Us</a>
                           </li>
-                          <li><a class="menu-item" href="faq.html">FAQ</a></li>
+                          <li><a class="menu-item" href="{{ route('pages.faq') }}">FAQ</a></li>
                           <li>
-                            <a class="menu-item" href="gallery.html">Gallery</a>
+                            <a class="menu-item" href="{{ route('pages.gallery') }}">Gallery</a>
                           </li>
                         </ul>
                       </li>
-                      <!-- <li><a class="menu-item" href="blog.html">Blog</a></li> -->
+                      <li><a class="menu-item" href="{{ route('pages.blog') }}">Blog</a></li>
                       <li>
-                        <a class="menu-item" href="contact.html">Contact</a>
+                        <a class="menu-item" href="{{ route('contact') }}">Contact</a>
                       </li>
                       <li>
-                        <a class="menu-item" href="booking.html"
+                        <a class="menu-item" href="{{ route('booking') }}"
                           >Book Appointment</a
                         >
                       </li>
@@ -165,7 +165,7 @@
                   </div>
                   <!-- <div class="de-flex-col">
                                     <div class="menu_side_area">
-                                        <a href="booking.html" class="btn-main"><span>Book Appointment</span></a>
+                                        <a href="{{ route('booking') }}" class="btn-main"><span>Book Appointment</span></a>
                                         <span id="menu-btn"></span>
                                     </div>
                                 </div> -->
@@ -209,7 +209,7 @@
                 <h1 class="wow fadeInUp">Testimonials</h1>
                 <div class="border-bottom my-3"></div>
                 <ul class="crumb wow fadeInDown">
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="{{ route('home') }}">Home</a></li>
                   <li class="active">Testimonials</li>
                 </ul>
               </div>
@@ -242,7 +242,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/1.webp"
+                      src="{{ asset('website/images/testimonial/1.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Jessica M.</h4>
@@ -271,7 +271,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/2.webp"
+                      src="{{ asset('website/images/testimonial/2.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">David R.</h4>
@@ -300,7 +300,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/3.webp"
+                      src="{{ asset('website/images/testimonial/3.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Nina T.</h4>
@@ -329,7 +329,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/4.webp"
+                      src="{{ asset('website/images/testimonial/4.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Matthew L.</h4>
@@ -358,7 +358,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/5.webp"
+                      src="{{ asset('website/images/testimonial/5.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Olivia S.</h4>
@@ -387,7 +387,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/6.webp"
+                      src="{{ asset('website/images/testimonial/6.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Jake H.</h4>
@@ -416,7 +416,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/7.webp"
+                      src="{{ asset('website/images/testimonial/7.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Melissa A.</h4>
@@ -445,7 +445,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/8.webp"
+                      src="{{ asset('website/images/testimonial/8.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Brian C.</h4>
@@ -474,7 +474,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Samantha B.</h4>
@@ -503,7 +503,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Emily J.</h4>
@@ -532,7 +532,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Thomas K.</h4>
@@ -561,7 +561,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Angela W.</h4>
@@ -590,7 +590,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Robert P.</h4>
@@ -619,7 +619,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Laura D.</h4>
@@ -648,7 +648,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Megan L.</h4>
@@ -679,7 +679,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Carlos N.</h4>
@@ -708,7 +708,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">Ashley V.</h4>
@@ -737,7 +737,7 @@
                     <img
                       class="circle absolute w-40px"
                       alt=""
-                      src="images/testimonial/user.webp"
+                      src="{{ asset('website/images/testimonial/user.webp') }}"
                     />
                     <div class="ms-60px">
                       <h4 class="mb-0 fs-16 lh-1">George E.</h4>
@@ -757,7 +757,7 @@
             <div class="container">
                 <div class="row gx-5">
                     <div class="col-lg-4 col-sm-6">
-                        <img src="images/logo-white.webp" class="logo-footer" alt="" >
+                        <img src="{{ asset('website/images/logo-white.webp')}}" class="logo-footer" alt="" >
                         <div class="spacer-20"></div>
                         <p>At Dentia, we’re dedicated to providing high-quality, personalized dental care for patients of all ages. Our skilled team uses the latest technology to ensure comfortable, efficient treatments and beautiful, healthy smiles for life.</p>
 
@@ -774,13 +774,13 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="widget">
                                     <h5>Company</h5>
-                                    <ul>                                        
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="services.html">Our Services</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <!-- <li><a href="blog.html">Blog</a></li> -->
-                                        <li><a href="contact.html">Contact</a></li>
+                                    <ul>
+                                        <li><a href="{{ route('home') }}">Home</a></li>
+                                        <li><a href="{{ route('services') }}">Our Services</a></li>
+                                        <li><a href="{{ route('pages.gallery') }}">Gallery</a></li>
+                                        <li><a href="{{ route('pages.about') }}">About Us</a></li>
+                                        <!-- <li><a href="{{ route('pages.blog') }}">Blog</a></li> -->
+                                        <li><a href="{{ route('contact') }}">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -788,12 +788,12 @@
                                 <div class="widget">
                                     <h5>Our Services</h5>
                                     <ul>
-                                        <li><a href="service-general-dentistry.html">General Dentistry</a></li>
-                                        <li><a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-                                        <li><a href="service-pediatric-dentistry.html">Pediatric Dentistry</a></li>
-                                        <li><a href="service-restorative-dentistry.html">Restorative Dentistry</a></li>
-                                        <li><a href="service-preventive-dentistry.html">Preventive Dentistry</a></li>
-                                        <li><a href="service-orthodontics.html">Orthodontics</a></li>
+                                        <li><a href="{{ route('services,general') }}">General Dentistry</a></li>
+                                        <li><a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a></li>
+                                        <li><a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a></li>
+                                        <li><a href="{{ route('services.restorative') }}">Restorative Dentistry</a></li>
+                                        <li><a href="{{ route('services.preventive') }}">Preventive Dentistry</a></li>
+                                        <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -813,7 +813,7 @@
                             <div class="spacer-20"></div>
 
                             <div class="fw-bold text-white"><i class="me-2 fa-solid fa-envelope me-2 id-color"></i>Send a Message</div>
-                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593a36372d383a2d193d3c372d30383a382b3c773a3634">[email&#160;protected]</a>                            
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593a36372d383a2d193d3c372d30383a382b3c773a3634">[email&#160;protected]</a>
                         </div>
                     </div>
                 </div>
@@ -847,30 +847,28 @@
       </div>
 
       <div id="extra-content">
-        <img src="images/logo-white.webp" class="w-150px" alt="" />
+        <img src="{{ asset('website/images/logo-white.webp') }}" class="w-150px" alt="" />
 
         <div class="spacer-30-line"></div>
 
         <h5>Our Services</h5>
         <ul class="ul-check">
           <li>
-            <a href="service-general-dentistry.html">General Dentistry</a>
+            <a href="{{ route('services.general') }}">General Dentistry</a>
           </li>
           <li>
-            <a href="service-cosmetic-dentistry.html">Cosmetic Dentistry</a>
+            <a href="{{ route('services.cosmetic') }}">Cosmetic Dentistry</a>
           </li>
           <li>
-            <a href="service-pediatric-dentistry.html">Pediatric Dentistry</a>
+            <a href="{{ route('services.pediatric') }}">Pediatric Dentistry</a>
           </li>
           <li>
-            <a href="service-restorative-dentistry.html"
-              >Restorative Dentistry</a
-            >
+            <a href="{{ route('services.restorative') }}">Restorative Dentistry</a>
           </li>
           <li>
-            <a href="service-preventive-dentistry.html">Preventive Dentistry</a>
+            <a href="{{ route('services.preventive') }}">Preventive Dentistry</a>
           </li>
-          <li><a href="service-orthodontics.html">Orthodontics</a></li>
+          <li><a href="{{ route('services.orthodontics') }}">Orthodontics</a></li>
         </ul>
 
         <div class="spacer-30-line"></div>
@@ -946,11 +944,11 @@
       data-cfasync="false"
       src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
     ></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script>
-    <script src="js/swiper.js"></script>
-    <script src="js/custom-swiper-1.js"></script>
-    <script src="js/custom-marquee.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{ asset('website/js/plugins.js') }}"></script>
+    <script src="{{ asset('website/js/designesia.js') }}"></script>
+    <script src="{{ asset('website/js/swiper.js') }}"></script>
+    <script src="{{ asset('website/js/custom-swiper-1.js') }}"></script>
+    <script src="{{ asset('website/js/custom-marquee.js') }}"></script>
+    <script src="{{ asset('website/js/script.js') }}"></script>
   </body>
 </html>
