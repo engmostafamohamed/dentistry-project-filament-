@@ -3,14 +3,16 @@
 namespace App\Filament\Resources\Offers\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
@@ -50,7 +52,8 @@ class OffersTable
                 TextColumn::make('discount')
                     ->label(__('filament-language-switcher::offer.discount'))
                     ->suffix('%')
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('expires_at')
                     ->label(__('filament-language-switcher::offer.expiresAt'))
                     ->dateTime()
@@ -60,17 +63,20 @@ class OffersTable
                         }
                         return \Carbon\Carbon::parse($state)->isPast() ? 'danger' : 'success';
                     })
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('is_active')
                     ->label(__('filament-language-switcher::offer.isActive'))
                     ->boolean()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('services_count')
                     ->label(__('filament-language-switcher::offer.servicesCount'))
                     ->counts('services')
                     ->badge()
                     ->color('info')
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->label(__('filament-language-switcher::offer.createdAt'))
                     ->dateTime()
@@ -129,6 +135,9 @@ class OffersTable
             ])
             ->recordActions([
                 EditAction::make(),
+                ViewAction::make(),
+                DeleteAction::make(),
+
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

@@ -97,7 +97,7 @@ return [
     'servicesCountFew' => ':count خدمات',
     'servicesCountOther' => ':count خدمات',
     'imagePreview' => 'معاينة الصورة',
-    
+
     // Table columns
     'offerName'     => 'اسم العرض',
     'servicesCount' => 'الخدمات',
@@ -126,5 +126,9 @@ return [
 
 
 
+    'removeImageModalHeading'     => 'حذف الصورة',
+    'removeImageModalDescription' => 'هل أنت متأكد أنك تريد حذف هذه الصورة؟ لا يمكن التراجع عن هذا الإجراء.',
+    'removeImageConfirmButton'    => 'حذف',
+    'removeImageCancelButton'     => 'إلغاء',
 ];
 

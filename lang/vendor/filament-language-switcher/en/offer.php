@@ -84,7 +84,7 @@ return [
     'expired'       => 'Expired',
     'yes'        => 'Yes',
     'no'         => 'No',
-
+    'isActive'    => 'Is Active?',
 
     // Image preview
     'currentPhoto'          => 'Current Photo',
@@ -95,4 +95,8 @@ return [
     'uploadImageToSeePreview' => 'Upload an image using the uploader',
     'imageRemovedSuccessfully' => 'Image removed successfully.',
 
+    'removeImageModalHeading'     => 'Remove Image',
+    'removeImageModalDescription' => 'Are you sure you want to remove this image? This action cannot be undone.',
+    'removeImageConfirmButton'    => 'Remove',
+    'removeImageCancelButton'     => 'Cancel',
 ];

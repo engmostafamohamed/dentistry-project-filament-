@@ -28,6 +28,12 @@ class GuestsTable
                     ->label(__('filament-language-switcher::guests.name'))
                     ->searchable(),
 
+                TextColumn::make('id')
+                    ->label(__('Patient ID'))
+                    ->formatStateUsing(fn ($state) => 'DC-' . str_pad($state, 4, '0', STR_PAD_LEFT) . '#')
+                    ->copyable()
+                    ->color('gray'),
+
                 TextColumn::make('phone')
                     ->label(__('filament-language-switcher::guests.phone'))
                     ->searchable(),
@@ -43,10 +49,13 @@ class GuestsTable
 
                 TextColumn::make('service.title')
                     ->label(__('filament-language-switcher::guests.service'))
-                    ->default('—'),
+                    ->default('—')
+                    ->getStateUsing(fn ($record) => $record->service?->getTranslatedTitle() ?? '—'),
 
                 TextColumn::make('offer.title')
-                    ->label(__('filament-language-switcher::guests.offer')),
+                    ->label(__('filament-language-switcher::guests.offer'))
+                    ->default('—')
+                    ->getStateUsing(fn ($record) => $record->offer?->getTranslatedTitle() ?? '—'),
 
                 TextColumn::make('doctor.name')
                     ->label(__('filament-language-switcher::guests.doctor_name'))
@@ -64,15 +73,32 @@ class GuestsTable
                     ->badge()
                     ->formatStateUsing(fn (string $state) => match ($state) {
                         'new' => __('filament-language-switcher::guests.new'),
-                        'paid' => __('filament-language-switcher::guests.paid'),
+                        'completed' => __('filament-language-switcher::guests.completed'),
                         'cancelled' => __('filament-language-switcher::guests.cancelled'),
+                        'warning' => __('filament-language-switcher::guests.continues'),
                         default => $state,
                     })
                     ->colors([
                         'primary' => 'new',
-                        'success' => 'paid',
+                        'success' => 'completed',
+                        'warning' => 'continues',
                         'danger' => 'cancelled',
                     ]),
+
+                // ── NEXT APPT ──
+                // TextColumn::make('next_appointment_at')
+                //     ->label(__('Next Appt'))
+                //     ->date('M d, Y')
+                //     ->sortable()
+                //     ->color('primary')
+                //     ->placeholder('—'),
+
+                // ── LAST VISIT ──
+                // TextColumn::make('last_visit_at')
+                //     ->label(__('Last Visit'))
+                //     ->date('M d, Y')
+                //     ->sortable()
+                //     ->placeholder('—'),
 
                 TextColumn::make('created_at')
                     ->label(__('filament-language-switcher::guests.created_at'))
@@ -240,7 +266,9 @@ class GuestsTable
             ])
 
             ->actions([
-                EditAction::make(),
+                EditAction::make()
+                ->iconButton()
+                ->icon('heroicon-o-ellipsis-horizontal'),
             ])
 
             ->bulkActions([
@@ -248,8 +276,12 @@ class GuestsTable
                     DeleteBulkAction::make(),
                 ]),
             ])
-
             ->defaultSort('created_at', 'desc')
-            ->emptyStateHeading(__('filament-language-switcher::guests.no_guests'));
+            ->striped(false)
+            ->paginated([10, 25, 50, 100])
+            ->emptyStateIcon('heroicon-o-users')
+            ->emptyStateHeading(__('No patients found'))
+            ->emptyStateDescription(__('Create your first patient to get started.'))
+            ->searchPlaceholder(__('Search patients, procedures, or IDs…'));
     }
 }

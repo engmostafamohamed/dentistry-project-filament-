@@ -1,0 +1,48 @@
+/* resources/css/filament/admin/theme.css */
+
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+/* Main page */
+body {
+    background: #0f0f11;
+}
+
+/* Widget cards */
+.fi-wi-stats-overview-stat {
+    min-height: 170px;
+    border-radius: 18px;
+    background: #17181c;
+    border: 1px solid #26272c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: 0.3s ease;
+}
+
+.fi-wi-stats-overview-stat:hover {
+    transform: translateY(-2px);
+    border-color: #3b82f6;
+}
+
+/* Title */
+.fi-wi-stats-overview-stat-label {
+    font-size: 18px;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+/* Number */
+.fi-wi-stats-overview-stat-value {
+    font-size: 52px;
+    font-weight: 700;
+    color: white;
+}
+
+/* Description */
+.fi-wi-stats-overview-stat-description {
+    font-size: 18px;
+    margin-top: 8px;
+}

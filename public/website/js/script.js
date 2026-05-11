@@ -263,8 +263,10 @@ const translations = {
         select_time:"Select Time",
         submit:"Submit",
         cancel:"Cancel",
-
-
+        special_offer:"Special Offer",
+        expires_on:"Expires On",
+        on_this_service:"On This Service",
+        save:"Save",
     },
     ar: {
         home: "الرئيسية",
@@ -519,6 +521,10 @@ const translations = {
         select_time:"اختار الوقت",
         submit:"حجز",
         cancel:"إلغاء",
+        special_offer:"عرض خاص",
+        expires_on:"ينتهي في",
+        on_this_service:"على هذه الخدمة",
+        save:"وفر",
     }
 };
 
