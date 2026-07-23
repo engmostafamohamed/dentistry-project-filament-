@@ -22,16 +22,18 @@ class GuestResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function getNavigationGroup(): ?string
-    {
-        return __('filament-language-switcher::guests.guests');
-    }
+    protected static ?int $navigationSort = 2;
+
+    // public static function getNavigationGroup(): ?string
+    // {
+    //     return __('filament-language-switcher::guests.guests');
+    // }
 
     public static function getNavigationLabel(): string
     {
         return __('filament-language-switcher::guests.guestsListTitle');
     }
-    
+
 
     public static function form(Schema $schema): Schema
     {

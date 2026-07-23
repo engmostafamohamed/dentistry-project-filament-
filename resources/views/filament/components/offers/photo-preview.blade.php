@@ -35,11 +35,10 @@
 
         </div>
 
-        {{-- Remove button --}}
+        {{-- Remove button — triggers Filament styled confirmation modal --}}
         <button
             type="button"
-            wire:click="removeImage"
-            wire:confirm="{{ __('filament-language-switcher::offer.removeImageConfirm') }}"
+            wire:click="mountAction('removeImage')"
             wire:loading.attr="disabled"
             style="display:flex; align-items:center; justify-content:center; gap:8px;
                    width:100%; padding:8px 16px; border-radius:8px; border:none;
@@ -48,16 +47,16 @@
             onmouseover="this.style.background='#dc2626'"
             onmouseout="this.style.background='#ef4444'"
         >
-            <svg wire:loading.remove wire:target="removeImage"
+            <svg wire:loading.remove wire:target="mountAction('removeImage')"
                  width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
                  viewBox="0 0 24 24" style="flex-shrink:0;">
                 <path stroke-linecap="round" stroke-linejoin="round"
                       d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M8 7V4a1 1 0 011-1h6a1 1 0 011 1v3"/>
             </svg>
-            <span wire:loading.remove wire:target="removeImage">
+            <span wire:loading.remove wire:target="mountAction('removeImage')">
                 {{ __('filament-language-switcher::offer.removeCurrentImage') }}
             </span>
-            <span wire:loading wire:target="removeImage">
+            <span wire:loading wire:target="mountAction('removeImage')">
                 {{ __('filament-language-switcher::offer.removing') }}
             </span>
         </button>

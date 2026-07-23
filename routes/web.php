@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Website\GuestController;
-use App\Http\Controllers\website\HomeController;
+use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\OfferController;
 use App\Http\Controllers\Api\GuestCalenderController;
 use App\Models\Guest;
@@ -122,4 +122,3 @@ Route::prefix('admin')
             return response()->json(['success' => true]);
         });
     });
-

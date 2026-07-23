@@ -198,163 +198,126 @@
                     </div>
                 </div>
             </section>
-            <section class="bg-color-op-1" style="padding: 50px 0px;">
+            <section class="bg-color-op-1" style="padding: 60px 0;">
                 <div class="container">
-                    <div class="d-flex justify-content-center align-items-center w-50 mx-auto section-heading ">
+                    <div class="d-flex justify-content-center align-items-center w-50 mx-auto section-heading">
                         <div class="text-center">
                             <h2 class="wow fadeInUp" data-wow-delay=".2s" data-i18n="offer">Offers</h2>
                             <div class="spacer-single"></div>
                         </div>
                     </div>
                 </div>
+
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="owl-carousel owl-theme wow fadeInUp four-cols-center-dots text-center">
+                        <div class="owl-carousel owl-theme offers-carousel wow fadeInUp">
+
+                            @forelse ($offers as $offer)
                             <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/1.webp')}}">
-                                            <div>Michael S.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">"I’ve always been nervous about dental
-                                            visits, but the staff made me feel completely comfortable. Their gentle care
-                                            and attention to detail truly stand out."
+                                <div class="offer-card"
+                                    data-offer-id="{{ $offer['id'] }}"
+                                    data-title-en="{{ $offer['title_en'] }}"
+                                    data-title-ar="{{ $offer['title_ar'] }}"
+                                    data-description-en="{{ $offer['description_en'] }}"
+                                    data-description-ar="{{ $offer['description_ar'] }}"
+                                    style="background:#fff; border-radius:16px; overflow:hidden;
+                                           border:1px solid #e5e7eb; display:flex; flex-direction:column;
+                                           margin: 0 10px;">
+
+                                    {{-- Header --}}
+                                    <div style="background:#1a6fc4; padding:28px 24px 20px; text-align:center; position:relative;">
+
+                                        @if (!empty($offer['discount']))
+                                        <div style="position:absolute; top:14px; right:14px;
+                                                    background:#ef4444; color:#fff;
+                                                    font-size:11px; font-weight:600; padding:4px 10px;
+                                                    border-radius:999px;">
+                                            {{ $offer['discount'] }}% OFF
+                                        </div>
+                                        @endif
+
+                                        <div style="width:56px; height:56px; border-radius:50%;
+                                                    background:rgba(255,255,255,0.15);
+                                                    display:flex; align-items:center; justify-content:center;
+                                                    margin:0 auto 10px; overflow:hidden;">
+                                            @if (!empty($offer['image_url']))
+                                                <img src="{{ $offer['image_url'] }}" alt=""
+                                                    style="width:56px; height:56px; object-fit:cover; border-radius:50%;">
+                                            @else
+                                                <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                            @endif
+                                        </div>
+
+                                        <p style="color:rgba(255,255,255,0.7); font-size:11px; margin:0 0 4px;
+                                                letter-spacing:0.8px; text-transform:uppercase;"
+                                           data-i18n="special_offer">Special Offer</p>
+
+                                        <h3 class="offer-title"
+                                            style="color:#fff; font-size:17px; font-weight:600; margin:0; line-height:1.4;">
+                                            {{ $offer['title_en'] }}
+                                        </h3>
+                                    </div>
+
+                                    {{-- Body --}}
+                                    <div style="padding:20px 24px; display:flex; flex-direction:column; flex:1;">
+
+                                        <p class="offer-description"
+                                           style="font-size:13px; color:#6b7280; margin:0 0 16px;
+                                                  line-height:1.6; text-align:center; min-height:40px;">
+                                            {{ Str::limit($offer['description_en'], 100) }}
                                         </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
+
+                                        @if (!empty($offer['expires_at']))
+                                        <div style="display:flex; align-items:center; gap:10px;
+                                                    background:#f9fafb; border-radius:10px; padding:10px 12px; margin-bottom:8px;">
+                                            <svg width="15" height="15" fill="none" stroke="#3b82f6" stroke-width="1.8"
+                                                viewBox="0 0 24 24" style="flex-shrink:0;">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                            </svg>
+                                            <div>
+                                                <p style="font-size:14px; color:#9ca3af; margin:0;" data-i18n="expires_on">Expires</p>
+                                                <p style="font-size:13px; color:#111827; font-weight:600; margin:0;">
+                                                    {{ \Carbon\Carbon::parse($offer['expires_at'])->format('d M Y') }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        @endif
+
+                                        @if (!empty($offer['discount']))
+                                        <div style="display:flex; align-items:center; justify-content:center; gap:6px;
+                                                    margin-bottom:16px; padding:10px 12px;
+                                                    background:#eff6ff; border-radius:10px;">
+                                            <span style="font-size:13px; color:#3b82f6;" data-i18n="save">Save</span>
+                                            <span style="font-size:22px; font-weight:700; color:#1a6fc4;">{{ $offer['discount'] }}%</span>
+                                            <span style="font-size:13px; color:#3b82f6;" data-i18n="on_this_service">on this service</span>
+                                        </div>
+                                        @endif
+
+                                        <div style="margin-top:auto;">
+                                            <button onclick="openOfferPopup({{ $offer['id'] }})"
+                                                    style="width:100%; padding:12px; border-radius:10px;
+                                                           background:#1a6fc4; color:#fff; border:none;
+                                                           cursor:pointer; font-size:14px; font-weight:600;
+                                                           transition:background 0.2s;"
+                                                    onmouseover="this.style.background='#1558a0'"
+                                                    onmouseout="this.style.background='#1a6fc4'">
+                                                <span data-i18n="request_offer">طلب العرض</span>
+                                            </button>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
+                            @empty
                             <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/2.webp')}}">
-                                            <div>Robert L.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">"My family and I have been coming here for
-                                            years. The service is exceptional, and the team always goes the extra mile
-                                            to make sure we’re happy and well taken care of."
-                                        </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
-                                </div>
+                                <p class="text-center text-muted">{{ __('No active offers available') }}</p>
                             </div>
-                            <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/3.webp')}}">
-                                            <div>Jake M.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">"I came in for a whitening treatment and
-                                            left with a brand new level of confidence. The results were amazing, and the
-                                            staff made it such a relaxing experience."
-                                        </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/4.webp')}}">
-                                            <div>Alex P.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">"They’re professional, friendly, and
-                                            genuinely care about your dental health. I trust them completely and
-                                            recommend them to anyone looking for great care."
-                                        </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/5.webp')}}">
-                                            <div>Carlos R.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">"Hands down the best dental experience I’ve
-                                            ever had. Everything from scheduling to treatment was smooth, comfortable,
-                                            and handled with a personal touch."
-                                        </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/6.webp')}}">
-                                            <div>Edward B.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">"I’ve never felt more comfortable at a
-                                            dentist’s office. The team is so kind, professional, and thorough. They
-                                            always explain everything in detail, and I leave with a smile every time!"
-                                        </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/7.webp')}}">
-                                            <div>Daniel H.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">
-                                            "My experience here has been wonderful! The
-                                            staff is friendly, the office is spotless, and the care is top-notch. I
-                                            always feel relaxed, and my teeth have never looked better!"
-                                        </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="gradient-white-top p-40 py-4 rounded-1">
-                                    <blockquote>
-                                        <!-- <i class="fs-32 absolute start-0 mt-2 p-0 id-color fa-solid fa-quote-left"></i>
-                                        <div class="de_testi_by">
-                                            <img class="circle" alt="" src="{{ asset('website/images/testimonial/8.webp')}}">
-                                            <div>Bryan G.<span>Customer</span></div>
-                                        </div> -->
-                                        <p class="mt-4 mb-0 text-dark op-6">"From the moment I walked in, I felt at
-                                            ease. The staff made me feel like family, and the care I received was
-                                            exceptional. I’m so happy with my smile—thank you for everything!"
-                                        </p>
-                                        <button class="btn-main fx-slide btn-line" style="margin-top: 20px;" type="button" onclick="openOfferPopup()">
-                                            <span data-i18n="request_offer"></span>
-                                        </button>
-                                    </blockquote>
-                                </div>
-                            </div>
+                            @endforelse
+
                         </div>
                     </div>
                 </div>
@@ -1034,9 +997,9 @@
 
     <!-- Floating Offer Button -->
     <div id="offer-btn" class="show-on-scroll">
-    <a href="#offerModal" onclick="openOfferPopup()" title="Offer">
-        <span class="offer-text" data-i18n="offer">العروض</span>
-    </a>
+        <a href="#" onclick="openOfferPopup(); return false;" title="Offer">
+            <span class="offer-text" data-i18n="offer">العروض</span>
+        </a>
     </div>
 
     <!-- Offer Popup Modal -->
@@ -1072,7 +1035,9 @@
                                     <select name="offer_id" id="service" class="form-control" required>
                                         <option disabled selected value>{{ __('Select Offer') }}</option>
                                         @foreach ($offers as $offer)
-                                            <option value="{{ $offer->id }}">{{ $offer->title }}</option>
+                                            <option value="{{ $offer['id'] }}">
+                                                {{ app()->getLocale() === 'ar' ? ($offer['title_ar'] ?: $offer['title_en'] ) : ($offer['title_en'] ) }}
+                                            </option>
                                         @endforeach
                                     </select>
 
@@ -1190,79 +1155,75 @@
 
     <script>
 
-        {{--  const workingDays = @json($workingDays);  --}}
-        const timeSelect = document.getElementById('time');
-        const dateInput = document.getElementById('appointmentDate');
+    const timeSelect = document.getElementById('time');
+    const dateInput  = document.getElementById('appointmentDate');
 
-        // Calendar setup
-        const workingDays = @json($workingDays);          // recurring weekly days
-        const extraWorkingDates = @json($extraWorkingDates);
-        const holidayDates = @json($holidayDates);
+    const workingDays       = @json($workingDays);
+    const extraWorkingDates = @json($extraWorkingDates);
+    const holidayDates      = @json($holidayDates);
 
-        flatpickr("#appointmentDate", {
-            altInput: true,
-            altFormat: "F j, Y",
-            dateFormat: "Y-m-d",
-            minDate: "today",
-            maxDate: new Date().fp_incr(30),
-            disable: [
-                function(date) {
-                    const jsDay = date.getDay(); // JS 0=Sun
-                    const dayIso = jsDay === 0 ? 7 : jsDay;
-                    {{--  const formatted = date.toISOString().split('T')[0];  --}}
-                    const formatted = date.toLocaleDateString('en-CA');
+    function loadAvailableTimes(selectedDate) {
+        timeSelect.innerHTML = '<option disabled selected value>Select Time</option>';
 
-                    // If explicitly a holiday/off → disable
-                    if (holidayDates.includes(formatted)) return true;
-
-                    // If explicitly marked as working (override) → enable
-                    if (extraWorkingDates.includes(formatted)) return false;
-
-                    // Otherwise, follow recurring weekly pattern
-                    return !workingDays.includes(dayIso);
-                }
-            ],
-        });
-
-        // Load hours when date changes
-        dateInput.addEventListener('change', function() {
-            const selectedDate = this.value;
-            timeSelect.innerHTML = '<option disabled selected value>Select Time</option>';
-
-            $.ajax({
-                url: '{{ route('available.times') }}',
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    date: selectedDate
-                },
-                success: function(response) {
-                    if (response.times && response.times.length > 0) {
-                        response.times.forEach(slot => {
-                            const opt = document.createElement('option');
-                            opt.value = slot.time;
-                            opt.textContent = slot.time;
-                            if (slot.disabled) {
-                                opt.disabled = true;
-                                opt.textContent += ' (Full)';
-                            }
-                            timeSelect.appendChild(opt);
-                        });
-                    } else {
+        $.ajax({
+            url: '{{ route('available.times') }}',
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                date: selectedDate   // always Y-m-d format from flatpickr
+            },
+            success: function (response) {
+                if (response.times && response.times.length > 0) {
+                    response.times.forEach(slot => {
                         const opt = document.createElement('option');
-                        opt.textContent = 'No available hours';
-                        opt.disabled = true;
+                        opt.value = slot.time;
+                        opt.textContent = slot.disabled ? slot.time + ' (Full)' : slot.time;
+                        if (slot.disabled) opt.disabled = true;
                         timeSelect.appendChild(opt);
-                    }
-                },
-                error: function() {
+                    });
+                } else {
                     const opt = document.createElement('option');
-                    opt.textContent = 'Error loading hours';
+                    opt.textContent = 'No available hours';
                     opt.disabled = true;
                     timeSelect.appendChild(opt);
                 }
-            });
+            },
+            error: function (xhr) {
+                console.error('Available times error:', xhr.status, xhr.responseText);
+                const opt = document.createElement('option');
+                opt.textContent = 'Error loading hours';
+                opt.disabled = true;
+                timeSelect.appendChild(opt);
+            }
         });
+    }
+
+    flatpickr("#appointmentDate", {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",      // actual value sent to server
+        minDate: "today",
+        maxDate: new Date().fp_incr(30),
+        disable: [
+            function(date) {
+                const jsDay    = date.getDay();
+                const dayIso   = jsDay === 0 ? 7 : jsDay;
+                const formatted = date.toLocaleDateString('en-CA');
+
+                if (holidayDates.includes(formatted))      return true;
+                if (extraWorkingDates.includes(formatted)) return false;
+                return !workingDays.includes(dayIso);
+            }
+        ],
+        // ✅ Use flatpickr's own callback — dateStr is always Y-m-d
+        onChange: function(selectedDates, dateStr) {
+            if (dateStr) {
+                loadAvailableTimes(dateStr);
+            }
+        }
+    });
+
+    // ❌ Remove the old dateInput.addEventListener('change', ...) block entirely
 
         document.addEventListener('DOMContentLoaded', function () {
             <!-- datepicker begin -->
@@ -1294,8 +1255,10 @@
                 offersData.forEach(offer => {
                     const opt = document.createElement('option');
                     opt.value = offer.id;
-                    // offer.title is already a localized string
-                    opt.textContent = offer.title;
+                    // ✅ Use title_ar or title_en based on current language
+                    opt.textContent = language === 'ar'
+                        ? (offer.title_ar || offer.title_en)
+                        : offer.title_en;
                     offerSelect.appendChild(opt);
                 });
             }
@@ -1376,6 +1339,41 @@
 
 
     <script>
+        function updateOfferCards(lang) {
+            document.querySelectorAll('.offer-card').forEach(function (card) {
+                var title       = card.getAttribute('data-title-' + lang)
+                            || card.getAttribute('data-title-en');
+                var description = card.getAttribute('data-description-' + lang)
+                            || card.getAttribute('data-description-en');
+
+                // Truncate description to ~100 chars
+                if (description && description.length > 100) {
+                    description = description.substring(0, 100) + '...';
+                }
+
+                var titleEl = card.querySelector('.offer-title');
+                var descEl  = card.querySelector('.offer-description');
+
+                if (titleEl) titleEl.textContent = title;
+                if (descEl)  descEl.textContent  = description;
+            });
+        }
+
+        // Run on page load with current language
+        document.addEventListener('DOMContentLoaded', function () {
+            var lang = document.documentElement.lang || 'en';
+            updateOfferCards(lang);
+
+            // Watch for language changes
+            var offerLangObserver = new MutationObserver(function () {
+                var newLang = document.documentElement.lang || 'en';
+                updateOfferCards(newLang);
+            });
+            offerLangObserver.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['lang']
+            });
+        });
         // validate phone number if phone registerd many time and make subnit button is disabled
         // Make language global
         let language = document.documentElement.lang || 'en';
@@ -1409,25 +1407,48 @@
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
         $(document).ready(function () {
-            // Destroy any previous instance first (in case designesia.js re-initialized it)
-            $(".owl-carousel").trigger('destroy.owl.carousel');
+        // ── Owl Carousel — RTL based on page language ─────────────────────────
+        const isRtl = document.documentElement.lang === 'ar';
 
-            // Initialize again with autoplay
-            $(".owl-carousel").owlCarousel({
-                loop: true,
-                margin: 25,
-                autoplay: true,
-                autoplayTimeout: 2000,  // Move every 2 seconds
-                autoplayHoverPause: false,
-                rtl: true,
-                smartSpeed: 800,
-                dots: true,
-                responsive: {
+        // Destroy all existing instances first
+        $(".owl-carousel").trigger('destroy.owl.carousel').removeClass('owl-loaded owl-drag');
+        $(".owl-carousel").find('.owl-stage-outer').children().unwrap();
+
+        // Offers carousel
+        $(".offers-carousel").owlCarousel({
+            loop: true,
+            margin: 25,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            rtl: isRtl,          // ✅ true for Arabic → slides right to left
+            smartSpeed: 800,
+            dots: true,
+            nav: false,
+            responsive: {
                 0:    { items: 1 },
                 768:  { items: 2 },
                 1200: { items: 3 }
-                }
-            });
+            }
+        });
+
+        // Testimonials carousel
+        $(".owl-carousel:not(.offers-carousel)").owlCarousel({
+            loop: true,
+            margin: 25,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            rtl: isRtl,          // ✅ same — RTL for Arabic
+            smartSpeed: 800,
+            dots: true,
+            nav: false,
+            responsive: {
+                0:    { items: 1 },
+                768:  { items: 2 },
+                1200: { items: 3 }
+            }
+        });
 
             const phoneInput = $('#phone');
             const submitBtn = $('#offerForm button[type="submit"]');
@@ -1482,9 +1503,29 @@
         });
 
         // Open popup when button clicked
-        function openOfferPopup() {
-        var modal = new bootstrap.Modal(document.getElementById('offerModal'));
-        modal.show();
+        function openOfferPopup(offerId) {
+            // Open the modal
+            var modal = new bootstrap.Modal(document.getElementById('offerModal'));
+            modal.show();
+
+            // Pre-select the offer in the dropdown
+            if (offerId) {
+                // Wait for modal to be shown before setting value
+                document.getElementById('offerModal').addEventListener('shown.bs.modal', function onShown() {
+                    var select = document.getElementById('service');
+                    if (select) {
+                        select.value = offerId;
+                    }
+                    // Remove listener after first run so it doesn't keep firing
+                    document.getElementById('offerModal').removeEventListener('shown.bs.modal', onShown);
+                });
+
+                // Also try setting immediately in case modal is already open
+                var select = document.getElementById('service');
+                if (select) {
+                    select.value = offerId;
+                }
+            }
         }
 
         $('#offerForm').submit(function(e) {

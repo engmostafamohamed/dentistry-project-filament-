@@ -7,7 +7,8 @@
     @if ($offersCount > 0)
         {{-- Offers count badge --}}
         <span style="display:inline-flex; align-items:center; justify-content:center; padding:2px 8px; background:#10b981; color:white; border-radius:9999px; font-size:12px; font-weight:600; width:fit-content;">
-            {{ $offersCount }} {{ $offersCount === 1 ? __('Offer') : __('Offers') }}
+            {{--  {{ $offersCount }} {{ $offersCount === 1 ? __('filament-language-switcher::services.offer') : __('filament-language-switcher::services.offers') }}  --}}
+            {{ $offersCount }} {{ __('filament-language-switcher::services.offer')}}
         </span>
 
         {{-- First 3 offer names --}}

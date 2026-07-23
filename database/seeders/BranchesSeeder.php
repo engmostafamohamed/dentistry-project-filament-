@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Branch;
-use App\Models\Country;
 use App\Models\Region;
+use Illuminate\Database\Seeder;
 
-class BranchSeeder extends Seeder
+class BranchesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,9 +25,9 @@ class BranchSeeder extends Seeder
 
         foreach ($regions as $region) {
             $branchesData[] = [
-                'name' => $region->name_en . ' Main Branch',
-                'address' => $region->name_en . ' Center, ' . $region->country->name_en,
-                'phone' => '+966-555-' . rand(100000, 999999),
+                'name' => $region->name_en.' Main Branch',
+                'address' => $region->name_en.' Center, '.$region->country->name_en,
+                'phone' => '+966-555-'.rand(100000, 999999),
                 'is_active' => true,
                 'country_id' => $region->country_id,
                 'region_id' => $region->id,
@@ -37,9 +36,9 @@ class BranchSeeder extends Seeder
             ];
 
             $branchesData[] = [
-                'name' => $region->name_en . ' Secondary Branch',
-                'address' => 'Near downtown area of ' . $region->name_en,
-                'phone' => '+966-555-' . rand(100000, 999999),
+                'name' => $region->name_en.' Secondary Branch',
+                'address' => 'Near downtown area of '.$region->name_en,
+                'phone' => '+966-555-'.rand(100000, 999999),
                 'is_active' => true,
                 'country_id' => $region->country_id,
                 'region_id' => $region->id,
@@ -50,6 +49,6 @@ class BranchSeeder extends Seeder
 
         Branch::insert($branchesData);
 
-        $this->command->info('✅ Branches seeded successfully: ' . count($branchesData));
+        $this->command->info('Branches seeded successfully: '.count($branchesData));
     }
 }

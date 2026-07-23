@@ -7,17 +7,27 @@ use App\Models\Doctor;
 use App\Models\Guest;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
-use Filament\Schemas\Components\Tabs\Tab;
-
+// use Filament\Schemas\Components\Tabs\Tab;
+use Illuminate\Contracts\Support\Htmlable;
 class ListGuests extends ListRecords
 {
     protected static string $resource = GuestResource::class;
 
-    protected string $view = 'filament.resources.guests.pages.list-guests';
+    // protected string $view = 'filament.resources.guests.pages.list-guests';
 
     public $doctors;
     public $guests;
 
+        public function getTitle(): string|Htmlable
+    {
+        return __('Patient Directory');
+    }
+
+    public function getSubheading(): string|Htmlable|null
+    {
+        $total = Guest::count();
+        return __('Managing :total total registered patients across all clinics', ['total' => number_format($total)]);
+    }
     public function mount(): void
     {
         parent::mount();
@@ -43,26 +53,21 @@ class ListGuests extends ListRecords
         ];
     }
 
-    /**
-     * Filament v3 tabs
-     */
-    public function getTabs(): array
+    // ─── Stats widgets above the table ───────────────────────────────────────
+    protected function getHeaderWidgets(): array
     {
         return [
-            'list' => Tab::make(__('Guests List'))
-                ->icon('heroicon-o-list-bullet'),
-
-            'calendar' => Tab::make(__('Calendar'))
-                ->icon('heroicon-o-calendar'),
+            \App\Filament\Widgets\PatientStatsOverview::class,
         ];
     }
 
+    // ─── Pass extra data to the default Filament list view ───────────────────
     protected function getViewData(): array
     {
         return array_merge(parent::getViewData(), [
             'doctors'   => $this->doctors,
             'guests'    => $this->guests,
-            'activeTab' => $this->activeTab ?? 'list',
         ]);
     }
 }
+

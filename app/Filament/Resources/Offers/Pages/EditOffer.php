@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Offers\Pages;
 
 use App\Filament\Resources\Offers\OfferResource;
 use Filament\Actions\DeleteAction;
+use Filament\Actions\Action;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
@@ -22,7 +23,40 @@ class EditOffer extends EditRecord
         ];
     }
 
-        protected function getRedirectUrl(): string
+
+    // ── Styled confirmation modal for image removal ───────────────────────────
+    public function removeImageAction(): Action
+    {
+        return Action::make('removeImage')
+            ->label(__('filament-language-switcher::offer.removeCurrentImage'))
+            ->icon('heroicon-o-trash')
+            ->color('danger')
+            ->requiresConfirmation()
+            ->modalHeading(__('filament-language-switcher::offer.removeImageModalHeading'))
+            ->modalDescription(__('filament-language-switcher::offer.removeImageModalDescription'))
+            ->modalSubmitActionLabel(__('filament-language-switcher::offer.removeImageConfirmButton'))
+            ->modalCancelActionLabel(__('filament-language-switcher::offer.removeImageCancelButton'))
+            ->action(function () {
+                $record = $this->record;
+
+                if ($record->image) {
+                    if (Storage::disk('public')->exists($record->image)) {
+                        Storage::disk('public')->delete($record->image);
+                    }
+                    $record->image = null;
+                    $record->save();
+                }
+
+                $this->refreshFormData(['image']);
+
+                Notification::make()
+                    ->title(__('filament-language-switcher::offer.imageRemovedSuccessfully'))
+                    ->success()
+                    ->send();
+            });
+    }
+
+    protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
     }

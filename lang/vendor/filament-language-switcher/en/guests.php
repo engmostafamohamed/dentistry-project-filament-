@@ -5,6 +5,7 @@ return [
     'guestsList' => 'Show Guests',
     'guestsListTitle' => 'Guests Request List',
     'no_guests' => 'No guests found',
+
     // Table columns
     'name' => 'Name',
     'phone' => 'Phone',
@@ -14,12 +15,18 @@ return [
     'doctor_name' => 'Doctor Name',
     'status' => 'Status',
     'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+
     // Status labels
     'new' => 'New',
     'cancelled' => 'Cancelled',
     'paid' => 'Paid',
+    'continues' => 'Continues',
+    'completed' => 'Completed',
+    'not_found_doctor' => 'No doctors found',
     // Filters and messages
     'trashed' => 'Trashed',
+
     // Actions
     'edit' => 'Edit',
     'delete_selected' => 'Delete Selected',
@@ -41,4 +48,31 @@ return [
     'region_name' => 'Region Name',
     'description' => 'Description',
     'booking_date' => 'Booking Date',
+    'booking_time' => 'Booking Time',
+    'doctor' => 'Doctor',
+    'select_doctor' => 'Select a doctor',
+    'no_doctors_available' => 'No doctors available',
+    'status_updated' => 'Status updated successfully',
+    'status_update_failed' => 'Failed to update status. Please try again.',
+    'basic_info' => 'Basic Info',
+    'basic_info_description' => 'Modify the guest basic information here.',
+    'lab_orders' => 'Lab Orders',
+    'lab_requests' => 'Lab Requests',
+    'dental_lab_orders' => 'Dental Lab Orders: Crowns, Orthodontics, Dentures and their statuses.',
+    'lab_statistics' => 'Lab Statistics',
+    'xrays_and_documents' => 'X-rays & Documents',
+    'upload_xrays_and_documents' => 'Upload X-rays & Documents',
+    'supports_dicom_jpg_png_pdf_max_50mb_per_file' => 'Supports DICOM, JPG, PNG, PDF. Max 50MB per file.',
+    'phone_digits_between' => 'The phone number must be between 7 and 15 digits.',
+    'previous_records_2023' => 'Previous Records (2023)',
+    'medical_history' => 'Medical History',
+    'medical_history_description' => 'The guest medical history, including health conditions, medications, allergies, and past treatments.',
+    'chronic_diseases' => 'Chronic Diseases',
+    'allergies_and_alerts' => 'Allergies & Alerts',
+    'estimated_cost_summary' => 'Estimated Cost Summary',
+    'proposed_procedures' => 'Proposed Procedures',
+    'treatment_plan' => 'Treatment Plan',
+    'laboratory_orders' => 'Laboratory Orders',
+    'dental_laboratory_orders' => 'Dental Laboratory Orders',
+    
 ];
