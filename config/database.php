@@ -95,7 +95,22 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => env('DB_SSLMODE', 'prefer'),
+        ],
+
+        'supabase' => [
+            'driver' => 'pgsql',
+            'url' => env('SUPABASE_DB_URL'),
+            'host' => env('SUPABASE_DB_HOST', 'aws-0-eu-west-1.pooler.supabase.com'),
+            'port' => env('SUPABASE_DB_PORT', '5432'),
+            'database' => env('SUPABASE_DB_DATABASE', 'postgres'),
+            'username' => env('SUPABASE_DB_USERNAME', 'postgres.YOUR_PROJECT_REF'),
+            'password' => env('SUPABASE_DB_PASSWORD', ''),
+            'charset' => env('SUPABASE_DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => env('SUPABASE_DB_SCHEMA', 'public'),
+            'sslmode' => env('SUPABASE_DB_SSLMODE', 'require'),
         ],
 
         'sqlsrv' => [
